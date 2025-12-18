@@ -2,7 +2,7 @@
 // take user input for Student Fee and University Discount
 
 import java.util.Scanner;
-public class UniversityFee {
+public class DiscountedFeeToStudentWithScanner {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // Create a variable named fee and take user input for fee.
