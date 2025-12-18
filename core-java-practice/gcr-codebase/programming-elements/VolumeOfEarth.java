@@ -1,3 +1,5 @@
+// a Program to compute the volume of Earth in km^3 and miles^3
+
 public class VolumeOfEarth {
     public static void main(String[] args) {
         int radiusOfEarthInKm = 6378;
