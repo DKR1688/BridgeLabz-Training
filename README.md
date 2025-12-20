@@ -2,6 +2,7 @@
 - This log documents the daily progress of tasks completed during the BridgeLabz training program, as recorded in the repository’s README. Tasks are grouped by week with thematic headings, detailing the work done on daily basis.
 
 - **Current Structure of Git Hub:**
+```text
 BridgeLabz-Training/
 |
 +-- core-java-practice/(Branch & Folder Name)
@@ -15,6 +16,7 @@ BridgeLabz-Training/
 |   +-- scenario-based/
 |
 +-- README.md
+```
 
 ## Week 1: Tuesday to Saturday
 1. **16-December-2025:** Capgemini Interns kickoff session scheduled; BridgeLabz Guidelines for Trainees for CG Program.
