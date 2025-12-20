@@ -11,6 +11,7 @@ public class MultiplesOfNumberUsingWhile {
         // Checking the number is a positive integer and less than 100.
         if (number<=0 || number>=100) {
             System.out.println("Number is out of range.");
+            scanner.close();
             return;
         }
         scanner.close();
@@ -25,6 +26,6 @@ public class MultiplesOfNumberUsingWhile {
             }
             counter--;
         }
-        
+        scanner.close();
     }
 }

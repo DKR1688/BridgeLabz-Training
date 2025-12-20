@@ -25,5 +25,6 @@ public class BmiOfPerson {
         } else {
             System.out.println("Obese");
         }
+        scanner.close();
     }
 }

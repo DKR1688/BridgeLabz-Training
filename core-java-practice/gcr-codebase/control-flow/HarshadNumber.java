@@ -23,5 +23,6 @@ public class HarshadNumber {
         } else {
             System.out.println("It is Not a Harshad Number.");
         }
+        scanner.close();
     }
 }

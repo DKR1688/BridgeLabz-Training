@@ -21,5 +21,6 @@ public class LeapYearUsingWhileLoop {
                 System.out.println(year+" is not a Leap Year.");
             }
         }
+        scanner.close();
     }
 }

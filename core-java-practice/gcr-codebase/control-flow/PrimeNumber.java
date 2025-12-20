@@ -11,6 +11,7 @@ public class PrimeNumber {
         // Prime Numbers checks are done for numbers greater than 1
         if (number<=1) {
             System.out.println("It is not a prime number.");
+            scanner.close();
             return;
         }
 
@@ -33,5 +34,6 @@ public class PrimeNumber {
         } else {
             System.out.println(number+" is not a prime number.");
         }
+        scanner.close();
     }
 }

@@ -13,6 +13,7 @@ public class PowerOfNumberUsingWhile {
         // check for positive
         if (number<0 || power<0) {
             System.out.println("Number and power should be non-negative");
+            scanner.close();
             return;
         }
         scanner.close();
@@ -28,5 +29,6 @@ public class PowerOfNumberUsingWhile {
             counter++;
         }
         System.out.println("The power of number is " +ans);
+        scanner.close();
     }
 }
