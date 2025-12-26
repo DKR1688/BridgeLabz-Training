@@ -50,4 +50,8 @@ BridgeLabz-Training/
 
 3. **(24-December-2025):** Read java methods based documentation defined methods, making methods, recursive method, static method; Solved a Metro smart card fare deduction problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved methods level 1 programs and pushed [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/methods); 
 
-4. 
+4. **(25-December-2025):** Read java standard library methods and Submitted java extras string practice assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjgz/details);
+
+5. **(26-December-2025):** Solved methods practice level 2 and 3 programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/methods); Submitted method practices assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjc3/details);
+
+6. 
