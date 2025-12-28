@@ -1,6 +1,7 @@
 # BridgeLabz-Training -- Daily Progress Log
 - This log documents the daily progress of tasks completed during the BridgeLabz training program, as recorded in the repository’s README. Tasks are grouped by week with thematic headings, detailing the work done on daily basis.
 
+## Starting with core java programming -
 - **Current Structure of Git Hub:**
 ```text
 BridgeLabz-Training/
@@ -9,7 +10,11 @@ BridgeLabz-Training/
 │   │
 │   ├── gcr-codebase/
 │   │   ├── programming-elements/
-│   │   └── control-flow/
+│   │   ├── control-flow/
+|   |   ├── arrays/
+|   |   ├── strings/
+|   |   ├── methods/
+|   |   └── extras-built-in-function/
 │   │
 │   ├── leet-code-codebase/
 │   │
@@ -31,7 +36,7 @@ BridgeLabz-Training/
 +-- README.md
 ```
 
-## Week 1: Getting Started with core java programming
+## Week 1
 1. **(16-December-2025):** Interns kickoff session scheduled; BridgeLabz Guidelines for Trainees for CG Program.
 
 2. **(17-December-2025):** Prerequisite Installation Guide for Git Bash; Github and repo setup with git bash; 10 basic math programs pushed [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/programming-elements); 4 leetcode based programs pushed [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/leet-code-codebase);
@@ -54,4 +59,7 @@ BridgeLabz-Training/
 
 5. **(26-December-2025):** Solved methods practice level 2 and 3 programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/methods); Submitted method practices assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjc3/details);
 
-6. 
+6. **(28-December-2025):** Solved scenario based Bus Route Distance Tracker and Festival Lucky Draw tasks [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved and pushed Pascal's traiangle leetcode problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/leet-code-codebase); Solved and pushed extras Built in function level1 problem [Click Her](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/extras-built-in-function);
+
+## Week 3
+1. 
