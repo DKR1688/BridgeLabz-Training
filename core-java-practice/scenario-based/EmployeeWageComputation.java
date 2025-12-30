@@ -18,7 +18,12 @@ public class EmployeeWageComputation {
 
         //UC2 - Calculate Daily Employee Wage
         int wagePerHour =20;
-        int fullDayHours =8;
+        int fullDayHours =0;
+        if (emp==0) {
+        	fullDayHours =0;
+        } else {
+        	fullDayHours =8;
+        }
         int dailyWage = wagePerHour*fullDayHours;
         System.out.println("Daily Employee Wages - "+dailyWage);
         System.out.println();
