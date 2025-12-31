@@ -64,6 +64,8 @@ BridgeLabz-Training/
 ## Week 3
 1. **(29-December-2025):** Solved remaining extras Built in funtion programs and assignment submitted [Click Her](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjg3/details); Scenario based assignment submitted with more four senerio based programs, also leet code based programs submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM3NjY5ODU0NzA4/details); Solved and submitted Employee Wage Computation problem assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI0MDIzMTk1NTg3/details);
 
-2. **(30-December-2025):** Submitted Line Comparison problem and Snake & Ladder problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Read documentation above class and object in Object Oriented Programming; Java class and object assignment of level1 and level2 submitted[Click Here]();
+2. **(30-December-2025):** Submitted Line Comparison problem and Snake & Ladder problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Read documentation above class and object in Object Oriented Programming; Java class and object assignment of level1 and level2 submitted[Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjkz/details);
 
-3. **(31-December-2025):** 
+3. **(31-December-2025):** Read documentation above java constructors, Instance vs class variables, Access modifiers; Submitted Constructors and Access modifier assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjk3/details);
+
+4. 
