@@ -23,6 +23,9 @@ BridgeLabz-Training/
 ├── oops-practice/                 (Branch & Folder Name)
 │   │
 │   ├── gcr-codebase/
+│   │   ├── class-and-object/
+│   │   ├── constructors-and-access-modifiers/
+│   │   ├── keywords-and-instanceof-operator/
 │   │   ├── inheritance/
 │   │   ├── encapsulation/
 │   │   └── polymorphism/
@@ -68,4 +71,6 @@ BridgeLabz-Training/
 
 3. **(31-December-2025):** Read documentation above java constructors, Instance vs class variables, Access modifiers; Submitted Constructors and Access modifier assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjk3/details);
 
-4. 
+4. **(1-January-2026):** Read documentation above keyword and instanceof operator; Submitted this, static, final and instanceof operator programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/keywords-and-instanceof-operator); Solved Secntence formatter and paragraph analyzer scenario based problems;
+
+5. 
