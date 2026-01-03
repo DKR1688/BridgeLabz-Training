@@ -67,10 +67,12 @@ BridgeLabz-Training/
 ## Week 3
 1. **(29-December-2025):** Solved remaining extras Built in funtion programs and assignment submitted [Click Her](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjg3/details); Scenario based assignment submitted with more four senerio based programs, also leet code based programs submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM3NjY5ODU0NzA4/details); Solved and submitted Employee Wage Computation problem assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI0MDIzMTk1NTg3/details);
 
-2. **(30-December-2025):** Submitted Line Comparison problem and Snake & Ladder problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Read documentation above class and object in Object Oriented Programming; Java class and object assignment of level1 and level2 submitted[Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjkz/details);
+2. **(30-December-2025):** Submitted Line Comparison problem and Snake & Ladder problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Read documentation about class and object in Object Oriented Programming; Java class and object assignment of level1 and level2 submitted[Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjkz/details);
 
-3. **(31-December-2025):** Read documentation above java constructors, Instance vs class variables, Access modifiers; Submitted Constructors and Access modifier assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjk3/details);
+3. **(31-December-2025):** Read documentation about java constructors, Instance vs class variables, Access modifiers; Submitted Constructors and Access modifier assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjk3/details);
 
-4. **(1-January-2026):** Read documentation above keyword and instanceof operator; Submitted this, static, final and instanceof operator programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/keywords-and-instanceof-operator); Solved Secntence formatter and paragraph analyzer scenario based problems;
+4. **(01-January-2026):** Read documentation about keyword and instanceof operator; Submitted this, static, final and instanceof operator programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/keywords-and-instanceof-operator); Solved Secntence formatter and paragraph analyzer scenario based problems;
 
-5. 
+5. **(02-January-2026):** Read documentation about class, object and sequence diagrams; Submitted assignment of object oriented disign [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/class-object-sequence-daigrams); Given Review about core java;
+
+6. **(03-January-2026):** Read documentstion about inheritance; Submitted assignment of inheritance [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/inheritance); Solved and pushed two scenario based Student test score manager and Temperature analyzer problems;
