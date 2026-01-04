@@ -75,4 +75,9 @@ BridgeLabz-Training/
 
 5. **(02-January-2026):** Read documentation about class, object and sequence diagrams; Submitted assignment of object oriented disign [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/class-object-sequence-daigrams); Given Review about core java;
 
-6. **(03-January-2026):** Read documentstion about inheritance; Submitted assignment of inheritance [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/inheritance); Solved and pushed two scenario based Student test score manager and Temperature analyzer problems;
+6. **(03-January-2026):** Read documentstion about inheritance; Submitted assignment of inheritance [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/inheritance); Solved and pushed two scenario based Student test score manager and Temperature analyzer problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
+
+7. **(04-Januaury-2026):** Solved and pushed three scenario based EduQuiz grader, mathematical operation and Bank account manager problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
+
+## Week 4
+1. 
