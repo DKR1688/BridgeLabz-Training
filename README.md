@@ -86,4 +86,6 @@ Solved and pushed three scenario based EduQuiz grader, mathematical operation an
 ## 🚀 Week 04
 > **🗓️ 05-January-2026 :-** Read documentation about encapculation, polymorphism, interface and abstract classes; Solved and submitted encapsulation and polymorphism assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/encapsulation-polymorphism-interface-and-abstract-class);
 
-> **🗓️ 06-January-2026 :-** 
+> **🗓️ 06-January-2026 :-** Solved and pushed cafeteria menu, invoice generator, score analyzer, phone contact organizer, quiz plateform and library management scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Also solved three leetcode problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase); Submitted scenario based and leetcode problems assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM4MDM3NjczNTI4/details);
+
+> **🗓️ 07-January-2026 :-**
