@@ -88,4 +88,6 @@ Solved and pushed three scenario based EduQuiz grader, mathematical operation an
 
 > **🗓️ 06-January-2026 :-** Solved and pushed cafeteria menu, invoice generator, score analyzer, phone contact organizer, quiz plateform and library management scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Also solved three leetcode problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase); Submitted scenario based and leetcode problems assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM4MDM3NjczNTI4/details);
 
-> **🗓️ 07-January-2026 :-**
+> **🗓️ 07-January-2026 :-** Solved and Submitted Story based problem Ride booking management system and Online banking system with OOP, interface, polymorphism and exception handling or multithreading for synchronized concurrent transactions [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
+
+> **🗓️ 08-January-2026 :-** 
