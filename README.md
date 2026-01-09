@@ -90,6 +90,9 @@ Solved and pushed three scenario based EduQuiz grader, mathematical operation an
 
 > **🗓️ 07-January-2026 :-** Solved and Submitted Story based problem Ride booking management system and Online banking system with OOP, interface, polymorphism and exception handling or multithreading for synchronized concurrent transactions [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 08-January-2026 :-** Attended company schedule review meeting; Solved and pushed  Movie management, Student record management, Task scheduler and library management system problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linked-list);
+> **🗓️ 08-January-2026 :-** Attended company schedule review meeting; Solved and pushed
+linked list  Movie management, Student record management, Task scheduler and library management system problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linked-list);
 
-> **🗓️ 09-January-2026 ;-** 
+> **🗓️ 09-January-2026 :-** Submitted and pushed linked list data structure assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linked-list); Solved Hospital patient management and Vehicle rental scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
+
+> **🗓️ 10-January-2026 :-** 
