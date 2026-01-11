@@ -95,4 +95,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 09-January-2026 :-** Submitted and pushed linked list data structure assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linked-list); Solved Hospital patient management and Vehicle rental scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 10-January-2026 :-** 
+> **🗓️ 11-January-2026 :-** Pushed Flight booking scenario based problem[Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved leet code based Pascal triangle 2, Merge two sorted array and Valid palindrome problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase);
+
+
+## 🚀 Week 04 - Data Structures & Algorithms
+> **🗓️ 12-January-2026 :-** 
