@@ -101,6 +101,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 ## 🚀 Week 04 - Data Structures & Algorithms
 > **🗓️ 12-January-2026 :-** Solved half of object oriented based scenario based assessment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 13-January-2026 :-** Pushed and solved remaning problems of oops assignments; Submiited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
+> **🗓️ 13-January-2026 :-** Pushed and solved remaning problems of oops assignments; Submited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
 
-> **🗓️ 14-January-2026 :-** 
+> **🗓️ 14-January-2026 :-** Read documentation about stack, queue, hashMap and hashing; Solved and submitted Stack, Queue, HashMap and Hashing Function assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction);
+
+> **🗓️ 15-Januaury-2026 :-** 
