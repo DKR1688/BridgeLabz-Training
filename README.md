@@ -105,4 +105,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 14-January-2026 :-** Read documentation about stack, queue, hashMap and hashing; Solved and submitted Stack, Queue, HashMap and Hashing Function assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction);
 
-> **🗓️ 15-Januaury-2026 :-** 
+> **🗓️ 15-Januaury-2026 :-** Read about oops concepts; Solved Bubble, Insertion and Counting sorting programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/sorting-algorithms); Attended company scheduled review meeting;
+
+> **🗓️ 16-Januaury-2026 :-** 
