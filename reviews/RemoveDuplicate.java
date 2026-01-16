@@ -2,25 +2,33 @@ import java.util.Arrays;
 
 public class RemoveDuplicate {
     public static void main(String[] args) {
-        int[] arr ={2, 3, 3, 1, 7, 1, 4};
-        int n=arr.length;
-        int[] empty= new int[n];
-        
-        int k=0;
-        for (int i=0; i<n; i++) {
-            boolean duplicate= false;
-            for (int j=0; j<k; j++) {
-                if (arr[i]==empty[j]) {
-                    duplicate = true;
-                    break;
-                }
-            }
-            if (!duplicate){
-                empty[k]=arr[i];
-                k++;
+        //array with duplicates
+        int[] nums= {1, 1, 2, 7, 6, 2, 9, 1, 5, 6};
+        Arrays.sort(nums);
+        int k= removeDuplicates(nums); // Calling method to remove duplicates
+        System.out.println("Number of duplicate elements are- " + k);
+        System.out.print("Unique elements are- ");
+        for (int i = 0; i < k; i++) {
+            System.out.print(nums[i] + " ");
+        }
+    }
+
+    //method to remove duplicates from a sorted array and returns the count of unique elements
+    public static int removeDuplicates(int[] nums) {
+    	
+        if (nums.length==0) {
+        	return 0;
+        }
+        int i=0; //pointer to track position of last unique element
+
+        //start from second element and compare with previous
+        for (int j=1; j <nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
             }
         }
-        int[] ans= Arrays.copyOf(empty, k);
-        System.out.println("without duplicate array is- "+Arrays.toString(ans));
+        //return count of unique elements here i is index but we will add 1 to unique
+        return i+1;
     }
 }
