@@ -84,7 +84,7 @@ Solved and pushed three scenario based EduQuiz grader, mathematical operation an
 
 
 ## 🚀 Week 04
-> **🗓️ 05-January-2026 :-** Read documentation about encapculation, polymorphism, interface and abstract classes; Solved and submitted encapsulation and polymorphism assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/encapsulation-polymorphism-interface-and-abstract-class);
+> **🗓️ 05-January-2026 :-** Read documentation about encapsulation, polymorphism, interface and abstract classes; Solved and submitted encapsulation and polymorphism assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/encapsulation-polymorphism-interface-and-abstract-class);
 
 > **🗓️ 06-January-2026 :-** Solved and pushed cafeteria menu, invoice generator, score analyzer, phone contact organizer, quiz plateform and library management scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Also solved three leetcode problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase); Submitted scenario based and leetcode problems assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM4MDM3NjczNTI4/details);
 
@@ -105,6 +105,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 14-January-2026 :-** Read documentation about stack, queue, hashMap and hashing; Solved and submitted Stack, Queue, HashMap and Hashing Function assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction);
 
-> **🗓️ 15-Januaury-2026 :-** Read about oops concepts; Solved Bubble, Insertion and Counting sorting programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/sorting-algorithms); Attended company scheduled review meeting;
+> **🗓️ 15-January-2026 :-** Read about oops concepts; Solved Bubble, Insertion and Counting sorting programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/sorting-algorithms); Attended company scheduled review meeting;
 
-> **🗓️ 16-Januaury-2026 :-** 
+> **🗓️ 16-January-2026 :-** Solved Selection, Quick, Merge, Heap sorting programs and Submitted sorting algorithms assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3MzI1/details); Solved and pushed use case 1 of Address Book problem;
+
+> **🗓️ 17-January-2026 :-** 
