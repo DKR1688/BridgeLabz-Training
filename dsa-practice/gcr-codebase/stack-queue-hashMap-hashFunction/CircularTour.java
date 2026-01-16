@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Petrolpump {
 	int petrol;
 	int distance;
