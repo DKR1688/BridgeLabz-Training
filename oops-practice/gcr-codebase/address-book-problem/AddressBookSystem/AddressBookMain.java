@@ -15,16 +15,18 @@ public class AddressBookMain {
 		Scanner sc=new Scanner(System.in);
 		AddressBook addressBook =new AddressBook();
 		
-		boolean available= false;
-		while(!available) {
+		boolean exit= false;
+		while(!exit) {
 			System.out.println("Address book menu --- ");
 			System.out.println("1 - Add new contact");
-			System.out.println("2- View all contacts");
-			System.out.println("Exit from Address Book");
+			System.out.println("2 - View all contacts");
+			System.out.println("3 - Edit existing contact by name");
+			System.out.println("4 - Exit from Address Book");
 			
 			System.out.println("Enter your choice- ");
 			int choice =sc.nextInt();
-			sc.nextLine();
+			sc.nextLine(); //we need to consume the newline after reading numeric values before calling nextLine() again.
+
 			
 			switch(choice) {
 			case 1:
@@ -46,14 +48,16 @@ public class AddressBookMain {
 
                 System.out.print("Enter zip- ");
                 int zip =sc.nextInt();
+                sc.nextLine();
 
                 System.out.print("Enter phone number- ");
                 long phoneNumber =sc.nextLong();
+                sc.nextLine();
 
                 System.out.print("Enter email- ");
                 String email =sc.nextLine();
 
-                //add contact
+                //adding contact
                 Contact contact =new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
                 addressBook.addContact(contact);
                 break;
@@ -63,7 +67,14 @@ public class AddressBookMain {
 				break;
 				
 		   case 3:
-			   available =true;
+			   System.out.println("Enter first name and last name of contact to edit- ");
+			   String nameFirst =sc.nextLine();
+			   String nameLast =sc.nextLine();
+			   addressBook.editContact(nameFirst, nameLast, sc);
+			   break;
+			   
+		   case 4:
+			   exit =true;
 			   System.out.println("Exiting from address book.");
 			   break;
 			   
@@ -71,5 +82,6 @@ public class AddressBookMain {
 		      System.out.println("Your choice is invalid.");
 			}
 		}
+		sc.close();
 	}
 }
