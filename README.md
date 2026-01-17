@@ -98,7 +98,7 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 11-January-2026 :-** Pushed Flight booking scenario based problem[Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved leet code based Pascal triangle 2, Merge two sorted array and Valid palindrome problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase);
 
 
-## 🚀 Week 04 - Data Structures & Algorithms
+## 🚀 Week 05 - Data Structures & Algorithms
 > **🗓️ 12-January-2026 :-** Solved half of object oriented based scenario based assessment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
 > **🗓️ 13-January-2026 :-** Pushed and solved remaning problems of oops assignments; Submited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
@@ -110,3 +110,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 16-January-2026 :-** Solved Selection, Quick, Merge, Heap sorting programs and Submitted sorting algorithms assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3MzI1/details); Solved and pushed use case 1 of Address Book problem;
 
 > **🗓️ 17-January-2026 :-** Study and Give review oops based; Solved and pushed UC1, UC2 and UC3 of Address book problem [Click Here](http://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem);
+
+> **🗓️ 18-January-2026 :-**
+
+
+## 🚀 Week 06
