@@ -109,4 +109,4 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 16-January-2026 :-** Solved Selection, Quick, Merge, Heap sorting programs and Submitted sorting algorithms assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3MzI1/details); Solved and pushed use case 1 of Address Book problem;
 
-> **🗓️ 17-January-2026 :-** 
+> **🗓️ 17-January-2026 :-** Study and Give review oops based; Solved and pushed UC1, UC2 and UC3 of Address book problem [Click Here](http://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem);
