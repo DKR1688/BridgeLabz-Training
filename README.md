@@ -109,9 +109,9 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 16-January-2026 :-** Solved Selection, Quick, Merge, Heap sorting programs and Submitted sorting algorithms assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3MzI1/details); Solved and pushed use case 1 of Address Book problem;
 
-> **🗓️ 17-January-2026 :-** Study and Give review oops based; Solved and pushed UC1, UC2 and UC3 of Address book problem [Click Here](http://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem);
+> **🗓️ 17-January-2026 :-** Study and Give review oops based; Solved and pushed UC1, UC2 and UC3 of Address book problem [Click Here](http://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Submitted linear and binary search assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
 
-> **🗓️ 18-January-2026 :-**
+> **🗓️ 18-January-2026 :-** Solved and pushed file reader and input stream program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
 
 
 ## 🚀 Week 06
