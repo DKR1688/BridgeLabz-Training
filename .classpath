@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="dsa-practice/scenario-based/|dsa-practice/scenario-based/" kind="src" path=""/>
+	<classpathentry excluding="dsa-practice/scenario-based/|dsa-practice/scenario-based/|dsa-practice/gcr-codebase/algorithm&apos;s-analysis/|dsa-practice/gcr-codebase/algorithm&apos;s-analysis/" kind="src" path=""/>
 	<classpathentry kind="src" path="dsa-practice/scenario-based"/>
+	<classpathentry kind="src" path="dsa-practice/gcr-codebase/algorithm&apos;s-analysis"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-24">
 		<attributes>
 			<attribute name="module" value="true"/>
