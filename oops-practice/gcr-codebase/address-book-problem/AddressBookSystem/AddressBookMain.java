@@ -21,7 +21,8 @@ public class AddressBookMain {
 			System.out.println("1 - Add new contact");
 			System.out.println("2 - View all contacts");
 			System.out.println("3 - Edit existing contact by name");
-			System.out.println("4 - Exit from Address Book");
+			System.out.println("4 - Delete contact by name");
+			System.out.println("5 - Exit from Address Book");
 			
 			System.out.println("Enter your choice- ");
 			int choice =sc.nextInt();
@@ -72,8 +73,15 @@ public class AddressBookMain {
 			   String nameLast =sc.nextLine();
 			   addressBook.editContact(nameFirst, nameLast, sc);
 			   break;
-			   
+		
 		   case 4:
+			    System.out.println("Enter first name and last name of contact to delete- ");
+			    String delFirst = sc.nextLine();
+			    String delLast = sc.nextLine();
+			    addressBook.deleteContact(delFirst, delLast);
+			    break;
+			   
+		   case 5:
 			   exit =true;
 			   System.out.println("Exiting from address book.");
 			   break;

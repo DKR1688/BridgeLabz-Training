@@ -68,4 +68,22 @@ class AddressBook {
 			System.out.println("Contact "+firstName+" "+lastName+" not found.");
 		}
 	}
+	
+	//UC4 - Deleting a contact by name
+	public void deleteContact(String firstName, String lastName) {
+        boolean deleted =false;
+        for (int i=0; i<contacts.size(); i++) {
+            Contact c =contacts.get(i);
+            if (c.firstName.equalsIgnoreCase(firstName) && c.lastName.equalsIgnoreCase(lastName)) {
+                contacts.remove(i);
+                deleted =true;
+                System.out.println("Contact "+firstName + " " +lastName+ " deleted successfully.");
+                break;
+            }
+        }
+        if (!deleted) {
+            System.out.println("Contact "+firstName+ " "+lastName + " not found.");
+        }
+    }
+
 }
