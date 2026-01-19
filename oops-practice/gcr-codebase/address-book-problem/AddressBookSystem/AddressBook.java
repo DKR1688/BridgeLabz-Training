@@ -11,10 +11,14 @@ class AddressBook {
 	}
 	
 	//we add new contact details
+	//Use case 7- Duplicate Check is done on Person Name while adding person to Address Book.
 	public void addContact(Contact contact) {
-		System.out.println();
-		contacts.add(contact);
-		System.out.println("Details added.");
+		if (contacts.contains(contact)) {
+	        System.out.println("Contact is duplicate, Contact already exists- "+contact.firstName + " " +contact.lastName);
+	    } else {
+	        contacts.add(contact);
+	        System.out.println("Details added successfully.");
+	    }
 	}
 	
 	public void displayContacts() {
@@ -124,6 +128,6 @@ class AddressBook {
             Contact contact =new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             addContact(contact);
         }
-
 	}
+	
 }

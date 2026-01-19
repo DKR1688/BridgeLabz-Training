@@ -2,6 +2,8 @@
 //address, city, state, zip, phone number and email...
 package AddressBookSystem;
 
+import java.util.Objects;
+
 class Contact {
 	String firstName;
 	String lastName;
@@ -31,6 +33,25 @@ class Contact {
 //				"\n Address is- "+address+ "\n City is- "+city+ "\n State is- "+state+ "\n Zip code is- "+zip+ 
 //				"\n Phone number is- "+phoneNumber+ "\n Email is- "+email;
 //	}
+	
+	//Use case 7- Override equals method to check for Duplicate
+	@Override
+	public boolean equals(Object obj) {
+		if(this==obj) {
+			return true;
+		}
+		if(obj==null) {
+			return false;
+		}
+		Contact contact =(Contact) obj;
+		return firstName.equalsIgnoreCase(contact.firstName) &&
+	           lastName.equalsIgnoreCase(contact.lastName);
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(firstName.toLowerCase(), lastName.toLowerCase());
+	}
+	
 	
 	public void displayDetails() {
 		System.out.println("Contact details of user are- ");
