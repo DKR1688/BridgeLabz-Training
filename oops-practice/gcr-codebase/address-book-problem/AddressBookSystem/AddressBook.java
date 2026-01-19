@@ -28,7 +28,7 @@ class AddressBook {
 		}
 	}
 	
-	//Use case 3: Ability to edit existing contact person using their name
+	//Use case 3- Ability to edit existing contact person using their name
 	public void editContact(String firstName, String lastName, Scanner sc) {
 		boolean found =false;
 		for(Contact c: contacts) {
@@ -69,7 +69,7 @@ class AddressBook {
 		}
 	}
 	
-	//UC4 - Deleting a contact by name
+	//Use case 4- Deleting a contact by name
 	public void deleteContact(String firstName, String lastName) {
         boolean deleted =false;
         for (int i=0; i<contacts.size(); i++) {
@@ -86,4 +86,44 @@ class AddressBook {
         }
     }
 
+	//Use case 5- method to add multiple contact
+	public void addMultipleContact(Scanner sc) {
+		System.out.println("Number of contacts, which do you want to add- ");
+		int num =sc.nextInt();
+		sc.nextLine();
+		
+		for (int i=0; i<num; i++) {
+            System.out.println("Enter details for contact "+(i+1)+ " - ");
+
+            System.out.print("Enter first name- ");
+            String firstName =sc.nextLine();
+
+            System.out.print("Enter last name- ");
+            String lastName =sc.nextLine();
+
+            System.out.print("Enter address- ");
+            String address =sc.nextLine();
+
+            System.out.print("Enter city- ");
+            String city =sc.nextLine();
+
+            System.out.print("Enter state- ");
+            String state = sc.nextLine();
+
+            System.out.print("Enter zip- ");
+            int zip =sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Enter phone number- ");
+            long phoneNumber =sc.nextLong();
+            sc.nextLine();
+
+            System.out.print("Enter email- ");
+            String email =sc.nextLine();
+
+            Contact contact =new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            addContact(contact);
+        }
+
+	}
 }
