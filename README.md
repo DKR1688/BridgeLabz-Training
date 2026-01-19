@@ -22,11 +22,25 @@ BridgeLabz-Training/
 ├── oops-practice/                 (Branch & Folder Name)
 │   │
 │   ├── gcr-codebase/
+│   │   ├── address-book-problem/
 │   │   ├── class-and-object/
+│   │   ├── class-object-sequence-daigrams/
 │   │   ├── constructors-and-access-modifiers/
 │   │   ├── keywords-and-instanceof-operator/
 │   │   ├── inheritance/
 │   │   └── encapsulation-polymorphism-interface-and-abstract-class/
+│   │
+│   ├── scenario-based/
+│   │
+│   └── leet-code-codebase/
+│
+├── dsa-practice/                 (Branch & Folder Name)
+│   │
+│   ├── gcr-codebase/
+│   │   ├── linear-and-binary-search/
+│   │   ├── linked-list/
+│   │   ├── sorting-algorithms/
+│   │   └── stack-queue-hashMap-hashFunction/
 │   │
 │   ├── scenario-based/
 │   │
@@ -63,11 +77,11 @@ BridgeLabz-Training/
 
 > **🗓️ 26-December-2025 :-** Solved methods practice level 2 and 3 programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/methods); Submitted method practices assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjc3/details);
 
-> **🗓️ 28-December-2025 :-** Solved scenario based Bus Route Distance Tracker and Festival Lucky Draw tasks [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved and pushed Pascal's traiangle leetcode problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/leet-code-codebase); Solved and pushed extras Built in function level1 problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/extras-built-in-function);
+> **🗓️ 28-December-2025 :-** Solved scenario based Bus Route Distance Tracker and Festival Lucky Draw tasks [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved and pushed Pascal's triangle leetCode problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/leet-code-codebase); Solved and pushed extras Built in function level1 problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/gcr-codebase/extras-built-in-function);
 
 
 ## 🚀 Week 03 - Object Oriented Programming
-> **🗓️ 29-December-2025 :-** Solved remaining extras Built in funtion programs and assignment submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjg3/details); Scenario based assignment submitted with more four senerio based programs, also leet code based programs submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM3NjY5ODU0NzA4/details); Solved and submitted Employee Wage Computation problem assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI0MDIzMTk1NTg3/details);
+> **🗓️ 29-December-2025 :-** Solved remaining extras Built in function programs and assignment submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjg3/details); Scenario based assignment submitted with more four scenario based programs, also leetCode based programs submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM3NjY5ODU0NzA4/details); Solved and submitted Employee Wage Computation problem assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI0MDIzMTk1NTg3/details);
 
 > **🗓️ 30-December-2025 :-** Submitted Line Comparison problem and Snake & Ladder problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Read documentation about class and object in Object Oriented Programming; Java class and object assignment of level1 and level2 submitted [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDA3Mjkz/details);
 
@@ -77,16 +91,16 @@ BridgeLabz-Training/
 
 > **🗓️ 02-January-2026 :-** Read documentation about class, object and sequence diagrams; Submitted assignment of object oriented disign [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/class-object-sequence-daigrams); Given Review about core java;
 
-> **🗓️ 03-January-2026 :-** Read documentstion about inheritance; Submitted assignment of inheritance [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/inheritance); Solved and pushed two scenario based Student test score manager and Temperature analyzer problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
+> **🗓️ 03-January-2026 :-** Read documentation about inheritance; Submitted assignment of inheritance [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/inheritance); Solved and pushed two scenario based Student test score manager and Temperature analyzer problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 04-Januaury-2026 :-** 
+> **🗓️ 04-January-2026 :-** 
 Solved and pushed three scenario based EduQuiz grader, mathematical operation and Bank account manager problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
 
 ## 🚀 Week 04
 > **🗓️ 05-January-2026 :-** Read documentation about encapsulation, polymorphism, interface and abstract classes; Solved and submitted encapsulation and polymorphism assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/encapsulation-polymorphism-interface-and-abstract-class);
 
-> **🗓️ 06-January-2026 :-** Solved and pushed cafeteria menu, invoice generator, score analyzer, phone contact organizer, quiz plateform and library management scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Also solved three leetcode problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase); Submitted scenario based and leetcode problems assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM4MDM3NjczNTI4/details);
+> **🗓️ 06-January-2026 :-** Solved and pushed cafeteria menu, invoice generator, score analyzer, phone contact organizer, quiz plateform and library management scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Also solved three leetcode problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase); Submitted scenario based and leetCode problems assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODM4MDM3NjczNTI4/details);
 
 > **🗓️ 07-January-2026 :-** Solved and Submitted Story based problem Ride booking management system and Online banking system with OOP, interface, polymorphism and exception handling or multithreading for synchronized concurrent transactions [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
@@ -95,13 +109,13 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 09-January-2026 :-** Submitted and pushed linked list data structure assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linked-list); Solved Hospital patient management and Vehicle rental scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 11-January-2026 :-** Pushed Flight booking scenario based problem[Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved leet code based Pascal triangle 2, Merge two sorted array and Valid palindrome problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase);
+> **🗓️ 11-January-2026 :-** Pushed Flight booking scenario based problem[Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/core-java-practice/core-java-practice/scenario-based); Solved leetCode based Pascal triangle 2, Merge two sorted array and Valid palindrome problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/leet-code-codebase);
 
 
 ## 🚀 Week 05 - Data Structures & Algorithms
 > **🗓️ 12-January-2026 :-** Solved half of object oriented based scenario based assessment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 13-January-2026 :-** Pushed and solved remaning problems of oops assignments; Submited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
+> **🗓️ 13-January-2026 :-** Pushed and solved remaining problems of oops assignments; Submited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
 
 > **🗓️ 14-January-2026 :-** Read documentation about stack, queue, hashMap and hashing; Solved and submitted Stack, Queue, HashMap and Hashing Function assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction);
 
@@ -111,7 +125,10 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 17-January-2026 :-** Study and Give review oops based; Solved and pushed UC1, UC2 and UC3 of Address book problem [Click Here](http://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Submitted linear and binary search assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
 
-> **🗓️ 18-January-2026 :-** Solved and pushed file reader and input stream program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
+> **🗓️ 18-January-2026 :-** Solved and pushed linear, binary search file reader and input stream programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
 
 
 ## 🚀 Week 06
+> **🗓️ 19-January-2026 :-** Solved and pushed 6 UC of address book problem; Submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Solved and pushed browser buddy scenario based program [Click Here](Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based);
+
+> **🗓️ 19-January-2026 :-** 
