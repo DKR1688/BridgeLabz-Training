@@ -1,6 +1,6 @@
 package StringBuffer;
 
-public class CompareBuilderBuffer {
+public class CompareBuilderAndBuffer {
 	public static void main(String[] args) {
         int n =1000000; //1M for concatenations
         
