@@ -46,6 +46,15 @@ BridgeLabz-Training/
 │   │
 │   └── leet-code-codebase/
 │
+├── collection-practice/                 (Branch & Folder Name)
+│   │
+│   ├── gcr-codebase/
+│   │   └── java-generics/
+│   │
+│   ├── scenario-based/
+│   │
+│   └── leet-code-codebase/
+│
 ├── reviews/                       (Branch Name)
 |
 +-- README.md
@@ -115,7 +124,7 @@ linked list  Movie management, Student record management, Task scheduler and lib
 ## 🚀 Week 05 - Data Structures & Algorithms
 > **🗓️ 12-January-2026 :-** Solved half of object oriented based scenario based assessment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based);
 
-> **🗓️ 13-January-2026 :-** Pushed and solved remaining problems of oops assignments; Submited scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
+> **🗓️ 13-January-2026 :-** Pushed and solved remaining problems of oops assignments; Submitted scenario based object oriented assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/scenario-based); Validated calculator Git repository and demonstrate effective use of Git branching, merging, and conflict resolution;
 
 > **🗓️ 14-January-2026 :-** Read documentation about stack, queue, hashMap and hashing; Solved and submitted Stack, Queue, HashMap and Hashing Function assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction);
 
@@ -129,6 +138,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 
 ## 🚀 Week 06
-> **🗓️ 19-January-2026 :-** Solved and pushed 6 UC of address book problem; Submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Solved and pushed browser buddy scenario based program [Click Here](Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based);
+> **🗓️ 19-January-2026 :-** Solved and pushed 6 UC of address book problem; Submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Solved and pushed scenario based program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based);
 
-> **🗓️ 19-January-2026 :-** 
+> **🗓️ 20-January-2026 :-** Solved and submitted algorithm's analysis assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/algorithm's-analysis); Solved and submitted scenario based and leetCode based assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based); Created collection practice branch;
+
+> **🗓️ 21-January-2026 :-** 
