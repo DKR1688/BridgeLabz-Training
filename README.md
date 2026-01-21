@@ -49,7 +49,8 @@ BridgeLabz-Training/
 ├── collection-practice/                 (Branch & Folder Name)
 │   │
 │   ├── gcr-codebase/
-│   │   └── java-generics/
+│   │   ├── java-generics/
+│   │   └── collections/
 │   │
 │   ├── scenario-based/
 │   │
@@ -137,9 +138,11 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 18-January-2026 :-** Solved and pushed linear, binary search file reader and input stream programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/linear-and-binary-search);
 
 
-## 🚀 Week 06
+## 🚀 Week 06 - Java Collections & Streams
 > **🗓️ 19-January-2026 :-** Solved and pushed 6 UC of address book problem; Submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Solved and pushed scenario based program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based);
 
 > **🗓️ 20-January-2026 :-** Solved and submitted algorithm's analysis assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/gcr-codebase/algorithm's-analysis); Solved and submitted scenario based and leetCode based assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based); Created collection practice branch;
 
-> **🗓️ 21-January-2026 :-** 
+> **🗓️ 21-January-2026 :-** Solved and submitted java generic assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/java-generics); Solved and pushed half of collections program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/collections);
+
+> **🗓️ 22-January-2026 :-** 
