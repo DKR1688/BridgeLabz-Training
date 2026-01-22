@@ -145,4 +145,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 21-January-2026 :-** Solved and submitted java generic assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/java-generics); Solved and pushed half of collections program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/collections);
 
-> **🗓️ 22-January-2026 :-** 
+> **🗓️ 22-January-2026 :-** Solved and submitted collections list, set, queue and map interface assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/collections); Attended company scheduled review meeting;
+
+> **🗓️ 23-January-2026 :-** 
