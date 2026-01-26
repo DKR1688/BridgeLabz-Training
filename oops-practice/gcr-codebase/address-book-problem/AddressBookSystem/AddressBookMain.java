@@ -58,7 +58,8 @@ public class AddressBookMain {
 						System.out.println("4 - Delete contact by name");
 						System.out.println("5 - Add multiple contact");
 						System.out.println("6 - Search person by city or state");
-						System.out.println("7 - Returned to address book system");
+						System.out.println("7 - View persons by city or state");
+						System.out.println("8 - Returned to address book system");
 						
 						System.out.println("Enter your choice- ");
 						int subChoice =sc.nextInt();
@@ -126,11 +127,31 @@ public class AddressBookMain {
 						   addressBook.searchByCityOrState(searchCity, searchState);
 						   break;
 						   
-					   case 7:
+					  case 7:
+						    System.out.println("Search by:");
+						    System.out.println("1. City");
+						    System.out.println("2. State");
+						    int searchChoice =sc.nextInt();
+						    sc.nextLine();
+
+						    if (searchChoice==1) {
+						        System.out.println("Enter city to view persons- ");
+						        String personCity =sc.nextLine();
+						        addressBook.viewPersonsByCity(personCity);
+						    } else if (searchChoice==2) {
+						        System.out.println("Enter state to view persons- ");
+						        String personState =sc.nextLine();
+						        addressBook.viewPersonsByState(personState);
+						    } else {
+						        System.out.println("Invalid choice. Please select 1 or 2.");
+						    }
+						    break;
+						    
+					  case 8:
 						   returned =true;
 						   System.out.println("Returned to address book system menu successfully.");
 						   break;
-						   
+						    
 					   default:
 					      System.out.println("Your sub choice is invalid.");
 						}

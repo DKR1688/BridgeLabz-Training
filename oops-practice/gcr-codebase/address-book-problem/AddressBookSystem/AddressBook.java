@@ -1,8 +1,7 @@
 //Use case 2: Ability to add a new Contact to Address Book
 package AddressBookSystem;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 class AddressBook {
 	ArrayList<Contact> contacts;
 	
@@ -12,12 +11,18 @@ class AddressBook {
 	
 	//we add new contact details
 	//Use case 7- Duplicate Check is done on Person Name while adding person to Address Book.
+	HashMap<String, ArrayList<Contact>> cityDictionary=new HashMap<>();
+	HashMap<String, ArrayList<Contact>> stateDictionary=new HashMap<>();
 	public void addContact(Contact contact) {
 		if (contacts.contains(contact)) {
 	        System.out.println("Contact is duplicate, Contact already exists- "+contact.firstName + " " +contact.lastName);
 	    } else {
 	        contacts.add(contact);
 	        System.out.println("Details added successfully.");
+	        
+	        //uc9 to add dictionary
+	        cityDictionary.computeIfAbsent(contact.city, k -> new ArrayList<>()).add(contact);
+	        stateDictionary.computeIfAbsent(contact.city, k -> new ArrayList<>()).add(contact);
 	    }
 	}
 	
@@ -144,5 +149,31 @@ class AddressBook {
 	    }
 	}
 
+	//Use case 9- view persons by city or state using dictionaries
+	public void viewPersonsByCity(String city) {
+	    ArrayList<Contact> persons=cityDictionary.get(city);
+	    if (persons == null || persons.isEmpty()) {
+	        System.out.println("No persons found in city- "+city);
+	    } else {
+	        System.out.println("Persons in city "+city + " are- ");
+	        for (Contact c :persons) {
+	            System.out.println(c.firstName+" " +c.lastName);
+	        }
+	    }
+	}
 
+	public void viewPersonsByState(String state) {
+	    ArrayList<Contact> persons=stateDictionary.get(state);
+	    if (persons == null || persons.isEmpty()) {
+	        System.out.println("No persons found in state- "+state);
+	    } else {
+	        System.out.println("Persons in state "+state+" are- ");
+	        for (Contact c :persons) {
+	            System.out.println(c.firstName+ " " +c.lastName);
+	        }
+	    }
+	}
+
+	
+	
 }
