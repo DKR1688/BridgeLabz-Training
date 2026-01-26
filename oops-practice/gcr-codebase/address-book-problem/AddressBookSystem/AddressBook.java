@@ -130,4 +130,19 @@ class AddressBook {
         }
 	}
 	
+	//Use case 8- Searching by city and state 
+	public void searchByCityOrState(String city, String state) {
+	    boolean found=false;
+	    for (Contact c :contacts) {
+	        if (c.city.equalsIgnoreCase(city) || c.state.equalsIgnoreCase(state)) {
+	            c.displayDetails();
+	            found=true;
+	        }
+	    }
+	    if (!found) {
+	        System.out.println("No contacts found by city or state- "+city+" or "+state);
+	    }
+	}
+
+
 }

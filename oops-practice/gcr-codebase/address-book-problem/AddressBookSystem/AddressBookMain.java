@@ -57,7 +57,8 @@ public class AddressBookMain {
 						System.out.println("3 - Edit existing contact by name");
 						System.out.println("4 - Delete contact by name");
 						System.out.println("5 - Add multiple contact");
-						System.out.println("6 - Returned to address book system");
+						System.out.println("6 - Search person by city or state");
+						System.out.println("7 - Returned to address book system");
 						
 						System.out.println("Enter your choice- ");
 						int subChoice =sc.nextInt();
@@ -119,6 +120,13 @@ public class AddressBookMain {
 						   break;
 						   
 					   case 6:
+						   System.out.println("Enter city or state to find contact- ");
+						   String searchCity=sc.nextLine();
+						   String searchState=sc.nextLine();
+						   addressBook.searchByCityOrState(searchCity, searchState);
+						   break;
+						   
+					   case 7:
 						   returned =true;
 						   System.out.println("Returned to address book system menu successfully.");
 						   break;
