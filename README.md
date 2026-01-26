@@ -50,6 +50,7 @@ BridgeLabz-Training/
 │   │
 │   ├── gcr-codebase/
 │   │   ├── java-generics/
+│   │   ├── stream/
 │   │   └── collections/
 │   │
 │   ├── scenario-based/
@@ -147,4 +148,7 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 22-January-2026 :-** Solved and submitted collections list, set, queue and map interface assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/collections); Attended company scheduled review meeting;
 
-> **🗓️ 23-January-2026 :-** 
+> **🗓️ 26-January-2026 :-** Solved and submitted java streams programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/stream); Solved and pushed address book problem use cases 8, 9, 10 and 11 [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem);
+
+## 🚀 Week 07
+> **🗓️ 27-January-2026 :-** 
