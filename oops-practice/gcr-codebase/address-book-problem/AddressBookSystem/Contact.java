@@ -26,13 +26,13 @@ class Contact {
 		this.email =email;
 	}
 
-//	//we will override toString is to display details
-//	@Override
-//	public String toString() {
-//		return "Contact details of user are- "+ "\nFirst name is- "+firstName+ "\n Last name is- "+lastName+ 
-//				"\n Address is- "+address+ "\n City is- "+city+ "\n State is- "+state+ "\n Zip code is- "+zip+ 
-//				"\n Phone number is- "+phoneNumber+ "\n Email is- "+email;
-//	}
+	//we will override toString is to display details
+	@Override
+	public String toString() {
+		return "Contact details of user are- "+ "\nFirst name is- "+firstName+ "\n Last name is- "+lastName+ 
+				"\n Address is- "+address+ "\n City is- "+city+ "\n State is- "+state+ "\n Zip code is- "+zip+ 
+				"\n Phone number is- "+phoneNumber+ "\n Email is- "+email;
+	}
 	
 	//Use case 7- Override equals method to check for Duplicate
 	@Override

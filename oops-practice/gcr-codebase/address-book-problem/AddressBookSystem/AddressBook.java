@@ -193,4 +193,29 @@ class AddressBook {
 	    }
 	}
 	
+	//Use case 11- sorting contacts by name
+	public void sortContactsByName() {
+	    if (contacts.isEmpty()) {
+	        System.out.println("No contacts available to sort.");
+	        return;
+	    }
+
+	    //we sort using comparator first by firstName and then by lastName
+	    Collections.sort(contacts, new Comparator<Contact>() {
+	        @Override
+	        public int compare(Contact c1, Contact c2) {
+	            int firstCompare =c1.firstName.compareToIgnoreCase(c2.firstName);
+	            if (firstCompare!=0) {
+	                return firstCompare;
+	            }
+	            return c1.lastName.compareToIgnoreCase(c2.lastName);
+	        }
+	    });
+
+	    System.out.println("Contacts sorted alphabetically by name- ");
+	    for (Contact c :contacts) {
+	        System.out.println(c);
+	    }
+	}
+	
 }

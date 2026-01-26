@@ -60,7 +60,8 @@ public class AddressBookMain {
 						System.out.println("6 - Search person by city or state");
 						System.out.println("7 - View persons by city or state");
 						System.out.println("8 - Count persons by city or state");
-						System.out.println("9 - Returned to address book system");
+						System.out.println("9 - Sort contacts by name");
+						System.out.println("10 - Returned to address book system");
 						
 						System.out.println("Enter your choice- ");
 						int subChoice =sc.nextInt();
@@ -169,6 +170,10 @@ public class AddressBookMain {
 						    break;
 						    
 					  case 9:
+						    addressBook.sortContactsByName();
+						    break;
+						    
+					  case 10:
 						   returned =true;
 						   System.out.println("Returned to address book system menu successfully.");
 						   break;
