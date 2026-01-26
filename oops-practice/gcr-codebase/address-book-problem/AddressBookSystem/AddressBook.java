@@ -174,6 +174,23 @@ class AddressBook {
 	    }
 	}
 
-	
+	//Use case 10- count persons by city or state
+	public void countByCity(String city) {
+	    ArrayList<Contact> persons =cityDictionary.get(city);
+	    if (persons == null || persons.isEmpty()) {
+	        System.out.println("No persons found in city- "+city);
+	    } else {
+	        System.out.println("Number of persons in city " + city+" - "+persons.size());
+	    }
+	}
+
+	public void countByState(String state) {
+	    ArrayList<Contact> persons =stateDictionary.get(state);
+	    if (persons == null || persons.isEmpty()) {
+	        System.out.println("No persons found in state- "+state);
+	    } else {
+	        System.out.println("Number of persons in state "+ state+ " - "+persons.size());
+	    }
+	}
 	
 }

@@ -59,7 +59,8 @@ public class AddressBookMain {
 						System.out.println("5 - Add multiple contact");
 						System.out.println("6 - Search person by city or state");
 						System.out.println("7 - View persons by city or state");
-						System.out.println("8 - Returned to address book system");
+						System.out.println("8 - Count persons by city or state");
+						System.out.println("9 - Returned to address book system");
 						
 						System.out.println("Enter your choice- ");
 						int subChoice =sc.nextInt();
@@ -148,6 +149,26 @@ public class AddressBookMain {
 						    break;
 						    
 					  case 8:
+						    System.out.println("Count contacts by:");
+						    System.out.println("1. City");
+						    System.out.println("2. State");
+						    int countChoice=sc.nextInt();
+						    sc.nextLine();
+
+						    if (countChoice==1) {
+						        System.out.println("Enter city to count persons- ");
+						        String cityToCount =sc.nextLine();
+						        SelectedAddressBook.countByCity(cityToCount);
+						    } else if (countChoice==2) {
+						        System.out.println("Enter state to count persons- ");
+						        String stateToCount =sc.nextLine();
+						        SelectedAddressBook.countByState(stateToCount);
+						    } else {
+						        System.out.println("please select 1 or 2.");
+						    }
+						    break;
+						    
+					  case 9:
 						   returned =true;
 						   System.out.println("Returned to address book system menu successfully.");
 						   break;
