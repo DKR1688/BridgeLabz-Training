@@ -151,4 +151,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 26-January-2026 :-** Solved and submitted java streams programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/streams); Solved and pushed address book problem use cases 8, 9, 10 and 11 [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem); Solved checked, unchecked and custom exception programs [Click here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/exceptions);
 
 ## 🚀 Week 07
-> **🗓️ 27-January-2026 :-** 
+> **🗓️ 27-January-2026 :-** Solved and submitted exceptions program assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/exceptions); Solved and pushed eduResult and smart checkout scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based);
+
+> **🗓️ 28-January-2026 :-** 
