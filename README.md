@@ -153,4 +153,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 ## 🚀 Week 07
 > **🗓️ 27-January-2026 :-** Solved and submitted exceptions program assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/exceptions); Solved and pushed eduResult and smart checkout scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based);
 
-> **🗓️ 28-January-2026 :-** 
+> **🗓️ 28-January-2026 :-** Solve and submitted scenario based programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based); Solved and pushed half of regEx programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/regex);
+
+> **🗓️ 29-January-2026 :-** Studied about stream documentation; Attended company scheduled review meeting; Solved and pushed all regEx programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/regex);
+
+> **🗓️ 30-January-2026 :-** 
