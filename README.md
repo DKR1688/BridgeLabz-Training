@@ -157,4 +157,10 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 29-January-2026 :-** Studied about stream documentation; Attended company scheduled review meeting; Solved and pushed all regEx programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/regex);
 
-> **🗓️ 30-January-2026 :-** 
+> **🗓️ 30-January-2026 :-** Studied about JUnit documentation; Solved and pushed half of jUnit programs [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/junit/junit-tests/src); Solved and pushed Flip key logical problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based);
+
+> **🗓️ 31-January-2026 :-** Submitted assignment of RegEx and JUnit [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDQ2/details); Submitted future logistics billing program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based);
+
+
+## 🚀 Week 08
+> **🗓️ 02-February-2026 :-** 
