@@ -96,6 +96,6 @@ public class Program {
                 total++;
             }
         }
-        return (total==0) ? 0 : sum/total;
+        return sum/total;
     }
 }
