@@ -163,4 +163,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 
 ## 🚀 Week 08
-> **🗓️ 02-February-2026 :-** 
+> **🗓️ 02-February-2026 :-** Read and submitted CSV data handling assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDU0/details); Read and submitted annotations and reflection assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDUw/details);
+
+> **🗓️ 03-February-2026 :-** Read and submitted Factory robot hazard analyzer assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwMDE2NDEy/details); Read and submitted stream Buzz assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwNjk0NTY0/details); Read documentation about JSON; SetUp for io-programming and java 8 features.
+
+> **🗓️ 04-February-2026 :-** 
