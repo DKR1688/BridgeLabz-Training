@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/stream-api"/>
+	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/lambda-expressions"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
