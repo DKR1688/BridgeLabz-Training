@@ -1,7 +1,6 @@
 package com.json.jsonData;
 
 import org.json.JSONObject;
-
 public class MergeJSON {
 	public static void main(String[] args) {
         JSONObject json1 =new JSONObject();
