@@ -167,4 +167,8 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 03-February-2026 :-** Read and submitted Factory robot hazard analyzer assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwMDE2NDEy/details); Read and submitted stream Buzz assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwNjk0NTY0/details); Read documentation about JSON; SetUp for io-programming and java 8 features.
 
-> **🗓️ 04-February-2026 :-** 
+> **🗓️ 04-February-2026 :-** Read and submitted JSON data assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/io-programming-practice/io-programming-practice/gcr-codebase/json-data/jsonData/src?authuser=0); Read and submitted Lambda expression assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/lambda-expressions?authuser=0); Read and submitted Stream API assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/stream-api?authuser=0);
+
+> **🗓️ 05-February-2026 :-** Read and submitted functional interface assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/functional-interfaces?authuser=0); Submitted AeroVigil problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based?authuser=0); Read and submitted collectors assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/collectors?authuser=0); Attended company scheduled review meeting;
+
+> **🗓️ 06-February-2026 :-** 
