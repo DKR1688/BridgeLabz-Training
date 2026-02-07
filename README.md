@@ -162,7 +162,7 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 31-January-2026 :-** Submitted assignment of RegEx and JUnit [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDQ2/details); Submitted future logistics billing program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based);
 
 
-## 🚀 Week 08
+## 🚀 Week 08 - IO Programming and Java 8 & its features
 > **🗓️ 02-February-2026 :-** Read and submitted CSV data handling assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDU0/details); Read and submitted annotations and reflection assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODIxNjU2NDk4NDUw/details);
 
 > **🗓️ 03-February-2026 :-** Read and submitted Factory robot hazard analyzer assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwMDE2NDEy/details); Read and submitted stream Buzz assignment [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODQwOTMwNjk0NTY0/details); Read documentation about JSON; SetUp for io-programming and java 8 features.
@@ -171,4 +171,10 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 05-February-2026 :-** Read and submitted functional interface assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/functional-interfaces?authuser=0); Submitted AeroVigil problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/dsa-practice/dsa-practice/scenario-based?authuser=0); Read and submitted collectors assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/gcr-codebase/collectors?authuser=0); Attended company scheduled review meeting;
 
-> **🗓️ 06-February-2026 :-** 
+> **🗓️ 06-February-2026 :-** Read documentation about design patterns in solution designing; Attended bridgeLabz scheduled soft skill session; Created solution designing branch and solved one LMS problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/solution-designing-practice/solution-designing-practice/gcr-codebase/design-patterns);
+
+> **🗓️ 07-February-2026 :-** Solved and pushed feed delivery order routing system and classroom attendance tracker scenario problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and submitted ocean fleet problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based); 
+
+
+## 🚀 WEEK 09 - Solution designing and Multi-treading
+> **🗓️ 09-February-2026 :-** 
