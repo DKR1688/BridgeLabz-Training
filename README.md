@@ -177,4 +177,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 
 ## 🚀 WEEK 09 - Solution designing and Multi-treading
+> **🗓️ 08-February-2026 :-** Solved and pushed design patterns problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/solution-designing-practice/solution-designing-practice/gcr-codebase/design-patterns); Read documentation about multi-threading; Solved and pushed multi-threading assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/multi-threading-practice/multi-threading-practice/gcr-codebase/multi-threading);
+
 > **🗓️ 09-February-2026 :-** 
