@@ -179,4 +179,11 @@ linked list  Movie management, Student record management, Task scheduler and lib
 ## 🚀 WEEK 09 - Solution designing and Multi-treading
 > **🗓️ 08-February-2026 :-** Solved and pushed design patterns problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/solution-designing-practice/solution-designing-practice/gcr-codebase/design-patterns); Read documentation about multi-threading; Solved and pushed multi-threading assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/multi-threading-practice/multi-threading-practice/gcr-codebase/multi-threading);
 
-> **🗓️ 09-February-2026 :-** 
+> **🗓️ 09-February-2026 :-** Learn about SonarQube and setup, connect with address book and submitted assignment of SonarQube steps and Screenshots [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI1MzYzNzY5MDc3/details);
+
+> **🗓️ 10-February-2026 :-** M1 mock assessment;
+
+> **🗓️ 11-February-2026 :-** Solved and submitted jUnit bank account problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/junit/junit-tests/src?authuser=0); Setup SQL, solved and submitted console-based Health clinic program [Click Here]();
+
+> **🗓️ 12-February-2026 :-** 
+
