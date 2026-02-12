@@ -1,6 +1,8 @@
 package com.healthclinic.main;
 
+import com.healthclinic.model.Doctor;
 import com.healthclinic.model.Patient;
+import com.healthclinic.service.DoctorService;
 import com.healthclinic.service.PatientService;
 import com.healthclinic.exception.DuplicatePatientException;
 import java.util.*;
@@ -16,7 +18,8 @@ public class HealthClinicUI {
 			System.out.println("2- Update Patient Information");
 			System.out.println("3- Search Patient Records");
 			System.out.println("4- View Patient Visit History");
-			System.out.println("5- Exit");
+			System.out.println("5- Register New Doctor");
+			System.out.println("6- Exit");
 			System.out.print("Choose option- ");
 			int choice=sc.nextInt();
 			sc.nextLine();
@@ -36,6 +39,9 @@ public class HealthClinicUI {
 					viewHistory();
 					break;
 				case 5:
+					registerDoctor();
+					break;
+				case 6:
 					System.exit(0);
 				default:
 					System.out.println("Invalid choice!");
@@ -146,5 +152,23 @@ public class HealthClinicUI {
 				System.out.println(record);
 			}
 		}
+	}
+	
+	//UC-5
+	private void registerDoctor() throws Exception {
+	    System.out.print("Name- ");
+	    String name = sc.nextLine();
+	    System.out.print("Specialization- ");
+	    String specialization = sc.nextLine();
+	    System.out.print("Contact- ");
+	    String contact = sc.nextLine();
+	    System.out.print("Consultation Fee- ");
+	    double fee = sc.nextDouble();
+	    sc.nextLine();
+
+	    Doctor doctor = new Doctor(name, specialization, contact, fee);
+	    DoctorService service = new DoctorService();
+	    service.registerDoctor(doctor);
+	    System.out.println("Doctor registered with ID- " + doctor.getId());
 	}
 }
