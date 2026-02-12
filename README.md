@@ -183,9 +183,9 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 10-February-2026 :-** M1 mock assessment;
 
-> **🗓️ 11-February-2026 :-** Solved and submitted jUnit bank account problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/junit/junit-tests/src?authuser=0); Setup SQL, solved and submitted console-based some use cases of Health clinic program [Click Here]();
+> **🗓️ 11-February-2026 :-** Solved and submitted jUnit bank account problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/gcr-codebase/junit/junit-tests/src?authuser=0); Setup SQL, solved and submitted console-based some use cases of Health clinic program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/jdbc-dbms-practice/jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src);
 
-> **🗓️ 12-February-2026 :-** Solved Hotel reservation validation practice problem; Solved console-based few use cases of Health clinic program [Click Here](); Attended company scheduled review meeting;
+> **🗓️ 12-February-2026 :-** Solved Hotel reservation validation practice problem; Solved console-based few use cases of Health clinic program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/jdbc-dbms-practice/jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src); Study and attended company scheduled review meeting;
 
 > **🗓️ 13-February-2026 :-**
 
