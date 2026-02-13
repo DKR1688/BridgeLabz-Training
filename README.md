@@ -187,6 +187,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 12-February-2026 :-** Solved Hotel reservation validation practice problem; Solved console-based few use cases of Health clinic program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/jdbc-dbms-practice/jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src); Study and attended company scheduled review meeting;
 
-> **🗓️ 13-February-2026 :-**
+> **🗓️ 13-February-2026 :-** Solved and pushed Mini-project program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and pushed Hotel reservation validation program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Attended bridgeLabz scheduled soft skill session;
 
-
+> **🗓️ 14-February-2026 :-** 
