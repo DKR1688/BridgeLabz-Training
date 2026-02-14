@@ -13,13 +13,14 @@ public class HealthClinicUI {
 
 	public void start() {
 		while (true) {
-			System.out.println("\nHealth Clinic Menu-----");
-			System.out.println("1- Register New Patient");
-			System.out.println("2- Update Patient Information");
-			System.out.println("3- Search Patient Records");
-			System.out.println("4- View Patient Visit History");
-			System.out.println("5- Register New Doctor");
-			System.out.println("6- Exit");
+			System.out.println("\nHealth clinic menu-----");
+			System.out.println("1- Register new patient");
+			System.out.println("2- Update patient information");
+			System.out.println("3- Search patient records");
+			System.out.println("4- View patient visit history");
+			System.out.println("5- Register new doctor");
+			System.out.println("6- Assign/Update doctor specialty");
+			System.out.println("7- Exit");
 			System.out.print("Choose option- ");
 			int choice=sc.nextInt();
 			sc.nextLine();
@@ -154,7 +155,7 @@ public class HealthClinicUI {
 		}
 	}
 	
-	//UC-5
+	//UC-2.1
 	private void registerDoctor() throws Exception {
 	    System.out.print("Name- ");
 	    String name = sc.nextLine();
