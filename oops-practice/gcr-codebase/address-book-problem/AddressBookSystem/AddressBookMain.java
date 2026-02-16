@@ -61,7 +61,10 @@ public class AddressBookMain {
 						System.out.println("7 - View persons by city or state");
 						System.out.println("8 - Count persons by city or state");
 						System.out.println("9 - Sort contacts by name");
-						System.out.println("10 - Returned to address book system");
+						System.out.println("10 - Sort contacts by city/State/Zip");
+						System.out.println("11 - Write contacts to file");
+						System.out.println("12 - Read contacts from file");
+						System.out.println("13 - Returned to address book system");
 						
 						System.out.println("Enter your choice- ");
 						int subChoice =sc.nextInt();
@@ -174,6 +177,45 @@ public class AddressBookMain {
 						    break;
 						    
 					  case 10:
+						    System.out.println("Sort contacts by:");
+						    System.out.println("1. Name");
+						    System.out.println("2. City");
+						    System.out.println("3. State");
+						    System.out.println("4. Zip");
+						    int sortChoice = sc.nextInt();
+						    sc.nextLine();
+
+						    switch (sortChoice) {
+						        case 1:
+						            SelectedAddressBook.sortContactsByName();
+						            break;
+						        case 2:
+						            SelectedAddressBook.sortContactsByCity();
+						            break;
+						        case 3:
+						            SelectedAddressBook.sortContactsByState();
+						            break;
+						        case 4:
+						            SelectedAddressBook.sortContactsByZip();
+						            break;
+						        default:
+						            System.out.println("Invalid choice. Please select 1–4.");
+						    }
+						    break;
+						    
+					  case 11:
+						    System.out.print("Enter filename to save contacts- ");
+						    String saveFile = sc.nextLine();
+						    SelectedAddressBook.writeContactsToFile(saveFile);
+						    break;
+
+					  case 12:
+						    System.out.print("Enter filename to read contacts- ");
+						    String readFile = sc.nextLine();
+						    SelectedAddressBook.readContactsFromFile(readFile);
+						    break;
+						    
+					  case 13:
 						   returned =true;
 						   System.out.println("Returned to address book system menu successfully.");
 						   break;

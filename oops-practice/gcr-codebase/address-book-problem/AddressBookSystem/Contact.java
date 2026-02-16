@@ -25,6 +25,18 @@ class Contact {
 		this.phoneNumber =phoneNumber;
 		this.email =email;
 	}
+	
+	public String getCity() {
+		return city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public int getZip() {
+		return zip;
+	}
 
 	//we will override toString is to display details
 	@Override

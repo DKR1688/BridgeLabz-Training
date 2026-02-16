@@ -1,6 +1,11 @@
 //Use case 2: Ability to add a new Contact to Address Book
 package AddressBookSystem;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 class AddressBook {
 	ArrayList<Contact> contacts;
@@ -218,4 +223,65 @@ class AddressBook {
 	    }
 	}
 	
+	// Use case 12 - Sorting contacts by City, State, or Zip using Java 8 features
+	public void sortContactsByCity() {
+	    if (contacts.isEmpty()) {
+	        System.out.println("No contacts available to sort by city.");
+	        return;
+	    }
+	    contacts.stream().sorted(Comparator.comparing(Contact::getCity, String.CASE_INSENSITIVE_ORDER)).forEach(System.out::println);
+	}
+
+	public void sortContactsByState() {
+	    if (contacts.isEmpty()) {
+	        System.out.println("No contacts available to sort by state.");
+	        return;
+	    }
+	    contacts.stream().sorted(Comparator.comparing(Contact::getState, String.CASE_INSENSITIVE_ORDER)).forEach(System.out::println);
+	}
+
+	public void sortContactsByZip() {
+	    if (contacts.isEmpty()) {
+	        System.out.println("No contacts available to sort by zip.");
+	        return;
+	    }
+	    contacts.stream().sorted(Comparator.comparingInt(Contact::getZip)).forEach(System.out::println);
+	}
+	
+	// UC 13 - Write contacts to a file
+	public void writeContactsToFile(String filename) {
+	    try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+	        for (Contact c : contacts) {
+	            writer.println(c.firstName + "," + c.lastName + "," + c.address + "," +
+	                           c.city + "," + c.state + "," + c.zip + "," +
+	                           c.phoneNumber + "," + c.email);
+	        }
+	        System.out.println("Contacts written successfully to file: " + filename);
+	    } catch (IOException e) {
+	        System.out.println("Error writing to file: " + e.getMessage());
+	    }
+	}
+
+	// UC 13 - Read contacts from a file
+	public void readContactsFromFile(String filename) {
+	    try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+	        String line;
+	        while ((line = reader.readLine()) != null) {
+	            String[] data = line.split(",");
+	            if (data.length == 8) {
+	                Contact contact = new Contact(
+	                    data[0], data[1], data[2], data[3],
+	                    data[4], Integer.parseInt(data[5]),
+	                    Long.parseLong(data[6]), data[7]
+	                );
+	                addContact(contact);
+	            }
+	        }
+	        System.out.println("Contacts read successfully from file: " + filename);
+	    } catch (IOException e) {
+	        System.out.println("Error reading from file: " + e.getMessage());
+	    }
+	}
+
+
 }
