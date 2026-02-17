@@ -49,13 +49,30 @@ BridgeLabz-Training/
 ├── collection-practice/                 (Branch & Folder Name)
 │   │
 │   ├── gcr-codebase/
+│   │   ├── annotations/
+│   │   ├── collections/
+│   │   ├── exceptions/
 │   │   ├── java-generics/
-│   │   ├── stream/
-│   │   └── collections/
+│   │   ├── jUnit/
+│   │   ├── reflection/
+│   │   ├── reGex/
+│   │   └── streams/
 │   │
 │   ├── scenario-based/
 │   │
 │   └── leet-code-codebase/
+|
+├── io-programming-practice/ 				(Branch & Folder Name)
+│   │
+│   └── gcr-codebase/ 
+│       ├── csv-data-handling/
+│       └── json-data/
+|
+├── java-eight-features-practice/                 (Branch & Folder Name)
+|
+├── multi-threading-practice/                 (Branch & Folder Name)
+|
+├── jdbc-dbms-practice/                 (Branch & Folder Name)
 │
 ├── reviews/                       (Branch Name)
 |
@@ -176,7 +193,7 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 07-February-2026 :-** Solved and pushed feed delivery order routing system and classroom attendance tracker scenario problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and submitted ocean fleet problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/collections-practice/collections-practice/scenario-based); 
 
 
-## 🚀 WEEK 09 - Solution designing and Multi-treading
+## 🚀 Week 09 - Solution designing and Multi-treading
 > **🗓️ 08-February-2026 :-** Solved and pushed design patterns problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/solution-designing-practice/solution-designing-practice/gcr-codebase/design-patterns); Read documentation about multi-threading; Solved and pushed multi-threading assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/multi-threading-practice/multi-threading-practice/gcr-codebase/multi-threading);
 
 > **🗓️ 09-February-2026 :-** Learn about SonarQube and setup, connect with address book and submitted assignment of SonarQube steps and Screenshots [Click Here](https://classroom.google.com/c/ODIxNjU2NDA3MjQ5/a/ODI1MzYzNzY5MDc3/details);
@@ -189,4 +206,12 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 13-February-2026 :-** Solved and pushed Mini-project program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and pushed Hotel reservation validation program [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Attended bridgeLabz scheduled soft skill session;
 
-> **🗓️ 14-February-2026 :-** 
+> **🗓️ 14-February-2026 :-** Solved and pushed Smart parking slot allocation, online course enrollment, music playlist manager, hotel reservation validation, Employee leave management and job resume shortlisting scenario based problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Read about JDBC and DBMS and setup with SQL.
+
+
+## 🚀 Week 10 - JDBC and DBMS
+> **🗓️ 16-February-2026 :-** Solved use cases of health clinic problem and submitted assignment of JDBC and DBMS [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/jdbc-dbms-practice/jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src); Study about SQL commands; Solved and pushed event feedback rating analyzer, online auction bidding and courier staff scheduler scenario based problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based);
+
+> **🗓️ 17-February-2026 :-** Solved and submitted assignment of employee wage computation problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem/AddressBookSystem); Read and practice stream problems;
+
+> **🗓️ 18-February-2026 :-** 
