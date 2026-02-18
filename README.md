@@ -214,4 +214,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 17-February-2026 :-** Solved and submitted assignment of employee wage computation problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem/AddressBookSystem); Read and practice stream problems;
 
-> **🗓️ 18-February-2026 :-** 
+> **🗓️ 18-February-2026 :-** M1 mock test attended; Quantity management app project setup; UC1 - feet equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC1-FeetEquality/quantity_measurement_app/src) and UC2 - inch measurement equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC2-InchEquality/quantity_measurement_app/src) assignments of project submitted;
+
+> **🗓️ 19-February-2026 :-** 
