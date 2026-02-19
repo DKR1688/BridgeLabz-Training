@@ -216,4 +216,6 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 18-February-2026 :-** M1 mock test attended; Quantity management app project setup; UC1 - feet equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC1-FeetEquality/quantity_measurement_app/src) and UC2 - inch measurement equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC2-InchEquality/quantity_measurement_app/src) assignments of project submitted;
 
-> **🗓️ 19-February-2026 :-** 
+> **🗓️ 19-February-2026 :-** Solved and pushed two leetCode Buy and sell stock I & II problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/leet-code-codebase); Solved and submitted UC3 generic length of Quantity project [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC3-GenericLength/quantity_measurement_app/src); Solved and submitted UC4 extended unit support of Quantity project [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC4-YardEquality/quantity_measurement_app/src);
+
+> **🗓️ 20-February-2026 :-** 
