@@ -214,10 +214,12 @@ linked list  Movie management, Student record management, Task scheduler and lib
 
 > **🗓️ 17-February-2026 :-** Solved and submitted assignment of employee wage computation problem [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/scenario-based); Solved and submitted address book problem assignment [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/oops-practice/oops-practice/gcr-codebase/address-book-problem/AddressBookSystem); Read and practice stream problems;
 
-> **🗓️ 18-February-2026 :-** M1 mock test attended; Quantity management app project setup; UC1 - feet equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC1-FeetEquality/quantity_measurement_app/src) and UC2 - inch measurement equality [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC2-InchEquality/quantity_measurement_app/src) assignments of project submitted;
+> **🗓️ 18-February-2026 :-** M1 mock test attended; Started work on Quantity Measurement project repository;
 
-> **🗓️ 19-February-2026 :-** Solved and pushed two leetCode Buy and sell stock I & II problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/leet-code-codebase); Solved and submitted UC3 generic length of Quantity project [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC3-GenericLength/quantity_measurement_app/src); Solved and submitted UC4 extended unit support of Quantity project [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC4-YardEquality/quantity_measurement_app/src);
+> **🗓️ 19-February-2026 :-** Solved and pushed two leetCode Buy and sell stock I & II problems [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/java-eight-features-practice/java-eight-features-practice/leet-code-codebase);
 
-> **🗓️ 20-February-2026 :-** Solved and submitted UC5 unit to unit conversion of Quantity project [Click Here](https://github.com/DKR1688/QuantityMeasurementApp/tree/feature/UC5-UnitConversion/quantity_measurement_app/src); Attended bridgeLabz scheduled soft skill session 
 
-> **🗓️ 21-February-2026 :-**
+## 🚀 Week 11
+> **🗓️ 25-February-2026 :-** M1 assessment attended; Refactored Quantity Measurement repository [Click Here](https://github.com/DKR1688/QuantityMeasurementApp);
+
+> **🗓️ 26-February-2026 :-** 
