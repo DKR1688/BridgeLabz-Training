@@ -223,4 +223,3 @@ linked list  Movie management, Student record management, Task scheduler and lib
 > **🗓️ 25-February-2026 :-** M1 assessment attended; Refactored Quantity Measurement repository [Click Here](https://github.com/DKR1688/QuantityMeasurementApp);
 
 > **🗓️ 18-March-2026 :-** Solved and submitted M1 problems in jdbc scenario based [Click Here](https://github.com/DKR1688/BridgeLabz-Training/tree/jdbc-dbms-practice/jdbc-dbms-practice/scenario-based);
-
