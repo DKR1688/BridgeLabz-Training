@@ -41,7 +41,9 @@ BridgeLabz-Training/
 
 
 ## 🚀 Week 01 - Core Programming
-> **🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics) :-**
+> **🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics) :**
+Completed Data; Database; DBMS; File System vs DBMS; Advantages of DBMS; Types of DBMS; RDBMS; Features of RDBMS; Relational vs Non-Relational Database; SQL vs NoSQL; When to use SQL; When to use NoSQL; Introduction to MySQL; MySQL Architecture; Installing MySQL; Creating Database; Creating Tables; DDL Commands — CREATE, ALTER, DROP, TRUNCATE, RENAME; DML Commands — INSERT, UPDATE, DELETE; TCL Basics and DCL Basics;
+
 
 
 
