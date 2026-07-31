@@ -27,20 +27,20 @@ public class RepeatableBugReportAnnotation {
         }
     }
 }
-class Animal {
+class Animals {
     public void makeSound() {
         System.out.println("Animal sound");
     }
 }
 
-class Dog extends Animal {
+class Dogs extends Animals {
     @Override
     public void makeSound() {
         System.out.println("Woof!");
     }
 }
 
-public class Q1_OverrideAnnotation {
+class Q1_OverrideAnnotation {
     public static void main(String[] args) {
         Dog dog = new Dog();
         dog.makeSound();
