@@ -1,54 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/annotations"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/collections"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/exceptions"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/java-generics"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/junit/junit-tests/src/main/java"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/junit/junit-tests/src/test/java"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/reflection"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/regex"/>
-	<classpathentry kind="src" path="collections-practice/gcr-codebase/streams"/>
-	<classpathentry kind="src" path="collections-practice/leet-code-codebase"/>
-	<classpathentry kind="src" path="collections-practice/scenario-based"/>
-	<classpathentry excluding="arrays/|control-flow/|extras-built-in-function/|programming-elements/|strings/" kind="src" path="core-java-practice/gcr-codebase"/>
-	<classpathentry kind="src" path="core-java-practice/gcr-codebase/arrays"/>
-	<classpathentry kind="src" path="core-java-practice/gcr-codebase/control-flow"/>
-	<classpathentry kind="src" path="core-java-practice/gcr-codebase/extras-built-in-function"/>
-	<classpathentry kind="src" path="core-java-practice/gcr-codebase/programming-elements"/>
-	<classpathentry kind="src" path="core-java-practice/gcr-codebase/strings"/>
-	<classpathentry kind="src" path="core-java-practice/leet-code-codebase"/>
-	<classpathentry kind="src" path="core-java-practice/scenario-based"/>
-	<classpathentry kind="src" path="dsa-practice/gcr-codebase/algorithm&apos;s-analysis"/>
-	<classpathentry kind="src" path="dsa-practice/gcr-codebase/linear-and-binary-search"/>
-	<classpathentry kind="src" path="dsa-practice/gcr-codebase/sorting-algorithms"/>
-	<classpathentry kind="src" path="dsa-practice/gcr-codebase/stack-queue-hashMap-hashFunction"/>
-	<classpathentry kind="src" path="dsa-practice/leet-code-codebase"/>
-	<classpathentry kind="src" path="dsa-practice/scenario-based"/>
-	<classpathentry kind="src" path="io-programming-practice/gcr-codebase/csv-data-handling"/>
-	<classpathentry kind="src" path="io-programming-practice/gcr-codebase/json-data/jsonData/src/main/java"/>
-	<classpathentry kind="src" path="io-programming-practice/gcr-codebase/json-data/jsonData/src/test/java"/>
-	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/collectors"/>
-	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/functional-interfaces"/>
-	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/lambda-expressions"/>
-	<classpathentry kind="src" path="java-eight-features-practice/gcr-codebase/stream-api"/>
-	<classpathentry kind="src" path="java-eight-features-practice/leet-code-codebase"/>
-	<classpathentry kind="src" path="java-eight-features-practice/scenario-based"/>
-	<classpathentry kind="src" path="jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src/main/java"/>
-	<classpathentry kind="src" path="jdbc-dbms-practice/gcr-codebase/jdbc-dbms/healthclinic/src/test/java"/>
-	<classpathentry kind="src" path="jdbc-dbms-practice/scenario-based"/>
-	<classpathentry kind="src" path="multi-threading-practice/gcr-codebase/multi-threading"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/address-book-problem"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/class-and-object"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/constructors-and-access-modifiers"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/encapsulation-polymorphism-interface-and-abstract-class"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/inheritance"/>
-	<classpathentry kind="src" path="oops-practice/gcr-codebase/keywords-and-instanceof-operator"/>
-	<classpathentry kind="src" path="oops-practice/leet-code-codebase"/>
-	<classpathentry kind="src" path="oops-practice/scenario-based"/>
-	<classpathentry kind="src" path="reviews"/>
-	<classpathentry kind="src" path="solution-designing-practice/gcr-codebase/design-patterns"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
