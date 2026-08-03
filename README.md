@@ -41,8 +41,11 @@ BridgeLabz-Training/
 
 
 ## 🚀 Week 01 - Core Programming
-> **🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics) :**
-Completed Data; Database; DBMS; File System vs DBMS; Advantages of DBMS; Types of DBMS; RDBMS; Features of RDBMS; Relational vs Non-Relational Database; SQL vs NoSQL; When to use SQL; When to use NoSQL; Introduction to MySQL; MySQL Architecture; Installing MySQL; Creating Database; Creating Tables; DDL Commands — CREATE, ALTER, DROP, TRUNCATE, RENAME; DML Commands — INSERT, UPDATE, DELETE; TCL Basics and DCL Basics;
+> **🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics): **
+- Completed different types of DBMS – Relational vs Non Relational - when to use what; Introduction to MySQL and RDBMS concepts; DDL (Data Definition Language) and DML (Data Manipulation Language); Completed set up MySQL environment and begin ER Diagram sketch for the Health Clinic app (patients, doctors, appointments); Completed Day 1 assignment;
+
+> **🗓️ 02-August-2026 (ER Diagrams, Indexing and Normalization): **
+- Completed ER Diagram design principles – entities, relationships, cardinality; Table Indexing – purpose and performance impact; Normalization Forms (1NF, 2NF, 3NF, BCNF); Completed ER Diagram for the Health Clinic App; Normalize the patient/doctor/appointment schema; Completed Day 2 assignment;
 
 
 
