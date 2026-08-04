@@ -47,6 +47,10 @@ BridgeLabz-Training/
 > 🗓️ 02-August-2026 (ER Diagrams, Indexing and Normalization):
 - Completed ER Diagram design principles – entities, relationships, cardinality; Table Indexing – purpose and performance impact; Normalization Forms (1NF, 2NF, 3NF, BCNF); Completed ER Diagram for the Health Clinic App; Normalize the patient/doctor/appointment schema; Completed Day 2 assignment;
 
+> 🗓️ 03-August-2026 (Joins, Stored procedures and Triggers):
+- Completed Inner, Left, Right and Full outer join; creation and usage procedures; Triggers to sue case for automated database actions; Completed practice with joins, stored procedures and triggers for the Health clinic app;
+
+
 
 
 
