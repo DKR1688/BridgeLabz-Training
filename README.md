@@ -50,6 +50,9 @@ BridgeLabz-Training/
 > 🗓️ 03-August-2026 (Joins, Stored procedures and Triggers):
 - Completed Inner, Left, Right and Full outer join; creation and usage procedures; Triggers to sue case for automated database actions; Completed practice with joins, stored procedures and triggers for the Health clinic app;
 
+> 🗓️ 03-August-2026 (DB Programming, JDBC & Health Clinic App):
+- Learned about JDBC - connecting a Java application to MySQL; Completed CRUD operations via JDBC; connection pooling basics; Developed Console-based Health Clinic App to register patients, manage doctors & specialties, schedule appointments, track visit history & basic billing - persisted via JDBC (MySQL);
+
 
 
 
