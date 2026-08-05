@@ -1,0 +1,34 @@
+# Maven build output
+target/
+
+# Java compiled files and archives
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE and editor settings
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Local Python environment (not part of this Java application)
+.venv/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
