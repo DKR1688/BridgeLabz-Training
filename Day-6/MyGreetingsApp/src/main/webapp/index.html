@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Greetings App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 32px; }
+        h1 { color: #2c7be5; }
+        .card { max-width: 900px; margin: 0 auto; }
+        .form-row { margin-bottom: 16px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; }
+        input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 16px; border: none; border-radius: 4px; background: #2c7be5; color: white; cursor: pointer; }
+        button:disabled { opacity: 0.6; cursor: default; }
+        table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+        th, td { padding: 12px 14px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f4f7fb; }
+        .actions button { margin-right: 8px; background: #6c757d; }
+        .actions button.delete { background: #e55353; }
+        .status { margin-top: 16px; color: #555; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>My Greetings App</h1>
+
+    <div class="form-row">
+        <label for="message">Greeting message</label>
+        <input id="message" type="text" placeholder="Enter greeting text" />
+    </div>
+    <div>
+        <button id="saveButton">Create Greeting</button>
+        <button id="resetButton" type="button">Reset</button>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="greetingsTableBody"></tbody>
+    </table>
+</div>
+
+<script>
+    const apiBase = 'greetings';
+    const messageInput = document.getElementById('message');
+    const saveButton = document.getElementById('saveButton');
+    const resetButton = document.getElementById('resetButton');
+    const statusElement = document.getElementById('status');
+    const tableBody = document.getElementById('greetingsTableBody');
+
+    let editingId = null;
+
+    function showStatus(text, isError = false) {
+        statusElement.textContent = text;
+        statusElement.style.color = isError ? '#d04545' : '#2c7be5';
+    }
+
+    function clearStatus() {
+        statusElement.textContent = '';
+    }
+
+    function resetForm() {
+        editingId = null;
+        messageInput.value = '';
+        saveButton.textContent = 'Create Greeting';
+        clearStatus();
+    }
+
+    async function loadGreetings() {
+        try {
+            const response = await fetch(apiBase);
+            if (!response.ok) throw new Error('Unable to load greetings');
+            const greetings = await response.json();
+            renderTable(greetings);
+        } catch (error) {
+            showStatus(error.message, true);
+        }
+    }
+
+    function renderTable(greetings) {
+        tableBody.innerHTML = greetings.map(greeting => `
+            <tr>
+                <td>${greeting.id}</td>
+                <td>${escapeHtml(greeting.message)}</td>
+                <td class="actions">
+                    <button type="button" class="edit-button" data-id="${greeting.id}" data-message="${escapeHtmlAttr(greeting.message)}">Edit</button>
+                    <button type="button" class="delete delete-button" data-id="${greeting.id}">Delete</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function escapeHtmlAttr(text) {
+        return escapeHtml(text).replace(/\"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    tableBody.addEventListener('click', async (event) => {
+        const editButton = event.target.closest('.edit-button');
+        const deleteButton = event.target.closest('.delete-button');
+
+        if (editButton) {
+            const id = editButton.dataset.id;
+            const message = editButton.dataset.message;
+            editingId = Number(id);
+            messageInput.value = message;
+            saveButton.textContent = 'Update Greeting';
+            clearStatus();
+            return;
+        }
+
+        if (deleteButton) {
+            const id = Number(deleteButton.dataset.id);
+            await deleteGreeting(id);
+        }
+    });
+
+    async function deleteGreeting(id) {
+        if (!confirm('Delete this greeting?')) return;
+        try {
+            const response = await fetch(`${apiBase}/${id}`, { method: 'DELETE' });
+            if (!response.ok) throw new Error('Delete failed');
+            showStatus('Greeting deleted successfully.');
+            resetForm();
+            await loadGreetings();
+        } catch (error) {
+            showStatus(error.message, true);
+        }
+    }
+
+    saveButton.addEventListener('click', async () => {
+        const message = messageInput.value.trim();
+        if (!message) {
+            showStatus('Message is required.', true);
+            return;
+        }
+
+        saveButton.disabled = true;
+        try {
+            const requestOptions = {
+                method: editingId ? 'PUT' : 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            };
+            const url = editingId ? `${apiBase}/${editingId}` : apiBase;
+            const response = await fetch(url, requestOptions);
+            if (!response.ok) {
+                const errorMsg = response.status === 404 ? 'Greeting not found.' : 'Save failed.';
+                throw new Error(errorMsg);
+            }
+            showStatus(editingId ? 'Greeting updated.' : 'Greeting created.');
+            resetForm();
+            await loadGreetings();
+        } catch (error) {
+            showStatus(error.message || 'Unexpected error', true);
+        } finally {
+            saveButton.disabled = false;
+        }
+    });
+
+    resetButton.addEventListener('click', resetForm);
+
+    loadGreetings();
+</script>
+</body>
+</html>

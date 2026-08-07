@@ -1,0 +1,3 @@
+com\mygreetingsapp\controller\GreetingController.class
+com\mygreetingsapp\model\Greeting.class
+com\mygreetingsapp\service\GreetingService.class

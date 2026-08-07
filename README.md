@@ -63,6 +63,8 @@ BridgeLabz-Training/
 - Completed Tomcat as a web/application server; Servlet lifecycle and deployment, Introduction to the Spring framework; Spring core concepts: IoC (Inversion of Control) and dependency injection; Spring MVC architecture: DispatcherServlet, controllers, views; Prepared the structure for MyGreetingsApp as a Spring MVC application.
 This includes the layered package layout and JSP view placeholders without business implementation.
 
+> 🗓️ 06-August-2026 (Spring MVC):
+- Completed Spring MVC archetecture with dispatcherServlet, controller, views; Learned about request mapping and handling in Spring MVC; Builted My Greetings App using spring MVC with CRUD operations; Created or deployed a basic myFirstServlet on Tomcat;
 
 
 
