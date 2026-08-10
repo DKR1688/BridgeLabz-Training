@@ -66,6 +66,8 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 06-August-2026 (Spring MVC):
 - Completed Spring MVC archetecture with dispatcherServlet, controller, views; Learned about request mapping and handling in Spring MVC; Builted My Greetings App using spring MVC with CRUD operations; Created or deployed a basic myFirstServlet on Tomcat;
 
+> 🗓️ 07-August-2026 (Spring REST Api and Request Handling):
+- Completed Spring REST api programming with building RESTful endpoints to contact-app; Completed Request handling patterns; Completed H2 in memory databases basics; Learned about distributed architectures; Created a contects-app with absic REST endpints;
 
 
 

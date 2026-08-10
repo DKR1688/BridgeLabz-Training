@@ -58,12 +58,11 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat9-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
                 <configuration>
-                    <path>/</path>
-                    <port>8080</port>
+                    <mainClass>com.mygreetingsapp.EmbeddedServer</mainClass>
                 </configuration>
             </plugin>
         </plugins>

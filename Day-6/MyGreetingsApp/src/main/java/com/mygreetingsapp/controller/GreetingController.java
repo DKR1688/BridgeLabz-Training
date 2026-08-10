@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/greetings")
 public class GreetingController {
 
     private final GreetingService greetingService;
@@ -20,7 +19,7 @@ public class GreetingController {
         this.greetingService = greetingService;
     }
 
-    @GetMapping
+    @GetMapping({"", "/"})
     public List<Greeting> listGreetings() {
         return greetingService.findAll();
     }
@@ -31,7 +30,7 @@ public class GreetingController {
         return greeting != null ? ResponseEntity.ok(greeting) : ResponseEntity.notFound().build();
     }
 
-    @PostMapping
+    @PostMapping({"", "/"})
     public ResponseEntity<Greeting> createGreeting(@RequestBody Greeting greeting) {
         if (greeting == null || greeting.getMessage() == null || greeting.getMessage().trim().isEmpty()) {
             return ResponseEntity.badRequest().build();

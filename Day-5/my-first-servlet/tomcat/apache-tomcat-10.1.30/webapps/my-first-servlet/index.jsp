@@ -5,6 +5,7 @@
 </head>
 <body>
 <h2>Welcome to My First Servlet</h2>
-<p>Open <a href="/my-first-servlet/myfirst">/myfirst</a> to test the servlet.</p>
+<p><a href="<%= request.getContextPath() %>/myfirst">Test the first servlet</a></p>
+<p><a href="<%= request.getContextPath() %>/login.html">Open the predefined-user login</a></p>
 </body>
 </html>

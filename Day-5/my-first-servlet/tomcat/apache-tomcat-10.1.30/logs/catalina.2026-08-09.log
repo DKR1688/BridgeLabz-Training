@@ -1,0 +1,48 @@
+09-Aug-2026 10:52:43.878 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.30
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 13 2024 20:26:16 UTC
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.30.0
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21.0.11
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.11+9-LTS-211
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30
+09-Aug-2026 10:52:43.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30
+09-Aug-2026 10:52:43.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\conf\logging.properties
+09-Aug-2026 10:52:43.896 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+09-Aug-2026 10:52:43.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+09-Aug-2026 10:52:43.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+09-Aug-2026 10:52:43.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+09-Aug-2026 10:52:43.897 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+09-Aug-2026 10:52:43.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+09-Aug-2026 10:52:43.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+09-Aug-2026 10:52:43.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+09-Aug-2026 10:52:43.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30
+09-Aug-2026 10:52:43.898 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30
+09-Aug-2026 10:52:43.899 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\temp
+09-Aug-2026 10:52:44.095 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.8] using APR version [1.7.4].
+09-Aug-2026 10:52:44.110 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+09-Aug-2026 10:52:44.357 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+09-Aug-2026 10:52:44.385 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [677] milliseconds
+09-Aug-2026 10:52:44.433 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+09-Aug-2026 10:52:44.433 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.30]
+09-Aug-2026 10:52:44.454 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\my-first-servlet.war]
+09-Aug-2026 10:52:44.470 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\my-first-servlet] was found with a last modified time that did not match the associated WAR. It will be deleted.
+09-Aug-2026 10:52:44.788 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\my-first-servlet.war] has finished in [334] ms
+09-Aug-2026 10:52:44.788 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\docs]
+09-Aug-2026 10:52:44.810 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\docs] has finished in [22] ms
+09-Aug-2026 10:52:44.816 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\examples]
+09-Aug-2026 10:52:45.624 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\examples] has finished in [808] ms
+09-Aug-2026 10:52:45.624 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\host-manager]
+09-Aug-2026 10:52:45.654 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\host-manager] has finished in [30] ms
+09-Aug-2026 10:52:45.654 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\manager]
+09-Aug-2026 10:52:45.676 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\manager] has finished in [22] ms
+09-Aug-2026 10:52:45.676 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\ROOT]
+09-Aug-2026 10:52:45.690 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [D:\BridgeLabz-Training\Day-5\my-first-servlet\tomcat\apache-tomcat-10.1.30\webapps\ROOT] has finished in [14] ms
+09-Aug-2026 10:52:45.690 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+09-Aug-2026 10:52:45.717 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1325] milliseconds
+09-Aug-2026 10:54:38.500 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+09-Aug-2026 10:54:38.510 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+09-Aug-2026 10:54:38.538 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+09-Aug-2026 10:54:38.554 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

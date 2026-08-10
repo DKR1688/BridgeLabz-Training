@@ -1,3 +1,5 @@
+com\mygreetingsapp\config\WebConfig.class
 com\mygreetingsapp\controller\GreetingController.class
+com\mygreetingsapp\EmbeddedServer.class
 com\mygreetingsapp\model\Greeting.class
 com\mygreetingsapp\service\GreetingService.class
