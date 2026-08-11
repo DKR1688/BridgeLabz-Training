@@ -37,10 +37,14 @@ public class ContactController {
     }
 
     @GetMapping
-    public List<ContactResponse> findAll() { return contactService.findAll(); }
+    public List<ContactResponse> findAll() {
+        return contactService.findAll();
+    }
 
     @GetMapping("/{id}")
-    public ContactResponse findById(@PathVariable Long id) { return contactService.findById(id); }
+    public ContactResponse findById(@PathVariable Long id) {
+        return contactService.findById(id);
+    }
 
     @PutMapping("/{id}")
     public ContactResponse update(@PathVariable Long id, @Valid @RequestBody ContactRequest request) {

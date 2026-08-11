@@ -46,7 +46,7 @@ BridgeLabz-Training/
 ```
 
 
-## 🚀 Week 01 - Core Programming
+## 🚀 Week 01
 > 🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics):
 - Completed different types of DBMS – Relational vs Non Relational - when to use what; Introduction to MySQL and RDBMS concepts; DDL (Data Definition Language) and DML (Data Manipulation Language); Completed set up MySQL environment and begin ER Diagram sketch for the Health Clinic app (patients, doctors, appointments); Completed Day 1 assignment;
 
@@ -66,8 +66,13 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 06-August-2026 (Spring MVC):
 - Completed Spring MVC archetecture with dispatcherServlet, controller, views; Learned about request mapping and handling in Spring MVC; Builted My Greetings App using spring MVC with CRUD operations; Created or deployed a basic myFirstServlet on Tomcat;
 
-> 🗓️ 07-August-2026 (Spring REST Api and Request Handling):
+
+## 🚀 Week 02
+> 🗓️ 10-August-2026 (Spring REST Api and Request Handling):
 - Completed Spring REST api programming with building RESTful endpoints to contact-app; Completed Request handling patterns; Completed H2 in memory databases basics; Learned about distributed architectures; Created a contects-app with absic REST endpints;
+
+> 🗓️ 11-August-2026 (SQL quries and spring boot practice):
+- Practiced with SQL quries and spring boot project with curd operation and validation annotation; Continuing contacts-app implementation with new features;
 
 
 
