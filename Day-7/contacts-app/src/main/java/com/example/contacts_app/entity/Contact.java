@@ -1,4 +1,4 @@
-package com.example.contacts_app.model;
+package com.example.contacts_app.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,28 +10,22 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "contacts")
 public class Contact {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 50)
     private String firstName;
-
     @Column(nullable = false, length = 50)
     private String lastName;
-
     @Column(nullable = false, unique = true, length = 254)
     private String email;
-
     @Column(nullable = false, length = 20)
     private String phoneNumber;
-
     @Column(length = 250)
     private String address;
 
-    protected Contact() {
-    }
+    protected Contact() { }
 
     public Contact(String firstName, String lastName, String email, String phoneNumber, String address) {
         this.firstName = firstName;
@@ -41,29 +35,12 @@ public class Contact {
         this.address = address;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
+    public Long getId() { return id; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getEmail() { return email; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public String getAddress() { return address; }
 
     public void update(String firstName, String lastName, String email, String phoneNumber, String address) {
         this.firstName = firstName;

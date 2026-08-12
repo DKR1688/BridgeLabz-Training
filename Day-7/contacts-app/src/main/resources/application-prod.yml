@@ -1,0 +1,10 @@
+spring:
+  h2:
+    console:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  jackson:
+    default-property-inclusion: non_null

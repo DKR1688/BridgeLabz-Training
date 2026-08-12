@@ -1,7 +1,7 @@
 package com.example.contacts_app.controller;
 
-import com.example.contacts_app.dto.ContactRequest;
-import com.example.contacts_app.dto.ContactResponse;
+import com.example.contacts_app.dto.request.ContactRequest;
+import com.example.contacts_app.dto.response.ContactResponse;
 import com.example.contacts_app.service.ContactService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.validation.annotation.Validated;
+import io.swagger.v3.oas.annotations.Operation;
 
 import java.net.URI;
 import java.util.List;
@@ -32,6 +33,7 @@ public class ContactController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a contact")
     public ResponseEntity<ContactResponse> create(@Valid @RequestBody ContactRequest request) {
         ContactResponse contact = contactService.create(request);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
@@ -40,21 +42,25 @@ public class ContactController {
     }
 
     @GetMapping
+    @Operation(summary = "List all contacts")
     public List<ContactResponse> findAll() {
         return contactService.findAll();
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "Get a contact by id")
     public ContactResponse findById(@PathVariable @Positive(message = "Contact id must be positive") Long id) {
         return contactService.findById(id);
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update a contact")
     public ContactResponse update(@PathVariable @Positive(message = "Contact id must be positive") Long id, @Valid @RequestBody ContactRequest request) {
         return contactService.update(id, request);
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a contact")
     public ResponseEntity<Void> delete(@PathVariable @Positive(message = "Contact id must be positive") Long id) {
         contactService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

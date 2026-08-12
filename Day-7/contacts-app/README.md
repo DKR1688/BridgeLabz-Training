@@ -30,4 +30,6 @@ Example request body:
 }
 ```
 
-The H2 console is available at `http://localhost:8080/h2-console` while the app is running. Use JDBC URL `jdbc:h2:mem:contactsdb`.
+The H2 console is available in the default `dev` profile at `http://localhost:8080/h2-console`; use JDBC URL `jdbc:h2:mem:contactsdb`. Interactive API documentation is available at `http://localhost:8080/swagger-ui/index.html`.
+
+The source follows a layered design: `entity`, `repository`, request/response DTOs, `mapper`, service interface and implementation, controller, configuration, and centralized exceptions. Use the `prod` profile only with a configured production datasource.
