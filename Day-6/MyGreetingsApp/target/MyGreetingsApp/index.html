@@ -138,8 +138,8 @@
         try {
             const response = await fetch(`${apiBase}${id}`, { method: 'DELETE' });
             if (!response.ok) throw new Error('Delete failed');
-            showStatus('Greeting deleted successfully.');
             resetForm();
+            showStatus('Greeting deleted successfully.');
             await loadGreetings();
         } catch (error) {
             showStatus(error.message, true);
@@ -166,8 +166,9 @@
                 const errorMsg = response.status === 404 ? 'Greeting not found.' : 'Save failed.';
                 throw new Error(errorMsg);
             }
-            showStatus(editingId ? 'Greeting updated.' : 'Greeting created.');
+            const successMessage = editingId ? 'Greeting updated.' : 'Greeting created.';
             resetForm();
+            showStatus(successMessage);
             await loadGreetings();
         } catch (error) {
             showStatus(error.message || 'Unexpected error', true);
