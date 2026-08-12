@@ -1,5 +1,9 @@
 package com.gla.app.repository;
 
-public class StudentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.gla.app.entity.Student;
+
+public interface StudentRepository extends JpaRepository<Student, Integer> {
 
 }

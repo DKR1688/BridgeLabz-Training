@@ -46,10 +46,11 @@ BridgeLabz-Training/
 ```
 
 
-## 🚀 Week 01
 > 🗓️ 31-July-2026 (DBMS fundamentals & RDBMS basics):
 - Completed different types of DBMS – Relational vs Non Relational - when to use what; Introduction to MySQL and RDBMS concepts; DDL (Data Definition Language) and DML (Data Manipulation Language); Completed set up MySQL environment and begin ER Diagram sketch for the Health Clinic app (patients, doctors, appointments); Completed Day 1 assignment;
 
+
+## 🚀 Week 01
 > 🗓️ 02-August-2026 (ER Diagrams, Indexing and Normalization):
 - Completed ER Diagram design principles – entities, relationships, cardinality; Table Indexing – purpose and performance impact; Normalization Forms (1NF, 2NF, 3NF, BCNF); Completed ER Diagram for the Health Clinic App; Normalize the patient/doctor/appointment schema; Completed Day 2 assignment;
 
@@ -74,7 +75,8 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 11-August-2026 (SQL quries and spring boot practice):
 - Practiced with SQL quries and spring boot project with curd operation and validation annotation; Continuing contacts-app implementation with new features;
 
-
+> 🗓️ 12-August-2026 (Spring Boot Fundamentals):
+- Completed coding review above gla_practice_project with gla_db; Completed Spring Boot with auto configuration, starters and embedded server; Learned and performed Spring controller and REST api basic; Complete gla_practice_project app to gla_db with all curd operations;
 
 
 
