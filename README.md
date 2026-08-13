@@ -78,6 +78,9 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 12-August-2026 (Spring Boot Fundamentals):
 - Completed coding review above gla_practice_project with gla_db; Completed Spring Boot with auto configuration, starters and embedded server; Learned and performed Spring controller and REST api basic; Complete gla_practice_project app to gla_db with all curd operations;
 
+> 🗓️ 13-August-2026 (Dependency Injection and H2 Database):
+- Learned above dependency injection in spring boot and h2 database integration and configuration; Wried H2 databases into contacts-app; Developed Employee payroll app in spring boot with CURD oprations;
+
 
 
 

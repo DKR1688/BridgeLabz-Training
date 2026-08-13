@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:contactsdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    # File-backed H2 keeps contacts after the application is stopped and restarted.
+    url: jdbc:h2:file:./data/contactsdb
     driver-class-name: org.h2.Driver
     username: sa
     password:
