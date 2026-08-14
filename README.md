@@ -81,6 +81,8 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 13-August-2026 (Dependency Injection and H2 Database):
 - Learned above dependency injection in spring boot and h2 database integration and configuration; Wried H2 databases into contacts-app; Developed Employee payroll app in spring boot with CURD oprations;
 
+> 🗓️ 14-August-2026 (Spring Services, Spring JPA and Spring JDBC):
+- Completed service layer design with REST API, repositories and entity mapping with JPA and template-based data access with spring JDBC;
 
 
 
