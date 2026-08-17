@@ -1,0 +1,62 @@
+{
+  "info": {
+    "name": "Employee Payroll App",
+    "description": "CRUD collection with a chained employeeId and response assertions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "employeeId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Create Employee",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Kavya Nair\",\n  \"department\": \"Engineering\",\n  \"salary\": 75000.00\n}" },
+        "url": "{{baseUrl}}/employees"
+      },
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test(\"Status code is 201\", function () { pm.response.to.have.status(201); });",
+        "const employee = pm.response.json();",
+        "pm.test(\"Employee name matches\", function () { pm.expect(employee.name).to.eql(\"Kavya Nair\"); });",
+        "pm.collectionVariables.set(\"employeeId\", employee.employeeId);"
+      ] } }]
+    },
+    {
+      "name": "2. Get Employee by ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+        "pm.test(\"Employee name matches\", function () { pm.expect(pm.response.json().name).to.eql(\"Kavya Nair\"); });"
+      ] } }]
+    },
+    {
+      "name": "3. Update Employee",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Kavya Nair Updated\",\n  \"department\": \"HR\",\n  \"salary\": 80000.00\n}" },
+        "url": "{{baseUrl}}/employees/{{employeeId}}"
+      },
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+        "pm.test(\"Employee was updated\", function () { pm.expect(pm.response.json().name).to.eql(\"Kavya Nair Updated\"); });"
+      ] } }]
+    },
+    {
+      "name": "4. Delete Employee",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test(\"Status code is 204\", function () { pm.response.to.have.status(204); });"
+      ] } }]
+    },
+    {
+      "name": "5. Get Deleted Employee",
+      "request": { "method": "GET", "url": "{{baseUrl}}/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "exec": [
+        "pm.test(\"Status code is 404\", function () { pm.response.to.have.status(404); });"
+      ] } }]
+    }
+  ]
+}

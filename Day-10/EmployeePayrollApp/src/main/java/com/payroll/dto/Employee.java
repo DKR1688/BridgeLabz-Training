@@ -1,23 +1,27 @@
 package com.payroll.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Employee {
-    private int employeeId;
+    private Integer employeeId;
     @NotBlank(message = "Name is required")
     private String name;
     @NotBlank(message = "Department is required")
     private String department;
+    @NotNull(message = "Salary is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "Salary must be positive")
     private BigDecimal salary;
-    private boolean active = true;
+    private Boolean active = true;
 
     public Employee() {
     }
 
-    public Employee(int employeeId, String name, String department, BigDecimal salary, boolean active) {
+    public Employee(Integer employeeId, String name, String department, BigDecimal salary, Boolean active) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
@@ -25,11 +29,11 @@ public class Employee {
         this.active = active;
     }
 
-    public int getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -58,10 +62,10 @@ public class Employee {
     }
 
     public boolean isActive() {
-        return active;
+        return active == null || active;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         this.active = active;
     }
 }

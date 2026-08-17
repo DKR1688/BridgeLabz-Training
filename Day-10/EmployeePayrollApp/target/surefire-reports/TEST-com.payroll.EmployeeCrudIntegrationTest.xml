@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.payroll.EmployeeCrudIntegrationTest" time="2.288" tests="6" errors="0" skipped="0" failures="0" flakes="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\target\test-classes;D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\target\classes;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.1.0\spring-boot-starter-webmvc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter\4.1.0\spring-boot-starter-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.1.0\spring-boot-starter-logging-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\ch\qos\logback\logback-classic\1.5.34\logback-classic-1.5.34.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\ch\qos\logback\logback-core\1.5.34\logback-core-1.5.34.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.4\log4j-to-slf4j-2.25.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.4\log4j-api-2.25.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\slf4j\jul-to-slf4j\2.0.18\jul-to-slf4j-2.0.18.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.1.0\spring-boot-autoconfigure-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\yaml\snakeyaml\2.6\snakeyaml-2.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.1.0\spring-boot-starter-jackson-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jackson\4.1.0\spring-boot-jackson-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\tools\jackson\core\jackson-databind\3.1.4\jackson-databind-3.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.21\jackson-annotations-2.21.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\tools\jackson\core\jackson-core\3.1.4\jackson-core-3.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.1.0\spring-boot-starter-tomcat-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.1.0\spring-boot-starter-tomcat-runtime-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.22\tomcat-embed-core-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.22\tomcat-embed-websocket-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.1.0\spring-boot-tomcat-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.1.0\spring-boot-http-converter-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot\4.1.0\spring-boot-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-context\7.0.8\spring-context-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-web\7.0.8\spring-web-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-beans\7.0.8\spring-beans-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\micrometer\micrometer-observation\1.17.0\micrometer-observation-1.17.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\micrometer\micrometer-commons\1.17.0\micrometer-commons-1.17.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.1.0\spring-boot-webmvc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-servlet\4.1.0\spring-boot-servlet-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-webmvc\7.0.8\spring-webmvc-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-aop\7.0.8\spring-aop-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-expression\7.0.8\spring-expression-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.1.0\spring-boot-starter-jdbc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.1.0\spring-boot-jdbc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-sql\4.1.0\spring-boot-sql-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-transaction\4.1.0\spring-boot-transaction-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-persistence\4.1.0\spring-boot-persistence-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-tx\7.0.8\spring-tx-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-jdbc\7.0.8\spring-jdbc-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\slf4j\slf4j-api\2.0.18\slf4j-api-2.0.18.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.1.0\spring-boot-starter-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.1.0\spring-boot-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.1.0\spring-boot-data-commons-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\data\spring-data-commons\4.1.0\spring-data-commons-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.1.0\spring-boot-hibernate-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jpa\4.1.0\spring-boot-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\orm\hibernate-core\7.4.1.Final\hibernate-core-7.4.1.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\models\hibernate-models\1.1.1\hibernate-models-1.1.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.9\jaxb-runtime-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.9\jaxb-core-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\txw2\4.0.9\txw2-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-orm\7.0.8\spring-orm-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\data\spring-data-jpa\4.1.0\spring-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-aspects\7.0.8\spring-aspects-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.1.0\spring-boot-starter-validation-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-validation\4.1.0\spring-boot-validation-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.22\tomcat-embed-el-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\validator\hibernate-validator\9.1.0.Final\hibernate-validator-9.1.0.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\jboss\logging\jboss-logging\3.6.3.Final\jboss-logging-3.6.3.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\fasterxml\classmate\1.7.3\classmate-1.7.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\mysql\mysql-connector-j\9.7.0\mysql-connector-j-9.7.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.1.0\spring-boot-starter-webmvc-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.1.0\spring-boot-starter-jackson-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.1.0\spring-boot-starter-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-test\4.1.0\spring-boot-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.1.0\spring-boot-test-autoconfigure-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.5\jakarta.xml.bind-api-4.0.5.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\assertj\assertj-core\3.27.7\assertj-core-3.27.7.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\bytebuddy\byte-buddy\1.18.10\byte-buddy-1.18.10.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.3\junit-jupiter-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.3\junit-jupiter-api-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\platform\junit-platform-commons\6.0.3\junit-platform-commons-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.3\junit-jupiter-params-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.3\junit-jupiter-engine-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\platform\junit-platform-engine\6.0.3\junit-platform-engine-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\mockito\mockito-core\5.23.0\mockito-core-5.23.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.10\byte-buddy-agent-1.18.10.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\mockito\mockito-junit-jupiter\5.23.0\mockito-junit-jupiter-5.23.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-core\7.0.8\spring-core-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-test\7.0.8\spring-test-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\xmlunit\xmlunit-core\2.11.0\xmlunit-core-2.11.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.1.0\spring-boot-webmvc-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-web-server\4.1.0\spring-boot-web-server-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.1.0\spring-boot-resttestclient-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\rest-assured\6.0.0\rest-assured-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy\5.0.6\groovy-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy-xml\5.0.6\groovy-xml-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\commons-logging\commons-logging\1.3.6\commons-logging-1.3.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\commons-codec\commons-codec\1.21.0\commons-codec-1.21.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\json-path\6.0.0\json-path-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy-json\5.0.6\groovy-json-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\rest-assured-common\6.0.0\rest-assured-common-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\xml-path\6.0.0\xml-path-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\commons\commons-lang3\3.20.0\commons-lang3-3.20.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="APPLICATION_NAME" value="employee-payroll-app"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21.0.11\bin"/>
+    <property name="sun.java.command" value="C:\Users\tdeep\AppData\Local\Temp\surefire201427457766132577\surefirebooter-20260817144556848_3.jar C:\Users\tdeep\AppData\Local\Temp\surefire201427457766132577 2026-08-17T14-45-56_709-jvmRun1 surefire-20260817144556848_1tmp surefire_0-20260817144556848_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\target\test-classes;D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\target\classes;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.1.0\spring-boot-starter-webmvc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter\4.1.0\spring-boot-starter-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.1.0\spring-boot-starter-logging-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\ch\qos\logback\logback-classic\1.5.34\logback-classic-1.5.34.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\ch\qos\logback\logback-core\1.5.34\logback-core-1.5.34.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.4\log4j-to-slf4j-2.25.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.4\log4j-api-2.25.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\slf4j\jul-to-slf4j\2.0.18\jul-to-slf4j-2.0.18.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.1.0\spring-boot-autoconfigure-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\yaml\snakeyaml\2.6\snakeyaml-2.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.1.0\spring-boot-starter-jackson-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jackson\4.1.0\spring-boot-jackson-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\tools\jackson\core\jackson-databind\3.1.4\jackson-databind-3.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.21\jackson-annotations-2.21.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\tools\jackson\core\jackson-core\3.1.4\jackson-core-3.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.1.0\spring-boot-starter-tomcat-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.1.0\spring-boot-starter-tomcat-runtime-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.22\tomcat-embed-core-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.22\tomcat-embed-websocket-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.1.0\spring-boot-tomcat-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.1.0\spring-boot-http-converter-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot\4.1.0\spring-boot-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-context\7.0.8\spring-context-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-web\7.0.8\spring-web-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-beans\7.0.8\spring-beans-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\micrometer\micrometer-observation\1.17.0\micrometer-observation-1.17.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\micrometer\micrometer-commons\1.17.0\micrometer-commons-1.17.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.1.0\spring-boot-webmvc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-servlet\4.1.0\spring-boot-servlet-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-webmvc\7.0.8\spring-webmvc-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-aop\7.0.8\spring-aop-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-expression\7.0.8\spring-expression-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.1.0\spring-boot-starter-jdbc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.1.0\spring-boot-jdbc-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-sql\4.1.0\spring-boot-sql-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-transaction\4.1.0\spring-boot-transaction-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-persistence\4.1.0\spring-boot-persistence-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-tx\7.0.8\spring-tx-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-jdbc\7.0.8\spring-jdbc-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\slf4j\slf4j-api\2.0.18\slf4j-api-2.0.18.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.1.0\spring-boot-starter-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.1.0\spring-boot-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.1.0\spring-boot-data-commons-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\data\spring-data-commons\4.1.0\spring-data-commons-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.1.0\spring-boot-hibernate-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-jpa\4.1.0\spring-boot-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\orm\hibernate-core\7.4.1.Final\hibernate-core-7.4.1.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\models\hibernate-models\1.1.1\hibernate-models-1.1.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.9\jaxb-runtime-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.9\jaxb-core-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\glassfish\jaxb\txw2\4.0.9\txw2-4.0.9.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-orm\7.0.8\spring-orm-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\data\spring-data-jpa\4.1.0\spring-data-jpa-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-aspects\7.0.8\spring-aspects-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.1.0\spring-boot-starter-validation-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-validation\4.1.0\spring-boot-validation-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.22\tomcat-embed-el-11.0.22.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hibernate\validator\hibernate-validator\9.1.0.Final\hibernate-validator-9.1.0.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\jboss\logging\jboss-logging\3.6.3.Final\jboss-logging-3.6.3.Final.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\fasterxml\classmate\1.7.3\classmate-1.7.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\mysql\mysql-connector-j\9.7.0\mysql-connector-j-9.7.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.1.0\spring-boot-starter-webmvc-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.1.0\spring-boot-starter-jackson-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.1.0\spring-boot-starter-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-test\4.1.0\spring-boot-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.1.0\spring-boot-test-autoconfigure-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.5\jakarta.xml.bind-api-4.0.5.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\assertj\assertj-core\3.27.7\assertj-core-3.27.7.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\bytebuddy\byte-buddy\1.18.10\byte-buddy-1.18.10.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.3\junit-jupiter-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.3\junit-jupiter-api-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\platform\junit-platform-commons\6.0.3\junit-platform-commons-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.3\junit-jupiter-params-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.3\junit-jupiter-engine-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\junit\platform\junit-platform-engine\6.0.3\junit-platform-engine-6.0.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\mockito\mockito-core\5.23.0\mockito-core-5.23.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.10\byte-buddy-agent-1.18.10.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\mockito\mockito-junit-jupiter\5.23.0\mockito-junit-jupiter-5.23.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-core\7.0.8\spring-core-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\spring-test\7.0.8\spring-test-7.0.8.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\xmlunit\xmlunit-core\2.11.0\xmlunit-core-2.11.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.1.0\spring-boot-webmvc-test-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-web-server\4.1.0\spring-boot-web-server-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.1.0\spring-boot-resttestclient-4.1.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\rest-assured\6.0.0\rest-assured-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy\5.0.6\groovy-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy-xml\5.0.6\groovy-xml-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpcore\4.4.16\httpcore-4.4.16.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\commons-logging\commons-logging\1.3.6\commons-logging-1.3.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\commons-codec\commons-codec\1.21.0\commons-codec-1.21.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\json-path\6.0.0\json-path-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\groovy\groovy-json\5.0.6\groovy-json-5.0.6.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\rest-assured-common\6.0.0\rest-assured-common-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\io\rest-assured\xml-path\6.0.0\xml-path-6.0.0.jar;D:\BridgeLabz-Training\.maven-user\.m2\repository\org\apache\commons\commons-lang3\3.20.0\commons-lang3-3.20.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\tdeep"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21.0.11"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\BridgeLabz-Training\Day-10\EmployeePayrollApp"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\tdeep\AppData\Local\Temp\surefire201427457766132577\surefirebooter-20260817144556848_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.11+9-LTS-211"/>
+    <property name="user.name" value="tdeep"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="D:\BridgeLabz-Training\.maven-user\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\tdeep\AppData\Local\Temp\"/>
+    <property name="catalina.home" value="C:\Users\tdeep\AppData\Local\Temp\tomcat.0.10018845715661155844"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="21.0.11"/>
+    <property name="user.dir" value="D:\BridgeLabz-Training\Day-10\EmployeePayrollApp"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="25608"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="C:\Users\tdeep\AppData\Local\Temp\tomcat.0.10018845715661155844"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21.0.11\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\tdeep\.codex\tmp\arg0\codex-arg0L0PgWu;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Apache\Maven\apache-maven-3.9.16\bin;c:\Users\tdeep\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\tdeep\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\tdeep\AppData\Local\Programs\Python\Python314\Scripts\;C:\Users\tdeep\AppData\Local\Programs\Python\Python314\;C:\Users\tdeep\AppData\Local\Microsoft\WindowsApps;C:\Users\tdeep\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Apache\Maven\apache-maven-3.9.16\bin;C:\Users\tdeep\AppData\Local\Programs\Ollama;c:\Users\tdeep\.vscode\extensions\openai.chatgpt-26.810.52044-win32-x64\bin\windows-x86_64;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.11+9-LTS-211"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[employee-payroll-app] "/>
+  </properties>
+  <testcase name="createEmployee" classname="com.payroll.EmployeeCrudIntegrationTest" time="0.652">
+    <system-out><![CDATA[2026-08-17T14:46:10.509+05:30  INFO 25608 --- [employee-payroll-app] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.payroll.EmployeeCrudIntegrationTest]: EmployeeCrudIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-17T14:46:10.513+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Using ContextCustomizerFactory implementations for test class [EmployeeCrudIntegrationTest]: [ImportsContextCustomizerFactory, PropertyMappingContextCustomizerFactory, ExcludeFilterContextCustomizerFactory, TypeExcludeFiltersContextCustomizerFactory, DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory, DuplicateJsonObjectContextCustomizerFactory, OnFailureConditionReportContextCustomizerFactory, OverrideAutoConfigurationContextCustomizerFactory, BeanOverrideContextCustomizerFactory, MockServerContainerContextCustomizerFactory, DynamicPropertiesContextCustomizerFactory, WebDriverContextCustomizerFactory, SpringBootTestRandomPortContextCustomizerFactory]
+2026-08-17T14:46:10.522+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Using ContextCustomizers for test class [EmployeeCrudIntegrationTest]: [PropertyMappingContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, OnFailureConditionReportContextCustomizer, DynamicPropertiesContextCustomizer, WebDriverContextCustomizer, SpringBootTestRandomPortContextCustomizer]
+2026-08-17T14:46:10.524+05:30  INFO 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.payroll.PayrollApplication for test class com.payroll.EmployeeCrudIntegrationTest
+2026-08-17T14:46:10.529+05:30  INFO 25608 --- [employee-payroll-app] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.payroll.EmployeeCrudIntegrationTest]: EmployeeCrudIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-17T14:46:10.536+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Using ContextCustomizerFactory implementations for test class [EmployeeCrudIntegrationTest]: [ImportsContextCustomizerFactory, PropertyMappingContextCustomizerFactory, ExcludeFilterContextCustomizerFactory, TypeExcludeFiltersContextCustomizerFactory, DisableReactorResourceFactoryGlobalResourcesContextCustomizerFactory, DuplicateJsonObjectContextCustomizerFactory, OnFailureConditionReportContextCustomizerFactory, OverrideAutoConfigurationContextCustomizerFactory, BeanOverrideContextCustomizerFactory, MockServerContainerContextCustomizerFactory, DynamicPropertiesContextCustomizerFactory, WebDriverContextCustomizerFactory, SpringBootTestRandomPortContextCustomizerFactory]
+2026-08-17T14:46:10.541+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Using ContextCustomizers for test class [EmployeeCrudIntegrationTest]: [PropertyMappingContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, OnFailureConditionReportContextCustomizer, DynamicPropertiesContextCustomizer, WebDriverContextCustomizer, SpringBootTestRandomPortContextCustomizer]
+2026-08-17T14:46:10.542+05:30  INFO 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.payroll.PayrollApplication for test class com.payroll.EmployeeCrudIntegrationTest
+2026-08-17T14:46:10.546+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [EmployeeCrudIntegrationTest]: using SpringBootContextLoader
+2026-08-17T14:46:10.552+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners for test class [EmployeeCrudIntegrationTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, BeanOverrideTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, CommonCachesTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, MockitoResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener]
+2026-08-17T14:46:10.577+05:30 DEBUG 25608 --- [employee-payroll-app] [           main] o.s.jdbc.core.JdbcTemplate               : Executing SQL update [DELETE FROM employees]
+2026-08-17T14:46:10.746+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/employees", parameters={}
+2026-08-17T14:46:10.746+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#addEmployee(Employee)
+2026-08-17T14:46:10.815+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.payroll.dto.Employee@56ceae72]
+2026-08-17T14:46:10.909+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-2] c.payroll.controller.EmployeeController  : POST /employees name=Kavya Nair
+2026-08-17T14:46:10.910+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-2] com.payroll.service.EmployeeService      : Service: creating employee name=Kavya Nair
+2026-08-17T14:46:10.910+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-2] com.payroll.dao.EmployeeJpaDAO           : Saving employee name=Kavya Nair via JPA
+2026-08-17T14:46:10.975+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (active, department, name, salary, employee_id) 
+    values
+        (?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        employees
+        (active, department, name, salary, employee_id) 
+    values
+        (?, ?, ?, ?, default)
+2026-08-17T14:46:11.109+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:11.109+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.payroll.dto.Employee@799b21b6]
+2026-08-17T14:46:11.118+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+]]></system-out>
+  </testcase>
+  <testcase name="getAllEmployees" classname="com.payroll.EmployeeCrudIntegrationTest" time="1.152">
+    <system-out><![CDATA[2026-08-17T14:46:11.269+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/employees", parameters={}
+2026-08-17T14:46:11.269+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#getAllEmployees()
+2026-08-17T14:46:12.269+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.active=true 
+    order by
+        ee1_0.employee_id
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.active=true 
+    order by
+        ee1_0.employee_id
+2026-08-17T14:46:12.315+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:12.316+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [[com.payroll.dto.Employee@24e95bc0]]
+2026-08-17T14:46:12.317+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+]]></system-out>
+  </testcase>
+  <testcase name="getEmployeeById" classname="com.payroll.EmployeeCrudIntegrationTest" time="0.182">
+    <system-out><![CDATA[2026-08-17T14:46:12.471+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/employees/3", parameters={}
+2026-08-17T14:46:12.471+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#getEmployee(int)
+2026-08-17T14:46:12.519+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+2026-08-17T14:46:12.529+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:12.529+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.payroll.dto.Employee@77656f7]
+2026-08-17T14:46:12.529+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+]]></system-out>
+  </testcase>
+  <testcase name="updateEmployee" classname="com.payroll.EmployeeCrudIntegrationTest" time="0.088">
+    <system-out><![CDATA[2026-08-17T14:46:12.604+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] o.s.web.servlet.DispatcherServlet        : PUT "/employees/3", parameters={}
+2026-08-17T14:46:12.604+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#updateEmployee(int, Employee)
+2026-08-17T14:46:12.609+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.payroll.dto.Employee@6a11c8af]
+2026-08-17T14:46:12.609+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-5] c.payroll.controller.EmployeeController  : PUT /employees/3
+2026-08-17T14:46:12.609+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-5] com.payroll.service.EmployeeService      : Service: updating employee id=3
+2026-08-17T14:46:12.609+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-5] com.payroll.dao.EmployeeJpaDAO           : Updating employee id=3 via JPA
+2026-08-17T14:46:12.609+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+2026-08-17T14:46:12.623+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    update
+        employees 
+    set
+        active=?,
+        department=?,
+        name=?,
+        salary=? 
+    where
+        employee_id=?
+Hibernate: 
+    update
+        employees 
+    set
+        active=?,
+        department=?,
+        name=?,
+        salary=? 
+    where
+        employee_id=?
+2026-08-17T14:46:12.628+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+2026-08-17T14:46:12.629+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:12.630+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.payroll.dto.Employee@dd68b8d]
+2026-08-17T14:46:12.630+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+]]></system-out>
+  </testcase>
+  <testcase name="deleteEmployee" classname="com.payroll.EmployeeCrudIntegrationTest" time="0.086">
+    <system-out><![CDATA[2026-08-17T14:46:12.713+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : DELETE "/employees/3", parameters={}
+2026-08-17T14:46:12.714+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#deleteEmployee(int)
+2026-08-17T14:46:12.716+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-6] c.payroll.controller.EmployeeController  : DELETE /employees/3
+2026-08-17T14:46:12.716+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-6] com.payroll.service.EmployeeService      : Service: deleting employee id=3
+2026-08-17T14:46:12.716+05:30  INFO 25608 --- [employee-payroll-app] [o-auto-1-exec-6] com.payroll.dao.EmployeeJpaDAO           : Deleting employee id=3 via JPA
+2026-08-17T14:46:12.719+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+2026-08-17T14:46:12.734+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        employees 
+    where
+        employee_id=?
+Hibernate: 
+    delete 
+    from
+        employees 
+    where
+        employee_id=?
+2026-08-17T14:46:12.739+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:12.740+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-08-17T14:46:12.740+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 204 NO_CONTENT
+]]></system-out>
+  </testcase>
+  <testcase name="getDeletedEmployeeReturns404" classname="com.payroll.EmployeeCrudIntegrationTest" time="0.037">
+    <system-out><![CDATA[2026-08-17T14:46:12.784+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/employees/3", parameters={}
+2026-08-17T14:46:12.784+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.payroll.controller.EmployeeController#getEmployee(int)
+2026-08-17T14:46:12.785+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] org.hibernate.SQL                        : 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+Hibernate: 
+    select
+        ee1_0.employee_id,
+        ee1_0.active,
+        ee1_0.department,
+        ee1_0.name,
+        ee1_0.salary 
+    from
+        employees ee1_0 
+    where
+        ee1_0.employee_id=? 
+        and ee1_0.active=true
+2026-08-17T14:46:12.786+05:30  WARN 25608 --- [employee-payroll-app] [o-auto-1-exec-7] c.payroll.controller.EmployeeController  : Employee id=3 not found
+2026-08-17T14:46:12.786+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2026-08-17T14:46:12.786+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2026-08-17T14:46:12.786+05:30 DEBUG 25608 --- [employee-payroll-app] [o-auto-1-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,7 +1,9 @@
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\controller\EmployeeController.java
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\dao\ArchivedEmployeeDAO.java
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\dao\EmployeeDAO.java
-D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\dao\EmployeeDAOImpl.java
+D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\dao\EmployeeJpaDAO.java
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\dto\Employee.java
+D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\entity\EmployeeEntity.java
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\PayrollApplication.java
+D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\repository\EmployeeRepository.java
 D:\BridgeLabz-Training\Day-10\EmployeePayrollApp\src\main\java\com\payroll\service\EmployeeService.java
