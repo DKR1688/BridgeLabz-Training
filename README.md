@@ -84,5 +84,7 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 14-August-2026 (Spring Services, Spring JPA and Spring JDBC):
 - Completed service layer design with REST API, repositories and entity mapping with JPA and template-based data access with spring JDBC;
 
+> 🗓️ 17-August-2026 (Spring scopes, logging, postman and maven):
+- Completed above spring bean scopes like singleton, prototype, request and session; Completed postman api testing for Employee payroll app and address book app; Completed logging and dependency management;
 
-
+> 
