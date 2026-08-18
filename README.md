@@ -87,4 +87,6 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 17-August-2026 (Spring scopes, logging, postman and maven):
 - Completed above spring bean scopes like singleton, prototype, request and session; Completed postman api testing for Employee payroll app and address book app; Completed logging and dependency management;
 
-> 
+> 🗓️ 18-August-2026 (Spring Security and JWT authentication):
+- Recaped above spring security fundamentals; Completed JSON Web Token in spring security; Applied security fundamentals and JWT above contacts_app to user authentication; Prepared spring boot project strcture to fundooNotes app to user management;
+
