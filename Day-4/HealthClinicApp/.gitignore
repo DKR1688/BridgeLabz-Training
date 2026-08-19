@@ -32,3 +32,6 @@ target/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Maven build output and local IDE metadata
+**/bin/

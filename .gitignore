@@ -1,3 +1,38 @@
-/bin/
-.classpath
-.project
+# Java and Maven build output
+**/target/
+**/bin/
+*.class
+
+# Local dependency cache
+.maven-user/
+
+# IDE and editor metadata
+**/.classpath
+**/.project
+**/.settings/
+**/.factorypath
+**/.apt_generated/
+**/.idea/
+**/*.iml
+**/*.ipr
+**/*.iws
+**/.vscode/
+
+# Local environment and temporary files
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Day 5: downloaded servlet container and deployment output
+Day-5/my-first-servlet/tomcat/
+Day-5/my-first-servlet/tomcat.zip
+
+# Day 7: file-backed H2 database generated during local development
+Day-7/contacts-app/data/*.mv.db
+Day-7/contacts-app/data/*.trace.db

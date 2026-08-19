@@ -1,4 +1,4 @@
-# Maven build output and local IDE metadata
+# Common generated files and local editor metadata
 **/target/
 **/bin/
 *.class

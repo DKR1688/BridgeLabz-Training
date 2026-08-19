@@ -9,5 +9,7 @@
 **/.project
 *.log
 *.tmp
-.DS_Store
-Thumbs.db
+
+# Downloaded Tomcat runtime and its deployed application
+my-first-servlet/tomcat/
+my-first-servlet/tomcat.zip

@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Maven build output and local IDE metadata
+**/target/
+**/bin/
+*.class
+**/.settings/
+**/.idea/
+**/.vscode/
+**/.classpath
+**/.project
+*.log
+*.tmp
+
+# File-backed H2 database created during local development
+contacts-app/data/*.mv.db
+contacts-app/data/*.trace.db

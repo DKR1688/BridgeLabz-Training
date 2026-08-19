@@ -31,3 +31,17 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Maven build output and local IDE metadata
+**/target/
+**/bin/
+*.class
+**/.settings/
+**/.idea/
+**/.vscode/
+**/.classpath
+**/.project
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

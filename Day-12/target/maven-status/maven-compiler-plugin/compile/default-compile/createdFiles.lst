@@ -1,5 +1,0 @@
-com\addressbook\repository\AddressRepository.class
-com\addressbook\service\AddressService.class
-com\addressbook\AddressBookApplication.class
-com\addressbook\controller\AddressController.class
-com\addressbook\entity\Address.class
