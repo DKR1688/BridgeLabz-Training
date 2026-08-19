@@ -1,0 +1,13 @@
+# Common generated files and local editor metadata
+**/target/
+**/bin/
+*.class
+**/.settings/
+**/.idea/
+**/.vscode/
+**/.classpath
+**/.project
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

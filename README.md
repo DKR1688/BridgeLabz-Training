@@ -90,3 +90,6 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 18-August-2026 (Spring Security and JWT authentication):
 - Recaped above spring security fundamentals; Completed JSON Web Token in spring security; Applied security fundamentals and JWT above contacts_app to user authentication; Prepared spring boot project strcture to fundooNotes app to user management;
 
+> 🗓️ 19-August-2026 (Authorization & JPA for Notes Management):
+- Implemented per-request JWT validation via OncePerRequestFilter and populated SecurityContextHolder; Implemented ownership authorization and IDOR prevention for Fundoo Notes app; Established bidirectional JPA relationships: @OneToMany / @ManyToOne between User and Note, and @ManyToMany between Note and Tag via note_tags junction table; Demonstrated and resolved LazyInitializationException with JPA JOIN FETCH queries; Created and executed comprehensive integration test suite covering all Day 14 problems.
+
