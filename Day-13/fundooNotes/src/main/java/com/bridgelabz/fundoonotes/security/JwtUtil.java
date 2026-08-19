@@ -16,7 +16,7 @@ public class JwtUtil {
     private final long expirationMillis;
 
     public JwtUtil(@Value("${app.jwt.secret}") String base64Secret,
-                   @Value("${app.jwt.expiration-millis}") long expirationMillis) {
+            @Value("${app.jwt.expiration-millis}") long expirationMillis) {
         this.signingKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(base64Secret));
         this.expirationMillis = expirationMillis;
     }
@@ -30,5 +30,18 @@ public class JwtUtil {
 
     public Claims parseSignedClaims(String token) {
         return Jwts.parser().verifyWith(signingKey).build().parseSignedClaims(token).getPayload();
+    }
+
+    public boolean isTokenValid(String token) {
+        try {
+            parseSignedClaims(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public String extractUserId(String token) {
+        return parseSignedClaims(token).getSubject();
     }
 }
