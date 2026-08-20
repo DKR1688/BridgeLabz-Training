@@ -23,6 +23,19 @@ public class Note {
 
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    public enum NoteState {
+        ACTIVE,
+        ARCHIVED,
+        TRASHED
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private NoteState state = NoteState.ACTIVE;
+
+    @Column(nullable = false)
+    private boolean pinned = false;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({ "notes", "passwordHash" })
@@ -39,6 +52,8 @@ public class Note {
         this.title = title;
         this.content = content;
         this.owner = owner;
+        this.state = NoteState.ACTIVE;
+        this.pinned = false;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -88,6 +103,22 @@ public class Note {
 
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
+    }
+
+    public NoteState getState() {
+        return state;
+    }
+
+    public void setState(NoteState state) {
+        this.state = state;
+    }
+
+    public boolean isPinned() {
+        return pinned;
+    }
+
+    public void setPinned(boolean pinned) {
+        this.pinned = pinned;
     }
 
     public void addTag(Tag tag) {

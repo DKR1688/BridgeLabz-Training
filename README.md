@@ -93,3 +93,7 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 19-August-2026 (Authorization & JPA for Notes Management):
 - Implemented per-request JWT validation via OncePerRequestFilter and populated SecurityContextHolder; Implemented ownership authorization and IDOR prevention for Fundoo Notes app; Established bidirectional JPA relationships: @OneToMany / @ManyToOne between User and Note, and @ManyToMany between Note and Tag via note_tags junction table; Demonstrated and resolved LazyInitializationException with JPA JOIN FETCH queries; Created and executed comprehensive integration test suite covering all Day 14 problems.
 
+> 🗓️ 20-August-2026 (Note Organisation: Pin/Archive/Trash, Search & Tags):
+- Implemented Note state management (ACTIVE, ARCHIVED, TRASHED) with @Enumerated(EnumType.STRING) and independent pinned attribute in Fundoo Notes app; Built PATCH action endpoints (/archive, /trash, /restore, /pin, /unpin); Implemented dynamic multi-filter search using Spring Data JPA Specification and CriteriaBuilder scoped to authenticated user; Managed @ManyToMany Note-Tag relationships with junction table queries; Created NoteOrganisationIntegrationTest covering all 6 Day 15 problems.
+
+
