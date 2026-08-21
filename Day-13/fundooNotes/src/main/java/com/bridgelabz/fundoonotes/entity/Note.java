@@ -3,7 +3,9 @@ package com.bridgelabz.fundoonotes.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -36,6 +38,18 @@ public class Note {
     @Column(nullable = false)
     private boolean pinned = false;
 
+    @Column(length = 50)
+    private String color;
+
+    @Column(length = 50)
+    private String typeOfNote = "TEXT";
+
+    @Column(length = 500)
+    private String imageUrl;
+
+    @Column(length = 500)
+    private String linkUrl;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnoreProperties({ "notes", "passwordHash" })
@@ -44,6 +58,11 @@ public class Note {
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
     @JoinTable(name = "note_tags", joinColumns = @JoinColumn(name = "note_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags = new HashSet<>();
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "note_reminders", joinColumns = @JoinColumn(name = "note_id"))
+    @Column(name = "reminder_time")
+    private List<LocalDateTime> reminders = new ArrayList<>();
 
     public Note() {
     }
@@ -65,6 +84,14 @@ public class Note {
         this.noteId = noteId;
     }
 
+    public int getId() {
+        return noteId;
+    }
+
+    public void setId(int id) {
+        this.noteId = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -79,6 +106,14 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDescription() {
+        return content;
+    }
+
+    public void setDescription(String description) {
+        this.content = description;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -105,6 +140,14 @@ public class Note {
         this.tags = tags;
     }
 
+    public Set<Tag> getLabels() {
+        return tags;
+    }
+
+    public void setLabels(Set<Tag> labels) {
+        this.tags = labels;
+    }
+
     public NoteState getState() {
         return state;
     }
@@ -119,6 +162,90 @@ public class Note {
 
     public void setPinned(boolean pinned) {
         this.pinned = pinned;
+    }
+
+    public boolean isPined() {
+        return pinned;
+    }
+
+    public void setPined(boolean pined) {
+        this.pinned = pined;
+    }
+
+    public boolean isArchived() {
+        return this.state == NoteState.ARCHIVED;
+    }
+
+    public void setArchived(boolean archived) {
+        if (archived) {
+            this.state = NoteState.ARCHIVED;
+            this.pinned = false;
+        } else if (this.state == NoteState.ARCHIVED) {
+            this.state = NoteState.ACTIVE;
+        }
+    }
+
+    public boolean isDeleted() {
+        return this.state == NoteState.TRASHED;
+    }
+
+    public void setDeleted(boolean deleted) {
+        if (deleted) {
+            this.state = NoteState.TRASHED;
+            this.pinned = false;
+        } else if (this.state == NoteState.TRASHED) {
+            this.state = NoteState.ACTIVE;
+        }
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTypeOfNote() {
+        return typeOfNote;
+    }
+
+    public void setTypeOfNote(String typeOfNote) {
+        this.typeOfNote = typeOfNote;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getLinkUrl() {
+        return linkUrl;
+    }
+
+    public void setLinkUrl(String linkUrl) {
+        this.linkUrl = linkUrl;
+    }
+
+    public List<LocalDateTime> getReminders() {
+        return reminders;
+    }
+
+    public void setReminders(List<LocalDateTime> reminders) {
+        this.reminders = (reminders != null) ? reminders : new ArrayList<>();
+    }
+
+    public void addReminder(LocalDateTime reminder) {
+        if (reminder != null && !this.reminders.contains(reminder)) {
+            this.reminders.add(reminder);
+        }
+    }
+
+    public void removeReminder(LocalDateTime reminder) {
+        this.reminders.remove(reminder);
     }
 
     public void addTag(Tag tag) {

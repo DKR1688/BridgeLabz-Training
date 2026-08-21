@@ -1,5 +1,6 @@
 package com.bridgelabz.fundoonotes.security;
 
+import com.bridgelabz.fundoonotes.service.TokenCacheService;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -21,10 +22,10 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
-    private final JwtUtil jwtUtil;
+    private final TokenCacheService tokenCacheService;
 
-    public JwtAuthenticationFilter(JwtUtil jwtUtil) {
-        this.jwtUtil = jwtUtil;
+    public JwtAuthenticationFilter(TokenCacheService tokenCacheService) {
+        this.tokenCacheService = tokenCacheService;
     }
 
     @Override
@@ -41,10 +42,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String token = authHeader.substring(7);
         try {
-            if (jwtUtil.isTokenValid(token)) {
-                String userId = jwtUtil.extractUserId(token);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userId,
-                        null, Collections.emptyList());
+            if (tokenCacheService.isTokenValid(token)) {
+                String userId = tokenCacheService.extractUserId(token);
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                        userId,
+                        null,
+                        Collections.emptyList()
+                );
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 logger.debug("JwtAuthFilter: URI={} | Valid token found for userId={}", uri, userId);

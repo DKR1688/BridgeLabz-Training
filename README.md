@@ -96,4 +96,6 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 20-August-2026 (Note Organisation: Pin/Archive/Trash, Search & Tags):
 - Implemented Note state management (ACTIVE, ARCHIVED, TRASHED) with @Enumerated(EnumType.STRING) and independent pinned attribute in Fundoo Notes app; Built PATCH action endpoints (/archive, /trash, /restore, /pin, /unpin); Implemented dynamic multi-filter search using Spring Data JPA Specification and CriteriaBuilder scoped to authenticated user; Managed @ManyToMany Note-Tag relationships with junction table queries; Created NoteOrganisationIntegrationTest covering all 6 Day 15 problems.
 
+> 🗓️ 21-August-2026 (JMS Asynchronous Reminders, Async Recovery & Redis Token Caching):
+- Configured Apache Artemis embedded JMS broker for asynchronous reminder publishing and consumption in Fundoo Notes app; Implemented sub-50ms instant return for reminder endpoints while processing background jobs via @JmsListener; Implemented asynchronous password recovery event dispatch via JMS; Integrated Redis token validation caching via TokenCacheService and RedisTemplate with TTL enforcement strictly derived from the JWT's remaining expiration;
 

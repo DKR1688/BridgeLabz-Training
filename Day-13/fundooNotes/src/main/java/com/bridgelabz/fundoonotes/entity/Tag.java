@@ -14,8 +14,16 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tagId;
 
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(nullable = false, length = 100)
     private String name;
+
+    @Column(nullable = false)
+    private boolean isDeleted = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User owner;
 
     @ManyToMany(mappedBy = "tags", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -28,6 +36,11 @@ public class Tag {
         this.name = name;
     }
 
+    public Tag(String name, User owner) {
+        this.name = name;
+        this.owner = owner;
+    }
+
     public int getTagId() {
         return tagId;
     }
@@ -36,12 +49,46 @@ public class Tag {
         this.tagId = tagId;
     }
 
+    // Alias for Use Case 6 NoteLabel id
+    public int getId() {
+        return tagId;
+    }
+
+    public void setId(int id) {
+        this.tagId = id;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    // Alias for Use Case 6 NoteLabel label
+    public String getLabel() {
+        return name;
+    }
+
+    public void setLabel(String label) {
+        this.name = label;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public Set<Note> getNotes() {
@@ -59,11 +106,14 @@ public class Tag {
         if (o == null || getClass() != o.getClass())
             return false;
         Tag tag = (Tag) o;
-        return Objects.equals(name, tag.name);
+        if (tagId != 0 && tag.tagId != 0) {
+            return tagId == tag.tagId;
+        }
+        return Objects.equals(name, tag.name) && Objects.equals(owner, tag.owner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(tagId != 0 ? tagId : name);
     }
 }

@@ -9,6 +9,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
+    @Column(length = 50)
+    private String firstName;
+
+    @Column(length = 50)
+    private String lastName;
+
     @Column(nullable = false, unique = true, length = 254)
     private String email;
 
@@ -35,6 +41,35 @@ public class User {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+        updateCombinedName();
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+        updateCombinedName();
+    }
+
+    private void updateCombinedName() {
+        if (firstName != null || lastName != null) {
+            String f = firstName != null ? firstName.trim() : "";
+            String l = lastName != null ? lastName.trim() : "";
+            String combined = (f + " " + l).trim();
+            if (!combined.isEmpty()) {
+                this.name = combined;
+            }
+        }
     }
 
     public String getEmail() {

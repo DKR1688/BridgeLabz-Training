@@ -34,14 +34,39 @@ public class JwtUtil {
 
     public boolean isTokenValid(String token) {
         try {
-            parseSignedClaims(token);
-            return true;
+            Claims claims = parseSignedClaims(token);
+            Date expiration = claims.getExpiration();
+            return expiration != null && expiration.after(new Date());
         } catch (Exception e) {
             return false;
         }
     }
 
     public String extractUserId(String token) {
-        return parseSignedClaims(token).getSubject();
+        try {
+            return parseSignedClaims(token).getSubject();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public Date extractExpiration(String token) {
+        try {
+            return parseSignedClaims(token).getExpiration();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public long getRemainingTtlMillis(String token) {
+        try {
+            Date expiration = extractExpiration(token);
+            if (expiration == null)
+                return 0;
+            long remaining = expiration.getTime() - System.currentTimeMillis();
+            return Math.max(0, remaining);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 }

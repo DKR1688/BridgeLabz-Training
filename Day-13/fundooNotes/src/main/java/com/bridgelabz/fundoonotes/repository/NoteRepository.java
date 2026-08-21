@@ -16,29 +16,32 @@ import java.util.Optional;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Integer>, JpaSpecificationExecutor<Note> {
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findByOwner(User owner);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     Optional<Note> findByNoteIdAndOwner(int noteId, User owner);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     Optional<Note> findByNoteIdAndOwner_UserId(int noteId, int userId);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findByOwnerAndState(User owner, Note.NoteState state);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findByOwnerAndPinnedTrueAndStateNot(User owner, Note.NoteState excludedState);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findByOwnerAndPinnedTrueAndState(User owner, Note.NoteState state);
 
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findByOwnerAndTagsName(User owner, String tagName);
 
+    @EntityGraph(attributePaths = { "tags" })
+    List<Note> findByOwnerAndTagsNameAndTagsIsDeletedFalse(User owner, String tagName);
+
     @Override
-    @EntityGraph(attributePaths = {"tags"})
+    @EntityGraph(attributePaths = { "tags" })
     List<Note> findAll(Specification<Note> spec);
 
     @Query("SELECT n FROM Note n LEFT JOIN FETCH n.tags WHERE n.noteId = :noteId AND n.owner = :owner")
@@ -46,4 +49,7 @@ public interface NoteRepository extends JpaRepository<Note, Integer>, JpaSpecifi
 
     @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags WHERE n.owner = :owner")
     List<Note> findByOwnerWithTags(@Param("owner") User owner);
+
+    @Query("SELECT DISTINCT n FROM Note n WHERE n.owner = :owner AND SIZE(n.reminders) > 0")
+    List<Note> findNotesWithRemindersByOwner(@Param("owner") User owner);
 }

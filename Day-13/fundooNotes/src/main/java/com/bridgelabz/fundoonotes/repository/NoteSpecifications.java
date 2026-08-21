@@ -13,6 +13,21 @@ public class NoteSpecifications {
     public static Specification<Note> search(
             User owner,
             String titleText,
+            String state,
+            String labelName) {
+        Note.NoteState noteState = null;
+        if (state != null && !state.isBlank()) {
+            try {
+                noteState = Note.NoteState.valueOf(state.trim().toUpperCase());
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
+        return search(owner, titleText, noteState, labelName, null);
+    }
+
+    public static Specification<Note> search(
+            User owner,
+            String titleText,
             Note.NoteState state,
             String tagName) {
         return search(owner, titleText, state, tagName, null);
