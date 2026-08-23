@@ -59,6 +59,14 @@ public class Note {
     @JoinTable(name = "note_tags", joinColumns = @JoinColumn(name = "note_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "note_collaborators", joinColumns = @JoinColumn(name = "note_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @JsonIgnoreProperties({ "notes", "passwordHash" })
+    private Set<User> collaborators = new HashSet<>();
+
+    @OneToMany(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<NoteCheckList> checkLists = new ArrayList<>();
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "note_reminders", joinColumns = @JoinColumn(name = "note_id"))
     @Column(name = "reminder_time")
@@ -256,6 +264,48 @@ public class Note {
     public void removeTag(Tag tag) {
         this.tags.remove(tag);
         tag.getNotes().remove(this);
+    }
+
+    public Set<User> getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(Set<User> collaborators) {
+        this.collaborators = (collaborators != null) ? collaborators : new HashSet<>();
+    }
+
+    public void addCollaborator(User user) {
+        if (user != null) {
+            this.collaborators.add(user);
+        }
+    }
+
+    public void removeCollaborator(User user) {
+        if (user != null) {
+            this.collaborators.remove(user);
+        }
+    }
+
+    public List<NoteCheckList> getCheckLists() {
+        return checkLists;
+    }
+
+    public void setCheckLists(List<NoteCheckList> checkLists) {
+        this.checkLists = (checkLists != null) ? checkLists : new ArrayList<>();
+    }
+
+    public void addCheckList(NoteCheckList item) {
+        if (item != null) {
+            this.checkLists.add(item);
+            item.setNote(this);
+        }
+    }
+
+    public void removeCheckList(NoteCheckList item) {
+        if (item != null) {
+            this.checkLists.remove(item);
+            item.setNote(null);
+        }
     }
 
     @Override

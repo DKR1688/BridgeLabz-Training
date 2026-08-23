@@ -1,17 +1,19 @@
 package com.bridgelabz.fundoonotes.controller;
 
-import com.bridgelabz.fundoonotes.dto.NoteRequest;
-import com.bridgelabz.fundoonotes.dto.NoteResponse;
-import com.bridgelabz.fundoonotes.dto.ReminderRequest;
-import com.bridgelabz.fundoonotes.dto.TagRequest;
+import com.bridgelabz.fundoonotes.dto.*;
 import com.bridgelabz.fundoonotes.entity.Note;
-import com.bridgelabz.fundoonotes.service.NoteService;
+import com.bridgelabz.fundoonotes.exception.NoteNotFoundException;
+import com.bridgelabz.fundoonotes.service.*;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +23,21 @@ import java.util.Map;
 public class NoteController {
 
     private final NoteService noteService;
+    private final CheckListService checkListService;
+    private final CollaboratorService collaboratorService;
+    private final NoteBatchService noteBatchService;
+    private final NoteExportService noteExportService;
 
-    public NoteController(NoteService noteService) {
+    public NoteController(NoteService noteService,
+            CheckListService checkListService,
+            CollaboratorService collaboratorService,
+            NoteBatchService noteBatchService,
+            NoteExportService noteExportService) {
         this.noteService = noteService;
+        this.checkListService = checkListService;
+        this.collaboratorService = collaboratorService;
+        this.noteBatchService = noteBatchService;
+        this.noteExportService = noteExportService;
     }
 
     private int currentUserId() {
@@ -92,12 +106,13 @@ public class NoteController {
     }
 
     @GetMapping({ "/getNotesDetail/{noteId}", "/{id}" })
-    public ResponseEntity<NoteResponse> getNoteById(@PathVariable(name = "noteId", required = false) Integer noteId,
+    public ResponseEntity<NoteResponse> getNoteById(
+            @PathVariable(name = "noteId", required = false) Integer noteId,
             @PathVariable(name = "id", required = false) Integer id) {
         int targetId = (noteId != null) ? noteId : id;
         return noteService.getNoteById(targetId, currentUserId())
                 .map(note -> ResponseEntity.ok(NoteResponse.fromEntity(note)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseThrow(() -> new NoteNotFoundException("Note not found"));
     }
 
     @PostMapping("/updateNotes")
@@ -118,7 +133,7 @@ public class NoteController {
         return noteService
                 .updateNote(targetId, currentUserId(), title, content, color, typeOfNote, imageUrl, linkUrl, null, null)
                 .map(note -> ResponseEntity.ok(NoteResponse.fromEntity(note)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseThrow(() -> new NoteNotFoundException("Note not found"));
     }
 
     @PutMapping("/{id}")
@@ -135,13 +150,16 @@ public class NoteController {
                 request.resolvedTags(),
                 request.reminders())
                 .map(note -> ResponseEntity.ok(NoteResponse.fromEntity(note)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseThrow(() -> new NoteNotFoundException("Note not found"));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteNote(@PathVariable int id) {
         boolean deleted = noteService.deleteNote(id, currentUserId());
-        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        if (!deleted) {
+            throw new NoteNotFoundException("Note not found");
+        }
+        return ResponseEntity.noContent().build();
     }
 
     // ==========================================
@@ -223,13 +241,19 @@ public class NoteController {
                         ? Integer.parseInt(body.get("noteId").toString())
                         : 0);
         boolean deleted = noteService.deleteForeverNote(targetId, currentUserId());
-        return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        if (!deleted) {
+            throw new NoteNotFoundException("Note not found");
+        }
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}/deleteForeverNotes")
     public ResponseEntity<Void> deleteForeverNote(@PathVariable int id) {
         boolean deleted = noteService.deleteForeverNote(id, currentUserId());
-        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        if (!deleted) {
+            throw new NoteNotFoundException("Note not found");
+        }
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/getArchiveNotesList")
@@ -350,5 +374,135 @@ public class NoteController {
                 .stream()
                 .map(NoteResponse::fromEntity)
                 .toList();
+    }
+
+    // ==========================================
+    // Use Case 12: Checklist Items on Notes
+    // ==========================================
+
+    @GetMapping("/{id}/noteCheckLists")
+    public List<CheckListResponse> getCheckLists(@PathVariable int id) {
+        return checkListService.getCheckLists(id, currentUserId());
+    }
+
+    @PostMapping("/{id}/noteCheckLists")
+    public ResponseEntity<CheckListResponse> addCheckListItem(
+            @PathVariable int id,
+            @Valid @RequestBody CheckListRequest request) {
+        CheckListResponse response = checkListService.addCheckListItem(id, currentUserId(), request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PutMapping("/{id}/noteCheckLists/{fk}")
+    public ResponseEntity<CheckListResponse> updateCheckListItem(
+            @PathVariable int id,
+            @PathVariable int fk,
+            @RequestBody CheckListRequest request) {
+        CheckListResponse response = checkListService.updateCheckListItem(id, fk, currentUserId(), request);
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/{id}/noteCheckLists/{fk}")
+    public ResponseEntity<Void> deleteCheckListItem(
+            @PathVariable int id,
+            @PathVariable int fk) {
+        checkListService.deleteCheckListItem(id, fk, currentUserId());
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/{id}/noteCheckLists/completeAll")
+    public List<CheckListResponse> completeAllCheckListItems(@PathVariable int id) {
+        return checkListService.bulkCompleteAll(id, currentUserId());
+    }
+
+    @PutMapping("/{id}/noteCheckLists/completeAll")
+    public List<CheckListResponse> completeAllCheckListItemsPut(@PathVariable int id) {
+        return checkListService.bulkCompleteAll(id, currentUserId());
+    }
+
+    // ==========================================
+    // Use Case 13: Collaborators on Notes
+    // ==========================================
+
+    @PostMapping("/{id}/AddcollaboratorsNotes")
+    public ResponseEntity<CollaboratorResponse> addCollaborator(
+            @PathVariable int id,
+            @RequestParam(required = false) String email,
+            @RequestBody(required = false) Map<String, Object> body) {
+        String targetEmail = (email != null && !email.isBlank()) ? email
+                : (body != null && body.containsKey("email") ? body.get("email").toString() : null);
+        Integer targetUserId = (body != null && body.containsKey("userId"))
+                ? Integer.parseInt(body.get("userId").toString())
+                : null;
+
+        CollaboratorResponse response = collaboratorService.addCollaborator(id, currentUserId(), targetEmail,
+                targetUserId);
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/{id}/collaborators")
+    public ResponseEntity<CollaboratorResponse> addCollaboratorRestful(
+            @PathVariable int id,
+            @RequestBody CollaboratorRequest request) {
+        CollaboratorResponse response = collaboratorService.addCollaborator(id, currentUserId(), request.email(),
+                request.userId());
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @DeleteMapping("/{id}/removeCollaboratorsNotes/{collaboratorUserId}")
+    public ResponseEntity<Void> removeCollaborator(
+            @PathVariable int id,
+            @PathVariable int collaboratorUserId) {
+        boolean removed = collaboratorService.removeCollaborator(id, currentUserId(), collaboratorUserId);
+        if (!removed) {
+            throw new NoteNotFoundException("Collaborator not found or note not found");
+        }
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}/collaborators/{collaboratorUserId}")
+    public ResponseEntity<Void> removeCollaboratorRestful(
+            @PathVariable int id,
+            @PathVariable int collaboratorUserId) {
+        boolean removed = collaboratorService.removeCollaborator(id, currentUserId(), collaboratorUserId);
+        if (!removed) {
+            throw new NoteNotFoundException("Collaborator not found or note not found");
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/collaborators")
+    public List<CollaboratorResponse> getCollaborators(@PathVariable int id) {
+        return collaboratorService.getCollaborators(id, currentUserId());
+    }
+
+    // ==========================================
+    // Use Case 11: Spring Batch Import / POI Export
+    // ==========================================
+
+    @PostMapping(value = "/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<BatchJobResponse> importNotes(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ResponseEntity.badRequest()
+                    .body(new BatchJobResponse(0, 0, 0, "FAILED", "Uploaded file is empty"));
+        }
+
+        try (InputStream is = file.getInputStream()) {
+            BatchJobResponse response = noteBatchService.importNotes(currentUserId(), is);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new BatchJobResponse(0, 0, 0, "FAILED", "Import error: " + e.getMessage()));
+        }
+    }
+
+    @GetMapping({ "/export", "/exportExcel" })
+    public ResponseEntity<byte[]> exportNotes() {
+        byte[] excelBytes = noteExportService.exportUserNotesToExcel(currentUserId());
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"fundoo_notes.xlsx\"")
+                .contentType(
+                        MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+                .body(excelBytes);
     }
 }
