@@ -4,6 +4,10 @@ import com.bridgelabz.fundoonotes.dto.ReminderMessage;
 import com.bridgelabz.fundoonotes.entity.Note;
 import com.bridgelabz.fundoonotes.entity.Tag;
 import com.bridgelabz.fundoonotes.entity.User;
+import com.bridgelabz.fundoonotes.exception.InvalidNoteStateException;
+import com.bridgelabz.fundoonotes.exception.NoteNotFoundException;
+import com.bridgelabz.fundoonotes.exception.UnauthorizedActionException;
+import com.bridgelabz.fundoonotes.exception.UserNotFoundException;
 import com.bridgelabz.fundoonotes.repository.NoteRepository;
 import com.bridgelabz.fundoonotes.repository.NoteSpecifications;
 import com.bridgelabz.fundoonotes.repository.TagRepository;
@@ -24,15 +28,18 @@ public class NoteService {
     private final UserRepository userRepository;
     private final TagRepository tagRepository;
     private final JmsProducerService jmsProducerService;
+    private final RabbitProducerService rabbitProducerService;
 
     public NoteService(NoteRepository noteRepository,
             UserRepository userRepository,
             TagRepository tagRepository,
-            @Autowired(required = false) JmsProducerService jmsProducerService) {
+            @Autowired(required = false) JmsProducerService jmsProducerService,
+            @Autowired(required = false) RabbitProducerService rabbitProducerService) {
         this.noteRepository = noteRepository;
         this.userRepository = userRepository;
         this.tagRepository = tagRepository;
         this.jmsProducerService = jmsProducerService;
+        this.rabbitProducerService = rabbitProducerService;
     }
 
     private Note initializeNote(Note note) {
@@ -42,6 +49,12 @@ public class NoteService {
             }
             if (note.getReminders() != null) {
                 note.getReminders().size();
+            }
+            if (note.getCollaborators() != null) {
+                note.getCollaborators().size();
+            }
+            if (note.getCheckLists() != null) {
+                note.getCheckLists().size();
             }
         }
         return note;
@@ -168,8 +181,9 @@ public class NoteService {
 
     @Transactional(readOnly = true)
     public Optional<Note> getNoteById(int noteId, int userId) {
-        User owner = getOwnerOrThrow(userId);
-        return noteRepository.findByNoteIdAndOwnerWithTags(noteId, owner).map(this::initializeNote);
+        User user = getOwnerOrThrow(userId);
+        return noteRepository.findByNoteIdAndOwnerOrCollaboratorsContaining(noteId, user, user)
+                .map(this::initializeNote);
     }
 
     public Optional<Note> updateNote(int noteId, int userId, String title, String content) {
@@ -190,9 +204,9 @@ public class NoteService {
             String linkUrl,
             Set<String> tagNames,
             List<LocalDateTime> reminders) {
-        User owner = getOwnerOrThrow(userId);
+        User user = getOwnerOrThrow(userId);
 
-        return noteRepository.findByNoteIdAndOwner(noteId, owner)
+        return noteRepository.findByNoteIdAndOwnerOrCollaboratorsContaining(noteId, user, user)
                 .map(note -> {
                     if (title != null) {
                         note.setTitle(title.trim());
@@ -214,11 +228,12 @@ public class NoteService {
                     }
                     if (tagNames != null) {
                         note.getTags().clear();
+                        User tagOwner = note.getOwner();
                         for (String rawTagName : tagNames) {
                             if (rawTagName != null && !rawTagName.trim().isEmpty()) {
                                 String tagName = rawTagName.trim();
-                                Tag tag = tagRepository.findByNameAndOwner(tagName, owner)
-                                        .orElseGet(() -> tagRepository.save(new Tag(tagName, owner)));
+                                Tag tag = tagRepository.findByNameAndOwner(tagName, tagOwner)
+                                        .orElseGet(() -> tagRepository.save(new Tag(tagName, tagOwner)));
                                 note.addTag(tag);
                             }
                         }
@@ -232,13 +247,30 @@ public class NoteService {
     }
 
     public boolean deleteNote(int noteId, int requestingUserId) {
-        User owner = getOwnerOrThrow(requestingUserId);
-        return noteRepository.findByNoteIdAndOwner(noteId, owner)
-                .map(note -> {
-                    noteRepository.delete(note);
-                    return true;
-                })
-                .orElse(false);
+        User user = getOwnerOrThrow(requestingUserId);
+
+        // Check if note exists
+        Optional<Note> accessibleNote = noteRepository.findByNoteIdAndOwnerOrCollaboratorsContaining(noteId, user,
+                user);
+        if (accessibleNote.isEmpty()) {
+            return false;
+        }
+
+        Note note = accessibleNote.get();
+        // ONLY the owner can delete the note! Collaborators cannot delete.
+        if (note.getOwner().getUserId() != requestingUserId) {
+            throw new UnauthorizedActionException("Collaborators cannot delete notes");
+        }
+
+        noteRepository.delete(note);
+
+        // Publish RabbitMQ Note-Deleted event
+        if (rabbitProducerService != null) {
+            rabbitProducerService.sendNoteDeletedEvent(noteId, requestingUserId);
+            rabbitProducerService.broadcastNoteDeletedFanout(noteId, requestingUserId);
+        }
+
+        return true;
     }
 
     public boolean deleteForeverNote(int noteId, int requestingUserId) {
@@ -268,8 +300,7 @@ public class NoteService {
     public Note pinNote(int noteId, int userId) {
         Note note = getOwnedNoteOrThrow(noteId, userId);
         if (note.getState() == Note.NoteState.TRASHED) {
-            throw new com.bridgelabz.fundoonotes.exception.InvalidNoteStateException(
-                    "Cannot pin a note that is in Trash");
+            throw new InvalidNoteStateException("Cannot pin a note that is in Trash");
         }
         note.setPinned(true);
         return initializeNote(noteRepository.save(note));
@@ -284,8 +315,7 @@ public class NoteService {
     public Note togglePinNote(int noteId, int userId) {
         Note note = getOwnedNoteOrThrow(noteId, userId);
         if (note.getState() == Note.NoteState.TRASHED) {
-            throw new com.bridgelabz.fundoonotes.exception.InvalidNoteStateException(
-                    "Cannot pin a note that is in Trash");
+            throw new InvalidNoteStateException("Cannot pin a note that is in Trash");
         }
         note.setPinned(!note.isPinned());
         return initializeNote(noteRepository.save(note));
@@ -368,11 +398,11 @@ public class NoteService {
     private Note getOwnedNoteOrThrow(int noteId, int userId) {
         User owner = getOwnerOrThrow(userId);
         return noteRepository.findByNoteIdAndOwner(noteId, owner)
-                .orElseThrow(() -> new IllegalArgumentException("Note not found"));
+                .orElseThrow(() -> new NoteNotFoundException("Note not found"));
     }
 
     private User getOwnerOrThrow(int userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 }

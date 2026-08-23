@@ -1,10 +1,13 @@
 package com.bridgelabz.fundoonotes.service;
 
 import com.bridgelabz.fundoonotes.entity.User;
+import com.bridgelabz.fundoonotes.exception.DuplicateEmailException;
+import com.bridgelabz.fundoonotes.exception.InvalidCredentialsException;
 import com.bridgelabz.fundoonotes.repository.UserRepository;
 import com.bridgelabz.fundoonotes.security.JwtUtil;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.util.Locale;
 
 @Service
@@ -26,7 +29,7 @@ public class UserService {
     public String register(String email, String password, String name, String firstName, String lastName) {
         String normalizedEmail = email.trim().toLowerCase(Locale.ROOT);
         if (userRepository.findByEmail(normalizedEmail).isPresent()) {
-            throw new IllegalArgumentException("Email already registered");
+            throw new DuplicateEmailException("Email already registered");
         }
 
         User user = new User();
@@ -49,9 +52,9 @@ public class UserService {
 
     public String login(String email, String password) {
         User user = userRepository.findByEmail(email.trim().toLowerCase(Locale.ROOT))
-                .orElseThrow(() -> new IllegalArgumentException("Invalid email or password"));
+                .orElseThrow(() -> new InvalidCredentialsException("Invalid email or password"));
         if (!passwordEncoder.matches(password, user.getPasswordHash())) {
-            throw new IllegalArgumentException("Invalid email or password");
+            throw new InvalidCredentialsException("Invalid email or password");
         }
         return jwtUtil.generateToken(String.valueOf(user.getUserId()), user.getEmail());
     }

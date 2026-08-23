@@ -2,6 +2,8 @@ package com.bridgelabz.fundoonotes.service;
 
 import com.bridgelabz.fundoonotes.entity.Tag;
 import com.bridgelabz.fundoonotes.entity.User;
+import com.bridgelabz.fundoonotes.exception.LabelNotFoundException;
+import com.bridgelabz.fundoonotes.exception.UserNotFoundException;
 import com.bridgelabz.fundoonotes.repository.TagRepository;
 import com.bridgelabz.fundoonotes.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -49,7 +51,7 @@ public class LabelService {
     public Tag updateLabel(int labelId, int userId, String newName) {
         User owner = getOwnerOrThrow(userId);
         Tag tag = tagRepository.findByTagIdAndOwner(labelId, owner)
-                .orElseThrow(() -> new IllegalArgumentException("Label not found"));
+                .orElseThrow(() -> new LabelNotFoundException("Label not found"));
 
         String cleanName = newName != null ? newName.trim() : "";
         if (cleanName.isEmpty()) {
@@ -91,6 +93,6 @@ public class LabelService {
 
     private User getOwnerOrThrow(int userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 }

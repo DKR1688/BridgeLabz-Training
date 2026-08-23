@@ -3,6 +3,7 @@ package com.bridgelabz.fundoonotes.controller;
 import com.bridgelabz.fundoonotes.dto.LabelRequest;
 import com.bridgelabz.fundoonotes.dto.LabelResponse;
 import com.bridgelabz.fundoonotes.entity.Tag;
+import com.bridgelabz.fundoonotes.exception.LabelNotFoundException;
 import com.bridgelabz.fundoonotes.service.LabelService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -51,13 +52,19 @@ public class LabelController {
     @DeleteMapping("/{id}/deleteNoteLabel")
     public ResponseEntity<Void> deleteNoteLabel(@PathVariable int id) {
         boolean deleted = labelService.softDeleteLabel(id, currentUserId());
-        return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+        if (!deleted) {
+            throw new LabelNotFoundException("Label not found");
+        }
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLabel(@PathVariable int id) {
         boolean deleted = labelService.softDeleteLabel(id, currentUserId());
-        return deleted ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        if (!deleted) {
+            throw new LabelNotFoundException("Label not found");
+        }
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping({ "/getNoteLabelList", "" })
@@ -72,6 +79,6 @@ public class LabelController {
     public ResponseEntity<LabelResponse> getLabelById(@PathVariable int id) {
         return labelService.getLabelById(id, currentUserId())
                 .map(tag -> ResponseEntity.ok(LabelResponse.fromEntity(tag)))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseThrow(() -> new LabelNotFoundException("Label not found"));
     }
 }

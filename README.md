@@ -99,3 +99,9 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 21-August-2026 (JMS Asynchronous Reminders, Async Recovery & Redis Token Caching):
 - Configured Apache Artemis embedded JMS broker for asynchronous reminder publishing and consumption in Fundoo Notes app; Implemented sub-50ms instant return for reminder endpoints while processing background jobs via @JmsListener; Implemented asynchronous password recovery event dispatch via JMS; Integrated Redis token validation caching via TokenCacheService and RedisTemplate with TTL enforcement strictly derived from the JWT's remaining expiration;
 
+> 🗓️ 22-August-2026 (RabbitMQ Topic Exchange, Spring Batch & Collaborators):
+- Configured RabbitMQ Topic Exchange (notes-exchange) with multi-queue bindings (collaborator-notify-queue, activity-log-queue) for decoupled note events; Implemented Spring Batch Excel note import with chunk processing and skip counting for invalid rows; Built direct Apache POI note export returning openable .xlsx files; Implemented checklist sub-items (NoteCheckList) with parent note authorization; Established @ManyToMany collaborator relationships allowing shared view/edit permissions while protecting owner-only delete.
+
+> 🗓️ 23-August-2026 (DTO/Entity Separation, Global Exceptions & AOP Logging):
+- Enforced strict DTO/Entity separation across all controllers with zero raw @Entity exposure; Implemented domain exception hierarchy (NoteNotFoundException, DuplicateEmailException, etc.) and global ErrorResponse standard shape; Created AspectJ AOP @Around ExecutionTimeAspect and @AfterThrowing ServiceExceptionLoggingAspect across the service layer; Verified entire 33-test integration suite with 100% build success.
+

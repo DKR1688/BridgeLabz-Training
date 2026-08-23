@@ -8,6 +8,7 @@ import org.hibernate.Hibernate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,8 +35,14 @@ public record NoteResponse(
         String linkUrl,
         Set<String> tags,
         Set<String> labels,
-        List<LocalDateTime> reminders) {
+        List<LocalDateTime> reminders,
+        Set<CollaboratorResponse> collaborators,
+        List<CheckListResponse> noteCheckLists) {
+
     public static NoteResponse fromEntity(Note note) {
+        if (note == null)
+            return null;
+
         Set<String> tagNames = Collections.emptySet();
         try {
             if (note.getTags() != null && Hibernate.isInitialized(note.getTags())) {
@@ -64,6 +71,27 @@ public record NoteResponse(
 
         String userIdStr = String.valueOf(ownerId);
 
+        Set<CollaboratorResponse> collaboratorResponses = Collections.emptySet();
+        try {
+            if (note.getCollaborators() != null && Hibernate.isInitialized(note.getCollaborators())) {
+                collaboratorResponses = note.getCollaborators().stream()
+                        .map(CollaboratorResponse::fromEntity)
+                        .collect(Collectors.toSet());
+            }
+        } catch (Exception ignored) {
+        }
+
+        List<CheckListResponse> checkListResponses = Collections.emptyList();
+        try {
+            if (note.getCheckLists() != null && Hibernate.isInitialized(note.getCheckLists())) {
+                checkListResponses = note.getCheckLists().stream()
+                        .filter(item -> !item.isDeleted())
+                        .map(CheckListResponse::fromEntity)
+                        .toList();
+            }
+        } catch (Exception ignored) {
+        }
+
         return new NoteResponse(
                 note.getNoteId(),
                 note.getNoteId(),
@@ -85,6 +113,8 @@ public record NoteResponse(
                 note.getLinkUrl(),
                 tagNames,
                 tagNames,
-                remindersList);
+                remindersList,
+                collaboratorResponses,
+                checkListResponses);
     }
 }
