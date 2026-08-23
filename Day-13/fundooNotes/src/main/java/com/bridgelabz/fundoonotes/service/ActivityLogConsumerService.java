@@ -17,7 +17,7 @@ public class ActivityLogConsumerService {
 
     private final List<Object> receivedActivityLogs = Collections.synchronizedList(new ArrayList<>());
 
-    @RabbitListener(queues = RabbitConfig.ACTIVITY_LOG_QUEUE, autoStartup = "${spring.rabbitmq.listener.auto-startup:true}")
+    @RabbitListener(queues = RabbitConfig.ACTIVITY_LOG_QUEUE, autoStartup = "${spring.rabbitmq.listener.auto-startup:false}")
     public void logActivity(Object message) {
         logger.info("ActivityLogConsumer: Activity log event received: {}", message);
         receivedActivityLogs.add(message);

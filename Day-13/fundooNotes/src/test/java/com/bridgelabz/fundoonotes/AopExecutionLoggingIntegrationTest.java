@@ -53,25 +53,24 @@ public class AopExecutionLoggingIntegrationTest {
     void testExecutionTimeAspectInterceptsAllServiceMethods() {
         int initialCount = ExecutionTimeAspect.getExecutionCount();
 
-        // 1. Invoke UserService
+        // Invoke UserService
         String email = "aop_user_" + System.nanoTime() + "@example.com";
         userService.register(email, "Password@123", "AOP User");
         User user = userRepository.findByEmail(email).get();
         int userId = user.getUserId();
 
-        // 2. Invoke NoteService
+        // Invoke NoteService
         Note note = noteService.createNote(userId, "AOP Note", "AOP Content");
 
-        // 3. Invoke LabelService
+        // Invoke LabelService
         labelService.createLabel(userId, "AOP Label");
 
-        // 4. Invoke CheckListService
+        // Invoke CheckListService
         checkListService.addCheckListItem(note.getNoteId(), userId, new CheckListRequest("AOP Item", "PENDING", false));
 
         int finalCount = ExecutionTimeAspect.getExecutionCount();
 
-        // Verifies aspect intercepted all service methods without any explicit code
-        // inside the services
+        // Verifies aspect intercepted all service methods without any explicit code inside the services
         assertThat(finalCount).isGreaterThan(initialCount);
         assertThat(finalCount - initialCount).isGreaterThanOrEqualTo(4);
     }

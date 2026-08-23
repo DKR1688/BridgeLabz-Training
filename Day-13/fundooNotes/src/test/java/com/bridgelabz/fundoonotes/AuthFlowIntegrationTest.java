@@ -55,20 +55,20 @@ class AuthFlowIntegrationTest {
                 String email = "testuser_" + System.nanoTime() + "@example.com";
                 RegisterRequest registerReq = new RegisterRequest(email, "Password123!", null, "John", "Doe");
 
-                // 1. POST /user/userSignUp -> 201 Created with token
+                // POST /user/userSignUp -> 201 Created with token
                 mockMvc.perform(post("/user/userSignUp")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(registerReq)))
                                 .andExpect(status().isCreated())
                                 .andExpect(jsonPath("$.token").isNotEmpty());
 
-                // 2. Duplicate registration -> 409 Conflict
+                // Duplicate registration -> 409 Conflict
                 mockMvc.perform(post("/user/userSignUp")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(registerReq)))
                                 .andExpect(status().isConflict());
 
-                // 3. POST /user/login with correct credentials -> 200 OK with token
+                // POST /user/login with correct credentials -> 200 OK with token
                 LoginRequest loginReq = new LoginRequest(email, "Password123!");
                 mockMvc.perform(post("/user/login")
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -76,7 +76,7 @@ class AuthFlowIntegrationTest {
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.token").isNotEmpty());
 
-                // 4. POST /user/login with wrong password -> 401 Unauthorized
+                // POST /user/login with wrong password -> 401 Unauthorized
                 LoginRequest wrongLogin = new LoginRequest(email, "WrongPassword!");
                 mockMvc.perform(post("/user/login")
                                 .contentType(MediaType.APPLICATION_JSON)

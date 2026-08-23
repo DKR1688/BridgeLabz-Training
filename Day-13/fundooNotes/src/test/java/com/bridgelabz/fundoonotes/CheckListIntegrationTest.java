@@ -68,14 +68,14 @@ public class CheckListIntegrationTest {
         @Test
         @DisplayName("Use Case 12: Checklist CRUD, bulk complete, and ownership authorization")
         void testChecklistItemsLifecycleAndSecurity() throws Exception {
-                // 1. Create a Note of type CHECKLIST
+                // Create a Note of type CHECKLIST
                 User owner = userRepository.findById(ownerId).get();
                 Note note = new Note("Grocery List", "Items to buy", owner);
                 note.setTypeOfNote("CHECKLIST");
                 note = noteRepository.save(note);
                 int noteId = note.getNoteId();
 
-                // 2. Add first checklist item
+                // Add first checklist item
                 CheckListRequest item1Req = new CheckListRequest("Buy Milk", "PENDING", false);
                 MvcResult addResult1 = mockMvc.perform(post("/notes/" + noteId + "/noteCheckLists")
                                 .header("Authorization", "Bearer " + ownerToken)
@@ -89,7 +89,7 @@ public class CheckListIntegrationTest {
 
                 int item1Id = objectMapper.readTree(addResult1.getResponse().getContentAsString()).get("id").asInt();
 
-                // 3. Add second checklist item
+                // Add second checklist item
                 CheckListRequest item2Req = new CheckListRequest("Buy Bread", "PENDING", false);
                 mockMvc.perform(post("/notes/" + noteId + "/noteCheckLists")
                                 .header("Authorization", "Bearer " + ownerToken)
@@ -98,20 +98,20 @@ public class CheckListIntegrationTest {
                                 .andExpect(status().isCreated())
                                 .andExpect(jsonPath("$.itemName").value("Buy Bread"));
 
-                // 4. Stranger CANNOT add items to owner's note
+                // Stranger CANNOT add items to owner's note
                 mockMvc.perform(post("/notes/" + noteId + "/noteCheckLists")
                                 .header("Authorization", "Bearer " + strangerToken)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(item1Req)))
                                 .andExpect(status().isNotFound());
 
-                // 5. Get checklist items for the note
+                // Get checklist items for the note
                 mockMvc.perform(get("/notes/" + noteId + "/noteCheckLists")
                                 .header("Authorization", "Bearer " + ownerToken))
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.length()").value(2));
 
-                // 6. Update item1 to "DONE"
+                // Update item1 to "DONE"
                 CheckListRequest updateReq = new CheckListRequest("Buy Organic Milk", "DONE", false);
                 mockMvc.perform(put("/notes/" + noteId + "/noteCheckLists/" + item1Id)
                                 .header("Authorization", "Bearer " + ownerToken)
@@ -121,19 +121,19 @@ public class CheckListIntegrationTest {
                                 .andExpect(jsonPath("$.itemName").value("Buy Organic Milk"))
                                 .andExpect(jsonPath("$.status").value("DONE"));
 
-                // 7. Bulk complete all items
+                // Bulk complete all items
                 mockMvc.perform(patch("/notes/" + noteId + "/noteCheckLists/completeAll")
                                 .header("Authorization", "Bearer " + ownerToken))
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$[0].status").value("DONE"))
                                 .andExpect(jsonPath("$[1].status").value("DONE"));
 
-                // 8. Delete item1
+                // Delete item1
                 mockMvc.perform(delete("/notes/" + noteId + "/noteCheckLists/" + item1Id)
                                 .header("Authorization", "Bearer " + ownerToken))
                                 .andExpect(status().isOk());
 
-                // 9. Verify only 1 active item remains
+                // Verify only 1 active item remains
                 mockMvc.perform(get("/notes/" + noteId + "/noteCheckLists")
                                 .header("Authorization", "Bearer " + ownerToken))
                                 .andExpect(status().isOk())

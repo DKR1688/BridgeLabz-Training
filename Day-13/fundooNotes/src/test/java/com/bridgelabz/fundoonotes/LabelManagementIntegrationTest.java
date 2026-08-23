@@ -71,7 +71,7 @@ class LabelManagementIntegrationTest {
         @Test
         @DisplayName("Use Case 6: Label CRUD, Per-User Uniqueness, Soft Delete, and Note Association")
         void testLabelManagementCompleteLifecycle() throws Exception {
-                // 1. User A creates label "Work"
+                // User A creates label "Work"
                 MvcResult createResA = mockMvc.perform(post("/noteLabels")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -84,14 +84,14 @@ class LabelManagementIntegrationTest {
                 LabelResponse labelA = objectMapper.readValue(createResA.getResponse().getContentAsString(),
                                 LabelResponse.class);
 
-                // 2. User A attempts to create duplicate label "Work" -> 400 Bad Request
+                // User A attempts to create duplicate label "Work" -> 400 Bad Request
                 mockMvc.perform(post("/noteLabels")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(new LabelRequest("Work"))))
                                 .andExpect(status().isBadRequest());
 
-                // 3. User B CAN create label "Work" (per-user scoping) -> 201 Created
+                // User B CAN create label "Work" (per-user scoping) -> 201 Created
                 mockMvc.perform(post("/noteLabels")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userBToken)
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -99,14 +99,14 @@ class LabelManagementIntegrationTest {
                                 .andExpect(status().isCreated())
                                 .andExpect(jsonPath("$.label").value("Work"));
 
-                // 4. User A creates a second label "Personal"
+                // User A creates a second label "Personal"
                 mockMvc.perform(post("/noteLabels")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(new LabelRequest("Personal"))))
                                 .andExpect(status().isCreated());
 
-                // 5. User A lists labels -> returns 2 labels
+                // User A lists labels -> returns 2 labels
                 MvcResult listRes = mockMvc.perform(get("/noteLabels/getNoteLabelList")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                                 .andExpect(status().isOk())
@@ -117,8 +117,7 @@ class LabelManagementIntegrationTest {
                                 });
                 assertEquals(2, labels.size());
 
-                // 6. User A creates a Note and associates label "Work" via POST
-                // /notes/{noteId}/addLabelToNotes/{labelId}/add
+                // User A creates a Note and associates label "Work" via POST /notes/{noteId}/addLabelToNotes/{labelId}/add
                 MvcResult noteRes = mockMvc.perform(post("/notes/addNotes")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -133,18 +132,17 @@ class LabelManagementIntegrationTest {
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.labels").isArray());
 
-                // 7. User A removes label from note via POST
-                // /notes/{noteId}/addLabelToNotes/{labelId}/remove
+                // User A removes label from note via POST /notes/{noteId}/addLabelToNotes/{labelId}/remove
                 mockMvc.perform(post("/notes/" + createdNote.noteId() + "/addLabelToNotes/" + labelA.id() + "/remove")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                                 .andExpect(status().isOk());
 
-                // 8. Soft-delete label via DELETE /noteLabels/{id}/deleteNoteLabel
+                // Soft-delete label via DELETE /noteLabels/{id}/deleteNoteLabel
                 mockMvc.perform(delete("/noteLabels/" + labelA.id() + "/deleteNoteLabel")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                                 .andExpect(status().isOk());
 
-                // 9. Soft-deleted label does NOT appear in getNoteLabelList
+                // Soft-deleted label does NOT appear in getNoteLabelList
                 MvcResult afterDeleteList = mockMvc.perform(get("/noteLabels/getNoteLabelList")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                                 .andExpect(status().isOk())

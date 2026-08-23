@@ -97,13 +97,13 @@ public class CollaboratorsAndRabbitMQIntegrationTest {
         @Test
         @DisplayName("Use Case 13: Owner shares note with collaborator, collaborator can view and update but cannot delete")
         void testCollaborationLifecycleAndAuthorization() throws Exception {
-                // 1. Owner creates a note
+                // Owner creates a note
                 Note note = new Note("Project Architecture", "Initial draft content",
                                 userRepository.findById(ownerId).get());
                 note = noteRepository.save(note);
                 int noteId = note.getNoteId();
 
-                // 2. Add collaborator using POST /notes/{id}/AddcollaboratorsNotes
+                // Add collaborator using POST /notes/{id}/AddcollaboratorsNotes
                 mockMvc.perform(post("/notes/" + noteId + "/AddcollaboratorsNotes")
                                 .header("Authorization", "Bearer " + ownerToken)
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -112,7 +112,7 @@ public class CollaboratorsAndRabbitMQIntegrationTest {
                                 .andExpect(jsonPath("$.email").value(collaboratorEmail))
                                 .andExpect(jsonPath("$.userId").value(collaboratorId));
 
-                // 3. Collaborator can view the shared note
+                // Collaborator can view the shared note
                 mockMvc.perform(get("/notes/" + noteId)
                                 .header("Authorization", "Bearer " + collaboratorToken))
                                 .andExpect(status().isOk())
@@ -120,7 +120,7 @@ public class CollaboratorsAndRabbitMQIntegrationTest {
                                 .andExpect(jsonPath("$.content").value("Initial draft content"))
                                 .andExpect(jsonPath("$.collaborators[0].email").value(collaboratorEmail));
 
-                // 4. Collaborator can edit the shared note
+                // Collaborator can edit the shared note
                 NoteRequest updateReq = new NoteRequest("Project Architecture v2", "Updated by collaborator");
 
                 mockMvc.perform(put("/notes/" + noteId)
@@ -131,26 +131,26 @@ public class CollaboratorsAndRabbitMQIntegrationTest {
                                 .andExpect(jsonPath("$.title").value("Project Architecture v2"))
                                 .andExpect(jsonPath("$.content").value("Updated by collaborator"));
 
-                // 5. Non-collaborator, non-owner gets 404
+                // Non-collaborator, non-owner gets 404
                 mockMvc.perform(get("/notes/" + noteId)
                                 .header("Authorization", "Bearer " + strangerToken))
                                 .andExpect(status().isNotFound())
                                 .andExpect(jsonPath("$.message").value("Note not found"))
                                 .andExpect(jsonPath("$.status").value(404));
 
-                // 6. Collaborator CANNOT delete the note (Forbidden / 403)
+                // Collaborator CANNOT delete the note (Forbidden / 403)
                 mockMvc.perform(delete("/notes/" + noteId)
                                 .header("Authorization", "Bearer " + collaboratorToken))
                                 .andExpect(status().isForbidden())
                                 .andExpect(jsonPath("$.status").value(403))
                                 .andExpect(jsonPath("$.message").value("Collaborators cannot delete notes"));
 
-                // 7. Owner removes collaborator
+                // Owner removes collaborator
                 mockMvc.perform(delete("/notes/" + noteId + "/removeCollaboratorsNotes/" + collaboratorId)
                                 .header("Authorization", "Bearer " + ownerToken))
                                 .andExpect(status().isOk());
 
-                // 8. Former collaborator now receives 404
+                // Former collaborator now receives 404
                 mockMvc.perform(get("/notes/" + noteId)
                                 .header("Authorization", "Bearer " + collaboratorToken))
                                 .andExpect(status().isNotFound());

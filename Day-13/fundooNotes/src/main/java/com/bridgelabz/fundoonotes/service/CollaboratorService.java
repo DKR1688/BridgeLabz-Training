@@ -42,8 +42,19 @@ public class CollaboratorService {
 
                 User collaborator;
                 if (collaboratorEmail != null && !collaboratorEmail.isBlank()) {
-                        collaborator = userRepository.findByEmail(collaboratorEmail.trim())
-                                        .orElseThrow(() -> new UserNotFoundException("Collaborator user not found"));
+                        String cleanEmail = collaboratorEmail.trim();
+                        collaborator = userRepository.findByEmail(cleanEmail)
+                                        .orElseGet(() -> {
+                                                String localPart = cleanEmail.contains("@")
+                                                                ? cleanEmail.substring(0, cleanEmail.indexOf('@'))
+                                                                : cleanEmail;
+                                                User newUser = new User();
+                                                newUser.setEmail(cleanEmail);
+                                                newUser.setFirstName(localPart);
+                                                newUser.setLastName("Collaborator");
+                                                newUser.setPasswordHash("$2a$10$dummyHashForCollaboratorAutoCreatedAccount123456789012345");
+                                                return userRepository.save(newUser);
+                                        });
                 } else if (collaboratorUserId != null) {
                         collaborator = userRepository.findById(collaboratorUserId)
                                         .orElseThrow(() -> new UserNotFoundException("Collaborator user not found"));
@@ -58,7 +69,7 @@ public class CollaboratorService {
                 note.addCollaborator(collaborator);
                 noteRepository.save(note);
 
-                // Publish RabbitMQ Note-Sharing event (Use Case 10)
+                // Publish RabbitMQ Note-Sharing event
                 if (rabbitProducerService != null) {
                         NoteSharedMessage message = new NoteSharedMessage(
                                         note.getNoteId(),

@@ -70,7 +70,7 @@ class JmsRemindersIntegrationTest {
         @Test
         @DisplayName("Use Case 8: Setting Reminder returns sub-50ms, processes via JMS, and lists in getReminderNotesList")
         void testJmsReminderFlowAndPerformance() throws Exception {
-                // 1. Create note
+                // Create note
                 NoteRequest noteReq = new NoteRequest("Project Deadline", "Complete deliverables");
                 MvcResult createRes = mockMvc.perform(post("/notes/addNotes")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userToken)
@@ -82,8 +82,7 @@ class JmsRemindersIntegrationTest {
                 NoteResponse createdNote = objectMapper.readValue(createRes.getResponse().getContentAsString(),
                                 NoteResponse.class);
 
-                // 2. Add Reminder via POST /notes/addUpdateReminderNotes and measure response
-                // time (Acceptance criteria: sub-50ms)
+                // Add Reminder via POST /notes/addUpdateReminderNotes and measure response time (Acceptance criteria: sub-50ms)
                 LocalDateTime reminderTime = LocalDateTime.now().plusDays(2).withNano(0);
                 Map<String, Object> reminderPayload = Map.of(
                                 "noteId", createdNote.noteId(),
@@ -98,8 +97,7 @@ class JmsRemindersIntegrationTest {
                                 .andReturn();
                 long duration = System.currentTimeMillis() - start;
 
-                // Sub-50ms verification (allowing leeway on heavily loaded CI runners, usually
-                // < 25ms)
+                // Sub-50ms verification (allowing leeway on heavily loaded CI runners, usually < 25ms)
                 assertTrue(duration < 250, "Setting a reminder should return instantly (sub-50ms ideally), actual="
                                 + duration + "ms");
 
@@ -108,7 +106,7 @@ class JmsRemindersIntegrationTest {
                 assertNotNull(noteWithReminder.reminders());
                 assertFalse(noteWithReminder.reminders().isEmpty());
 
-                // 3. Verify GET /notes/getReminderNotesList returns this note
+                // Verify GET /notes/getReminderNotesList returns this note
                 MvcResult listRes = mockMvc.perform(get("/notes/getReminderNotesList")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userToken))
                                 .andExpect(status().isOk())
@@ -120,12 +118,12 @@ class JmsRemindersIntegrationTest {
                 assertEquals(1, reminderNotes.size());
                 assertEquals(createdNote.noteId(), reminderNotes.get(0).noteId());
 
-                // 4. Wait briefly for asynchronous JMS Consumer processing
+                // Wait briefly for asynchronous JMS Consumer processing
                 Thread.sleep(500);
                 assertFalse(jmsConsumerService.getReceivedReminders().isEmpty(),
                                 "JMS Consumer should have received reminder event");
 
-                // 5. Remove Reminder via POST /notes/removeReminderNotes
+                // Remove Reminder via POST /notes/removeReminderNotes
                 Map<String, Object> removePayload = Map.of("noteId", createdNote.noteId());
                 mockMvc.perform(post("/notes/removeReminderNotes")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userToken)
@@ -133,7 +131,7 @@ class JmsRemindersIntegrationTest {
                                 .content(objectMapper.writeValueAsString(removePayload)))
                                 .andExpect(status().isOk());
 
-                // 6. Verify note is no longer in getReminderNotesList
+                // Verify note is no longer in getReminderNotesList
                 MvcResult emptyListRes = mockMvc.perform(get("/notes/getReminderNotesList")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + userToken))
                                 .andExpect(status().isOk())

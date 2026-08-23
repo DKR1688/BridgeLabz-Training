@@ -11,6 +11,14 @@ public record CheckListRequest(
         @JsonProperty("status") String status,
 
         @JsonProperty("isDeleted") Boolean isDeleted) {
+    public CheckListRequest(String itemName, String status) {
+        this(itemName, status, false);
+    }
+
+    public CheckListRequest(String itemName) {
+        this(itemName, "PENDING", false);
+    }
+
     public String resolvedStatus() {
         return (status != null && !status.isBlank()) ? status : "PENDING";
     }

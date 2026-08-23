@@ -18,7 +18,7 @@ public class RabbitConsumerService {
 
     private final List<NoteSharedMessage> receivedNotifications = Collections.synchronizedList(new ArrayList<>());
 
-    @RabbitListener(queues = RabbitConfig.COLLABORATOR_QUEUE, autoStartup = "${spring.rabbitmq.listener.auto-startup:true}")
+    @RabbitListener(queues = RabbitConfig.COLLABORATOR_QUEUE, autoStartup = "${spring.rabbitmq.listener.auto-startup:false}")
     public void notifyCollaborator(NoteSharedMessage message) {
         logger.info("RabbitConsumer: Received collaborator notification for noteId={}, collaboratorEmail={}",
                 message.noteId(), message.collaboratorEmail());

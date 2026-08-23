@@ -90,24 +90,24 @@ class NoteOrganisationIntegrationTest {
     @Test
     @DisplayName("Problem 1: Prove Invalid State Combinations Are Prevented (Trash -> Pin returns 400 Bad Request)")
     void problem1_proveInvalidStateCombinationsPrevented() throws Exception {
-        // 1. Create active note
+        // Create active note
         Note note = noteService.createNote(userAId, "Meeting Notes", "Discuss Q3 Roadmap");
         int noteId = note.getNoteId();
 
-        // 2. Call PATCH /notes/{id}/trash
+        // Call PATCH /notes/{id}/trash
         mockMvc.perform(patch("/notes/" + noteId + "/trash")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.state").value("TRASHED"))
                 .andExpect(jsonPath("$.pinned").value(false));
 
-        // 3. Immediately call PATCH /notes/{id}/pin on the trashed note
+        // Immediately call PATCH /notes/{id}/pin on the trashed note
         MvcResult pinResult = mockMvc.perform(patch("/notes/" + noteId + "/pin")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isBadRequest())
                 .andReturn();
 
-        // 4. Verify the response status is 400 and body contains IllegalStateException message
+        // Verify the response status is 400 and body contains IllegalStateException message
         String responseBody = pinResult.getResponse().getContentAsString();
         assertTrue(responseBody.contains("Cannot pin a note that is in Trash"),
                 "Response must contain sensible error message preventing invalid state");
@@ -121,26 +121,26 @@ class NoteOrganisationIntegrationTest {
     @Test
     @DisplayName("Problem 2: State Transition Rules (Pin -> Archive -> Restore lifecycle)")
     void problem2_stateTransitionLifecyclePinArchiveRestore() throws Exception {
-        // 1. Create a note
+        // Create a note
         Note note = noteService.createNote(userAId, "Important Ideas", "Key design ideas");
         int noteId = note.getNoteId();
         assertEquals(Note.NoteState.ACTIVE, note.getState());
         assertFalse(note.isPinned());
 
-        // 2. Pin the note -> pinned = true
+        // Pin the note -> pinned = true
         mockMvc.perform(patch("/notes/" + noteId + "/pin")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.pinned").value(true));
 
-        // 3. Archive the note -> state = ARCHIVED, pinned automatically cleared to false
+        // Archive the note -> state = ARCHIVED, pinned automatically cleared to false
         mockMvc.perform(patch("/notes/" + noteId + "/archive")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.state").value("ARCHIVED"))
                 .andExpect(jsonPath("$.pinned").value(false));
 
-        // 4. Restore the note -> state = ACTIVE, pinned remains false per defined transition rule
+        // Restore the note -> state = ACTIVE, pinned remains false per defined transition rule
         mockMvc.perform(patch("/notes/" + noteId + "/restore")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
@@ -151,7 +151,7 @@ class NoteOrganisationIntegrationTest {
         assertEquals(Note.NoteState.ACTIVE, restoredNote.getState());
         assertFalse(restoredNote.isPinned());
 
-        // 5. Re-pin explicitly to verify note is once again pinnable in ACTIVE state
+        // Re-pin explicitly to verify note is once again pinnable in ACTIVE state
         mockMvc.perform(patch("/notes/" + noteId + "/pin")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
@@ -248,12 +248,12 @@ class NoteOrganisationIntegrationTest {
     @Test
     @DisplayName("Problem 5: Add and Query Tags End to End with note_tags Junction Table")
     void problem5_addAndQueryTagsEndToEnd() throws Exception {
-        // 1. Create 3 notes for User A
+        // Create 3 notes for User A
         Note note1 = noteService.createNote(userAId, "Server Deployment", "Deploy to AWS");
         Note note2 = noteService.createNote(userAId, "Database Migration", "Run Flyway scripts");
         Note note3 = noteService.createNote(userAId, "Personal Diary", "Weekend reflections");
 
-        // 2. Add tag "urgent" to Note 1 via POST /notes/{id}/tags
+        // Add tag "urgent" to Note 1 via POST /notes/{id}/tags
         mockMvc.perform(post("/notes/" + note1.getNoteId() + "/tags")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -261,21 +261,21 @@ class NoteOrganisationIntegrationTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.tags").isArray());
 
-        // 3. Add tag "urgent" to Note 2
+        // Add tag "urgent" to Note 2
         mockMvc.perform(post("/notes/" + note2.getNoteId() + "/tags")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(new TagRequest("urgent"))))
                 .andExpect(status().isOk());
 
-        // 4. Add tag "personal" to Note 3
+        // Add tag "personal" to Note 3
         mockMvc.perform(post("/notes/" + note3.getNoteId() + "/tags")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(new TagRequest("personal"))))
                 .andExpect(status().isOk());
 
-        // 5. Query GET /notes?tag=urgent -> exactly Note 1 and Note 2
+        // Query GET /notes?tag=urgent -> exactly Note 1 and Note 2
         MvcResult tagFilterResult = mockMvc.perform(get("/notes?tag=urgent")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
@@ -286,7 +286,7 @@ class NoteOrganisationIntegrationTest {
         assertTrue(urgentNotes.stream().anyMatch(n -> n.title().equals("Server Deployment")));
         assertTrue(urgentNotes.stream().anyMatch(n -> n.title().equals("Database Migration")));
 
-        // 6. Verify Tag entity and note_tags relationships in database
+        // Verify Tag entity and note_tags relationships in database
         Optional<Tag> urgentTag = tagRepository.findByName("urgent");
         assertTrue(urgentTag.isPresent());
         assertEquals("urgent", urgentTag.get().getName());
@@ -310,7 +310,7 @@ class NoteOrganisationIntegrationTest {
         Note n5 = noteService.createNote(userAId, "Pinned idea", "Brainstorm startup idea", Set.of("personal"));
         noteService.pinNote(n5.getNoteId(), userAId);
 
-        // Feature 1: Default active view GET /notes -> returns only active notes (n1, n3, n5)
+        //1. Default active view GET /notes -> returns only active notes (n1, n3, n5)
         MvcResult defaultResult = mockMvc.perform(get("/notes")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
@@ -322,8 +322,7 @@ class NoteOrganisationIntegrationTest {
         assertTrue(activeNotes.stream().anyMatch(n -> n.noteId() == n3.getNoteId()));
         assertTrue(activeNotes.stream().anyMatch(n -> n.noteId() == n5.getNoteId()));
 
-        // Feature 2: State views
-        // GET /notes?state=archived -> n2
+        //2. State views GET /notes?state=archived -> n2
         mockMvc.perform(get("/notes?state=archived")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
@@ -337,19 +336,19 @@ class NoteOrganisationIntegrationTest {
                 .andExpect(jsonPath("$.length()").value(1))
                 .andExpect(jsonPath("$[0].title").value("Old budget draft"));
 
-        // Feature 3: Pinned active search GET /notes?pinned=true -> returns n1 and n5
+        //3. Pinned active search GET /notes?pinned=true -> returns n1 and n5
         mockMvc.perform(get("/notes?pinned=true")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2));
 
-        // Feature 4: Search active notes tagged "work" GET /notes/search?state=active&tag=work -> returns n1 and n3
+        // 4. Search active notes tagged "work" GET /notes/search?state=active&tag=work -> returns n1 and n3
         mockMvc.perform(get("/notes/search?state=active&tag=work")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(2));
 
-        // Feature 5: Search every note containing "budget" in title -> returns n1, n2, n4
+        // 5. Search every note containing "budget" in title -> returns n1, n2, n4
         mockMvc.perform(get("/notes/search?title=budget")
                         .header(HttpHeaders.AUTHORIZATION, "Bearer " + userAToken))
                 .andExpect(status().isOk())

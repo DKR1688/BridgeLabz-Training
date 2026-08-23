@@ -42,7 +42,7 @@ public class NoteSpecifications {
         return (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 
-            // ALWAYS required: owner predicate ensures multi-tenant authorization boundary
+            // ALWAYS required - owner predicate ensures multi-tenant authorization boundary
             predicates.add(criteriaBuilder.equal(root.get("owner"), owner));
 
             if (titleText != null && !titleText.isBlank()) {

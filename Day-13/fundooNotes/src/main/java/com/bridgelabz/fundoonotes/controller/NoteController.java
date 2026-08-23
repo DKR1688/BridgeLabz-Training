@@ -48,10 +48,7 @@ public class NoteController {
         return Integer.parseInt(principal.toString());
     }
 
-    // ==========================================
-    // Use Case 4: Notes CRUD with Ownership
-    // ==========================================
-
+    // Notes CRUD with Ownership
     @PostMapping({ "/addNotes", "" })
     public ResponseEntity<NoteResponse> createNote(@Valid @RequestBody NoteRequest request) {
         Note note = noteService.createNote(
@@ -162,10 +159,7 @@ public class NoteController {
         return ResponseEntity.noContent().build();
     }
 
-    // ==========================================
-    // Use Case 5: Pin / Archive / Trash
-    // ==========================================
-
+    // Pin / Archive / Trash
     @PostMapping("/pinUnpinNotes")
     public ResponseEntity<NoteResponse> pinUnpinNotes(
             @RequestParam(required = false) Integer noteId,
@@ -272,10 +266,7 @@ public class NoteController {
                 .toList();
     }
 
-    // ==========================================
-    // Use Case 6: Label Association
-    // ==========================================
-
+    // Label Association
     @PostMapping("/{noteId}/addLabelToNotes/{labelId}/add")
     public ResponseEntity<NoteResponse> addLabelToNotes(
             @PathVariable int noteId,
@@ -300,10 +291,7 @@ public class NoteController {
         return ResponseEntity.ok(NoteResponse.fromEntity(note));
     }
 
-    // ==========================================
-    // Use Case 7: Search & Filter Specification
-    // ==========================================
-
+    // Search & Filter Specification
     @GetMapping("/search")
     public List<NoteResponse> searchNotes(
             @RequestParam(required = false) String title,
@@ -327,10 +315,7 @@ public class NoteController {
                 .toList();
     }
 
-    // ==========================================
-    // Use Case 8: Reminders via JMS
-    // ==========================================
-
+    // Reminders via JMS
     @PostMapping("/addUpdateReminderNotes")
     public ResponseEntity<NoteResponse> addUpdateReminderNotes(
             @RequestParam(required = false) Integer noteId,
@@ -376,10 +361,7 @@ public class NoteController {
                 .toList();
     }
 
-    // ==========================================
-    // Use Case 12: Checklist Items on Notes
-    // ==========================================
-
+    // Checklist Items on Notes
     @GetMapping("/{id}/noteCheckLists")
     public List<CheckListResponse> getCheckLists(@PathVariable int id) {
         return checkListService.getCheckLists(id, currentUserId());
@@ -420,10 +402,7 @@ public class NoteController {
         return checkListService.bulkCompleteAll(id, currentUserId());
     }
 
-    // ==========================================
-    // Use Case 13: Collaborators on Notes
-    // ==========================================
-
+    // Collaborators on Notes
     @PostMapping("/{id}/AddcollaboratorsNotes")
     public ResponseEntity<CollaboratorResponse> addCollaborator(
             @PathVariable int id,
@@ -476,10 +455,7 @@ public class NoteController {
         return collaboratorService.getCollaborators(id, currentUserId());
     }
 
-    // ==========================================
-    // Use Case 11: Spring Batch Import / POI Export
-    // ==========================================
-
+    // Spring Batch Import / POI Export
     @PostMapping(value = "/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<BatchJobResponse> importNotes(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {

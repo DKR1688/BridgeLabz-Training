@@ -21,8 +21,7 @@ public class TokenCacheService {
     private final JwtUtil jwtUtil;
     private final StringRedisTemplate redisTemplate;
 
-    // Resilient in-memory fallback for local dev / tests when standalone Redis is
-    // not active
+    // Resilient in-memory fallback for local dev / tests when standalone Redis is not active
     private final ConcurrentHashMap<String, CacheEntry<Boolean>> localValidityCache = new ConcurrentHashMap<>();
     private final ConcurrentHashMap<String, CacheEntry<String>> localUserCache = new ConcurrentHashMap<>();
 
@@ -49,7 +48,7 @@ public class TokenCacheService {
     public boolean isTokenValid(String token) {
         String cacheKey = VALIDITY_PREFIX + token;
 
-        // 1. Try Redis cache first
+        // Try Redis cache first
         if (redisTemplate != null) {
             try {
                 String cached = redisTemplate.opsForValue().get(cacheKey);
@@ -63,14 +62,14 @@ public class TokenCacheService {
             }
         }
 
-        // 2. Check in-memory fallback cache
+        // Check in-memory fallback cache
         CacheEntry<Boolean> localEntry = localValidityCache.get(cacheKey);
         if (localEntry != null && !localEntry.isExpired()) {
             logger.debug("Local Token Cache HIT for key={}: isValid={}", cacheKey, localEntry.value);
             return localEntry.value;
         }
 
-        // 3. Cache MISS: Perform cryptographic JWT validation
+        // Cache MISS: Perform cryptographic JWT validation
         boolean isValid = jwtUtil.isTokenValid(token);
         long remainingTtlMillis = jwtUtil.getRemainingTtlMillis(token);
 
@@ -94,7 +93,7 @@ public class TokenCacheService {
     public String extractUserId(String token) {
         String cacheKey = USER_PREFIX + token;
 
-        // 1. Try Redis cache first
+        // Try Redis cache first
         if (redisTemplate != null) {
             try {
                 String cached = redisTemplate.opsForValue().get(cacheKey);
@@ -108,14 +107,14 @@ public class TokenCacheService {
             }
         }
 
-        // 2. Check local fallback
+        // Check local fallback
         CacheEntry<String> localEntry = localUserCache.get(cacheKey);
         if (localEntry != null && !localEntry.isExpired()) {
             logger.debug("Local Token User Cache HIT for key={}: userId={}", cacheKey, localEntry.value);
             return localEntry.value;
         }
 
-        // 3. Cryptographic extraction
+        // Cryptographic extraction
         String userId = jwtUtil.extractUserId(token);
         long remainingTtlMillis = jwtUtil.getRemainingTtlMillis(token);
 

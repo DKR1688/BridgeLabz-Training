@@ -94,13 +94,11 @@ class NotesOwnershipIntegrationTest {
         @Test
         @DisplayName("Problem 1: Filter runs and validates No Token, Corrupted Token, and Valid Token")
         void problem1_proveJwtFilterExecutionBranches() throws Exception {
-                // Branch 1: Protected endpoint with NO token -> 403 Forbidden / 401
-                // Unauthenticated
+                // Branch 1: Protected endpoint with NO token -> 403 Forbidden / 401 Unauthenticated
                 mockMvc.perform(get("/notes"))
                                 .andExpect(status().isForbidden());
 
-                // Branch 2: Protected endpoint with Deliberately Corrupted token -> 403
-                // Forbidden
+                // Branch 2: Protected endpoint with Deliberately Corrupted token -> 403 Forbidden
                 mockMvc.perform(get("/notes")
                                 .header(HttpHeaders.AUTHORIZATION, "Bearer invalid.corrupted.token123"))
                                 .andExpect(status().isForbidden());
@@ -142,7 +140,7 @@ class NotesOwnershipIntegrationTest {
                 noteService.createNote(userAId, "Lazy Note 1", "Content 1");
                 noteService.createNote(userAId, "Lazy Note 2", "Content 2");
 
-                // Step 1: Load detached User entity outside of open transaction
+                //1. Load detached User entity outside of open transaction
                 // (open-in-view=false)
                 TransactionTemplate txTemplate = new TransactionTemplate(transactionManager);
                 User detachedUser = txTemplate.execute(status -> userRepository.findById(userAId).orElseThrow());
@@ -154,7 +152,7 @@ class NotesOwnershipIntegrationTest {
                         detachedUser.getNotes().size();
                 }, "Accessing LAZY collection on detached entity after session closed must throw LazyInitializationException");
 
-                // Step 2: Fix using repository query with JOIN FETCH
+                //2. Fix using repository query with JOIN FETCH
                 User userWithNotesEager = userRepository.findByIdWithNotes(userAId).orElseThrow();
                 assertNotNull(userWithNotesEager);
                 assertDoesNotThrow(() -> {

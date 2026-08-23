@@ -1,48 +1,51 @@
-# Day 17: RabbitMQ Messaging, Spring Batch Excel Processing, Checklists & Collaborators
+# Day 17 — Advanced Messaging, Batch Processing, Checklists & Collaborators
 
-Day 17 implements **Advanced Messaging with RabbitMQ Topic Exchange**, **Spring Batch & Apache POI Excel Import/Export**, **Checklist Sub-items (`NoteCheckList`)**, and **Collaborator Note Sharing (`@ManyToMany`)** in the **Fundoo Notes App** (`Day-13/fundooNotes`).
-
----
-
-## 🚀 Key Architectural Concepts Implemented
-
-### 1. Use Case 10: RabbitMQ Topic Exchange Messaging Path
-- **Topic Exchange (`notes-exchange`)**: Provides decoupled, multi-consumer event distribution via routing keys (`note.shared`, `note.deleted`, `note.#`).
-- **Decoupled Consumers**:
-  - `RabbitConsumerService`: Listens to `collaborator-notify-queue` bound with routing key `note.shared`.
-  - `ActivityLogConsumerService`: Listens to `activity-log-queue` bound with wildcard routing key `note.#`, proving consumer addition without modifying producer logic.
-- **Why RabbitMQ vs JMS**:
-  - JMS Reminders (Use Case 8) use a Point-to-Point direct queue model for strict single-consumer delivery.
-  - RabbitMQ Note Sharing (Use Case 10) uses an Exchange model where 1 event can simultaneously route to notification, audit logging, and activity streaming queues based on patterns.
-
-### 2. Use Case 11: Spring Batch & Apache POI Excel Pipeline
-- **Spring Batch Excel Import**:
-  - Chunk-based processing (`chunk(100)`).
-  - Validates row fields; skips invalid rows (e.g. blank titles) via `faultTolerant().skip(InvalidNoteRowException.class)` with accurate `readCount`, `writeCount`, and `skipCount`.
-- **Apache POI Excel Export**:
-  - Direct POI `XSSFWorkbook` generator creating styled, openable `.xlsx` spreadsheets for single-user scoped datasets.
-
-### 3. Use Case 12: Checklist Items on Notes
-- **`NoteCheckList` Entity**: Sub-item to-do tracking (`id`, `itemName`, `status`, `isDeleted`, `note`).
-- **REST Endpoints**:
-  - `GET /notes/{id}/noteCheckLists`
-  - `POST /notes/{id}/noteCheckLists`
-  - `PUT /notes/{id}/noteCheckLists/{fk}`
-  - `DELETE /notes/{id}/noteCheckLists/{fk}`
-  - `PATCH /notes/{id}/noteCheckLists/completeAll`
-- **Ownership/Access Security**: Enforces parent note authorization.
-
-### 4. Use Case 13: Collaborators on Notes
-- **`@ManyToMany` Note Collaborators**: `note_collaborators (note_id, user_id)`.
-- **Authorization Extension**:
-  - READ & EDIT: Note Owner OR Collaborators.
-  - DELETE & COLLABORATOR MANAGEMENT: Note Owner ONLY.
-  - Non-owner & non-collaborator receives `404 Not Found`.
-- **RabbitMQ Event Trigger**: Automatically publishes `note.shared` event when a collaborator is added.
+Day 17 implements **RabbitMQ Topic Exchange Event Routing**, **Spring Batch & Apache POI Excel Import/Export**, **Checklist Sub-items (`NoteCheckList`)**, and **Collaborator Note Sharing (`@ManyToMany`)** in the **Fundoo Notes App** (`Day-13/fundooNotes`).
 
 ---
 
-## 🧪 Integration Tests
-- `CollaboratorsAndRabbitMQIntegrationTest.java`: Validates note sharing, collaborator editing, unauthorized delete rejection, and RabbitMQ topic exchange routing.
-- `SpringBatchExcelIntegrationTest.java`: Validates 50-row batch import (45 valid, 5 invalid) with exact skip counting, and `.xlsx` export parsing.
-- `CheckListIntegrationTest.java`: Validates checklist CRUD, bulk complete, and parent note security.
+## Classes Implemented / Modified
+
+### 1. Configuration Layer
+* **`RabbitMQConfig.java`**: Configures RabbitMQ `TopicExchange` (`notes-exchange`), declares queues (`collaborator-notify-queue`, `activity-log-queue`), and sets up bindings with routing keys (`note.shared`, `note.#`).
+* **`BatchConfig.java`**: Configures Spring Batch job (`importNotesJob`) and chunk-based step (`importNotesStep`) for processing note spreadsheet records with fault-tolerant skip support.
+
+### 2. Entity & DTO Layer
+* **`NoteCheckList.java`**: Entity representing checklist sub-items with fields `id`, `itemName`, `status` (`PENDING`/`DONE`), `isDeleted`, and `@ManyToOne` association with parent `Note`.
+* **`Note.java`**: Extended with `@ManyToMany` `collaborators` mapping to `users` via `note_collaborators` junction table and `@OneToMany` `checkLists` collection.
+* **`CheckListRequest.java`**: DTO for creating and updating checklist items (`itemName`, `status`, `isDeleted`).
+* **`CheckListResponse.java`**: DTO returning checklist sub-item details without exposing internal entity properties.
+* **`CollaboratorRequest.java`**: DTO containing collaborator email and user ID.
+* **`CollaboratorResponse.java`**: DTO returning collaborator user profile details (`userId`, `email`, `name`).
+* **`NoteSharedMessage.java`**: RabbitMQ event payload for note sharing containing `noteId`, `ownerId`, and `collaboratorEmail`.
+* **`BatchJobResponse.java`**: DTO returning batch execution metrics (`readCount`, `writeCount`, `skipCount`, `status`).
+* **`NoteImportRow.java`**: Spreadsheet row mapping DTO used by Spring Batch reader.
+
+### 3. Service Layer
+* **`RabbitProducerService.java`**: Publishes asynchronous note events (`note.shared`) to RabbitMQ Topic Exchange via `RabbitTemplate`.
+* **`RabbitConsumerService.java`**: Listens on `collaborator-notify-queue` using `@RabbitListener` to notify collaborators.
+* **`ActivityLogConsumerService.java`**: Independent second consumer listening on `activity-log-queue` (`note.#`) proving decoupled event consumption without modifying producer code.
+* **`CheckListService.java`**: Manages checklist CRUD operations, bulk status updates (`bulkCompleteAll`), and parent note ownership validation.
+* **`CollaboratorService.java`**: Handles adding/removing collaborators, enforces read/write permissions for collaborators, and restricts note deletion to owners only.
+* **`NoteBatchService.java`**: Executes Spring Batch Excel import pipeline, parses spreadsheet rows, and tracks skip counts for invalid rows.
+* **`NoteExportService.java`**: Generates styled `.xlsx` spreadsheets using Apache POI for authenticated user notes.
+
+### 4. Controller Layer
+* **`NoteController.java`**: Exposes checklist, collaborator, and batch REST endpoints:
+  * `GET /notes/{id}/noteCheckLists` — Lists all checklist items for a note.
+  * `POST /notes/{id}/noteCheckLists` — Adds a checklist item to a note.
+  * `PUT /notes/{id}/noteCheckLists/{fk}` — Updates checklist item status or text.
+  * `PATCH /notes/{id}/noteCheckLists/completeAll` — Marks all checklist items as completed.
+  * `DELETE /notes/{id}/noteCheckLists/{fk}` — Deletes a checklist item.
+  * `POST /notes/{id}/AddcollaboratorsNotes` — Adds a collaborator and fires RabbitMQ event.
+  * `GET /notes/{id}/collaborators` — Lists collaborators for a note.
+  * `DELETE /notes/{id}/removeCollaboratorsNotes/{collaboratorUserId}` — Removes a collaborator (owner only).
+  * `POST /notes/import` — Uploads and imports Excel spreadsheet notes via Spring Batch.
+  * `GET /notes/export` — Downloads user notes as an Excel file (`fundoo_notes.xlsx`).
+
+### 5. Test Layer
+* **`CollaboratorsAndRabbitMQIntegrationTest.java`**: Verifies note sharing, collaborator editing, unauthorized delete rejection (403), and RabbitMQ topic exchange routing.
+* **`SpringBatchExcelIntegrationTest.java`**: Verifies 50-row batch import with skip count verification and Apache POI Excel export generation.
+* **`CheckListIntegrationTest.java`**: Verifies checklist sub-item CRUD operations, bulk toggle, and parent note security isolation.
+
+---

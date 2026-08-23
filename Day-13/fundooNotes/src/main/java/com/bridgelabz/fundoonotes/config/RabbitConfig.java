@@ -94,6 +94,7 @@ public class RabbitConfig {
         factory.setMessageConverter(jsonMessageConverter);
         factory.setMissingQueuesFatal(false);
         factory.setDefaultRequeueRejected(false);
+        factory.setAutoStartup(false);
         return factory;
     }
 }
