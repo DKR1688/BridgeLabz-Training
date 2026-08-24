@@ -24,6 +24,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -179,5 +180,27 @@ public class CollaboratorsAndRabbitMQIntegrationTest {
                                 .isEqualTo(collaboratorEmail);
 
                 assertThat(activityLogConsumerService.getReceivedActivityLogs()).hasSize(1);
+        }
+
+        @Test
+        @DisplayName("Use Case 10: RabbitMQ Note Deletion event and Fanout broadcasting")
+        void testRabbitMQNoteDeletionAndFanoutBroadcast() {
+                // Verify note deleted topic event and fanout broadcast execute cleanly without throwing
+                assertDoesNotThrow(() -> {
+                        rabbitProducerService.sendNoteDeletedEvent(999, ownerId);
+                        rabbitProducerService.broadcastNoteDeletedFanout(999, ownerId);
+                });
+        }
+
+        @Test
+        @DisplayName("Use Case 10: RabbitMQ Producer resilience when broker is offline")
+        void testRabbitMQResilience() {
+                // Even if RabbitTemplate experiences network errors, producer handles them gracefully
+                RabbitProducerService resilientProducer = new RabbitProducerService(null);
+                assertDoesNotThrow(() -> {
+                        resilientProducer.sendNoteSharedEvent(new NoteSharedMessage(1, "Test", 1, "a@b.com", 2, "c@d.com", "SHARED", "2026-08-24T18:00:00"));
+                        resilientProducer.sendNoteDeletedEvent(1, 1);
+                        resilientProducer.broadcastNoteDeletedFanout(1, 1);
+                });
         }
 }

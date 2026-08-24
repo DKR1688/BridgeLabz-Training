@@ -57,4 +57,30 @@ class RedisTokenCachingIntegrationTest {
         String tamperedToken = token.substring(0, token.length() - 5) + "abcde";
         assertFalse(tokenCacheService.isTokenValid(tamperedToken));
     }
+
+    @Test
+    @DisplayName("Use Case 9: Clearing cache empties local cache and repopulates seamlessly")
+    void testCacheClearAndRepopulation() {
+        String email = "cache_clear_" + System.nanoTime() + "@example.com";
+        String token = userService.register(email, "Password123!", "Cache Clear User");
+
+        assertTrue(tokenCacheService.isTokenValid(token));
+        tokenCacheService.clearAllLocal();
+        // After clearing, verifying token repopulates the cache without failure
+        assertTrue(tokenCacheService.isTokenValid(token));
+        assertNotNull(tokenCacheService.extractUserId(token));
+    }
+
+    @Test
+    @DisplayName("Use Case 9: Resilient TokenCacheService without Redis Template")
+    void testResilientFallbackWithoutRedis() {
+        TokenCacheService fallbackService = new TokenCacheService(jwtUtil, null);
+        String email = "fallback_" + System.nanoTime() + "@example.com";
+        String token = userService.register(email, "Password123!", "Fallback User");
+
+        assertTrue(fallbackService.isTokenValid(token));
+        assertNotNull(fallbackService.extractUserId(token));
+        // Second call hits in-memory fallback cache
+        assertTrue(fallbackService.isTokenValid(token));
+    }
 }
