@@ -84,6 +84,8 @@ This includes the layered package layout and JSP view placeholders without busin
 > 🗓️ 14-August-2026 (Spring Services, Spring JPA and Spring JDBC):
 - Completed service layer design with REST API, repositories and entity mapping with JPA and template-based data access with spring JDBC;
 
+
+## 🚀 Week 03
 > 🗓️ 17-August-2026 (Spring scopes, logging, postman and maven):
 - Completed above spring bean scopes like singleton, prototype, request and session; Completed postman api testing for Employee payroll app and address book app; Completed logging and dependency management;
 
@@ -101,6 +103,17 @@ This includes the layered package layout and JSP view placeholders without busin
 
 > 🗓️ 23-August-2026 (RabbitMQ, Spring Batch & Global Exceptions, AOP Logging ):
 - Configured RabbitMQ Topic Exchange with multi-queue bindings for decoupled note events; Implemented Spring Batch Excel note import with chunk processing and skip counting for invalid rows; Implemented checklist sub-items with parent note authorization; Established @ManyToMany collaborator relationships allowing shared view/edit permissions while protecting owner-only delete;
-
 - Implemented strict DTO/Entity separation across all controllers with zero raw @Entity exposure; Implemented domain exception hierarchy and global ErrorResponse standard shape; Created AspectJ AOP @Around ExecutionTimeAspect and @AfterThrowing ServiceExceptionLoggingAspect across the service layer; Verified entire 33-test integration suite with 100% build success.
+
+
+## 🚀 Week 04
+> 🗓️ 24-August-2026 (Monolith to Microservices - Auth Splitting, Inter-Service Communication & Gateway):
+- Extracted user authentication domain into an independently runnable user-auth-service with isolated JWT issuance and minimal public existence check GET /users/{id}; Decoupled Note.owner @ManyToOne reference to plain ownerId int to eliminate cross-database foreign key constraints;
+
+> 🗓️ 25-August-2026 (Inter-Service Communication & Gateway, Eureka Service Registry):
+- Implemented UserServiceClient in notes-service using @LoadBalanced RestTemplate for inter-service collaborator validation; Implemented fault tolerance returning HTTP 503 Service Unavailable when user-auth-service is down; Configured Spring Cloud API Gateway for unified edge routing and dynamic load balancing; Configured Eureka Service Registry on Port 8761; 
+
+> 🗓️ 26-August-2026 (Async Reminder Extraction & Full Distributed System Capstone):
+- Registered all microservices (user-auth-service, notes-service, reminder-service, api-gateway) dynamically; Extracted reminder-service consuming ActiveMQ Artemis JMS and RabbitMQ events; Complete distributed workflow exclusively through Gateway: register, login, create note, add label, add collaborator, set reminder, archive, search by label, export to Excel, graceful 503 failure on auth downtime, and self-healing restoration with 100% test success across all 5 microservices.
+
 
