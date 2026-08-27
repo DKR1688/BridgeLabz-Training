@@ -29,13 +29,13 @@ public interface NoteRepository extends JpaRepository<Note, Integer>, JpaSpecifi
     @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags LEFT JOIN FETCH n.checkLists WHERE n.noteId = :noteId")
     Optional<Note> findWithTagsAndCheckListsByNoteId(@Param("noteId") int noteId);
 
-    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags LEFT JOIN FETCH n.checkLists LEFT JOIN n.collaboratorIds c WHERE n.noteId = :noteId AND (n.ownerId = :userId OR c = :userId)")
+    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags LEFT JOIN FETCH n.checkLists LEFT JOIN n.collaborators c WHERE n.noteId = :noteId AND (n.ownerId = :userId OR c.collaboratorId = :userId)")
     Optional<Note> findAccessibleNoteWithDetails(@Param("noteId") int noteId, @Param("userId") int userId);
 
-    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags LEFT JOIN n.collaboratorIds c WHERE n.ownerId = :userId OR c = :userId")
+    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN FETCH n.tags LEFT JOIN n.collaborators c WHERE n.ownerId = :userId OR c.collaboratorId = :userId")
     List<Note> findAllAccessibleNotes(@Param("userId") int userId);
 
-    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN n.collaboratorIds c WHERE n.noteId = :noteId AND (n.ownerId = :userId OR c = :userId)")
+    @Query("SELECT DISTINCT n FROM Note n LEFT JOIN n.collaborators c WHERE n.noteId = :noteId AND (n.ownerId = :userId OR c.collaboratorId = :userId)")
     Optional<Note> findAccessibleNote(@Param("noteId") int noteId, @Param("userId") int userId);
 
     @Query("SELECT DISTINCT n FROM Note n JOIN FETCH n.tags t WHERE (n.ownerId = :userId) AND LOWER(t.name) = LOWER(:labelName)")

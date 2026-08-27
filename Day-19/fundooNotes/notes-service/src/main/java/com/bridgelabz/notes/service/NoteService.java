@@ -5,6 +5,7 @@ import com.bridgelabz.notes.dto.NoteResponse;
 import com.bridgelabz.notes.dto.ReminderMessage;
 import com.bridgelabz.notes.entity.Note;
 import com.bridgelabz.notes.entity.NoteCheckList;
+import com.bridgelabz.notes.entity.NoteCollaborator;
 import com.bridgelabz.notes.entity.Tag;
 import com.bridgelabz.notes.exception.InvalidNoteStateException;
 import com.bridgelabz.notes.exception.NoteNotFoundException;
@@ -39,6 +40,22 @@ public class NoteService {
         this.tagRepository = tagRepository;
         this.jmsProducerService = jmsProducerService;
         this.rabbitProducerService = rabbitProducerService;
+    }
+
+    public void requireEditorAccess(Note note, int userId) {
+        if (note.getOwnerId() == userId) {
+            return; // owner always has full access
+        }
+        if (note.getCollaborators() == null || note.getCollaborators().isEmpty()) {
+            throw new NoteNotFoundException("Note not found or inaccessible: " + note.getNoteId());
+        }
+        NoteCollaborator collab = note.getCollaborators().stream()
+                .filter(c -> c.getCollaboratorId() == userId)
+                .findFirst()
+                .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + note.getNoteId()));
+        if (collab.getRole() != NoteCollaborator.Role.EDITOR) {
+            throw new InvalidNoteStateException("Viewer role cannot modify this note");
+        }
     }
 
     @Transactional
@@ -131,6 +148,8 @@ public class NoteService {
         Note note = noteRepository.findAccessibleNoteWithDetails(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
 
+        requireEditorAccess(note, userId);
+
         if (request.getTitle() != null) {
             note.setTitle(request.getTitle());
         }
@@ -180,6 +199,8 @@ public class NoteService {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
 
+        requireEditorAccess(note, userId);
+
         if (note.getState() == Note.NoteState.TRASHED) {
             throw new InvalidNoteStateException("Cannot pin a trashed note");
         }
@@ -195,6 +216,8 @@ public class NoteService {
     public NoteResponse toggleArchive(int noteId, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        requireEditorAccess(note, userId);
 
         if (note.getState() == Note.NoteState.TRASHED) {
             throw new InvalidNoteStateException("Cannot archive a trashed note");
@@ -213,6 +236,8 @@ public class NoteService {
     public NoteResponse toggleTrash(int noteId, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        requireEditorAccess(note, userId);
 
         if (note.getState() == Note.NoteState.TRASHED) {
             note.setState(Note.NoteState.ACTIVE);
@@ -242,6 +267,8 @@ public class NoteService {
         Note note = noteRepository.findAccessibleNoteWithDetails(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
 
+        requireEditorAccess(note, userId);
+
         Tag tag = tagRepository.findByName(tagName.trim())
                 .orElseGet(() -> tagRepository.save(new Tag(tagName.trim())));
         note.addTag(tag);
@@ -252,6 +279,8 @@ public class NoteService {
     public NoteResponse addReminder(int noteId, LocalDateTime reminderTime, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        requireEditorAccess(note, userId);
 
         note.addReminder(reminderTime);
         Note saved = noteRepository.save(note);
@@ -266,6 +295,8 @@ public class NoteService {
     public NoteResponse removeReminder(int noteId, LocalDateTime reminderTime, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        requireEditorAccess(note, userId);
 
         note.removeReminder(reminderTime);
         return NoteResponse.fromEntity(noteRepository.save(note));

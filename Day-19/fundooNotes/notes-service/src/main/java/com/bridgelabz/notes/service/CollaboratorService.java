@@ -4,6 +4,7 @@ import com.bridgelabz.notes.client.UserServiceClient;
 import com.bridgelabz.notes.dto.CollaboratorRequest;
 import com.bridgelabz.notes.dto.CollaboratorResponse;
 import com.bridgelabz.notes.entity.Note;
+import com.bridgelabz.notes.entity.NoteCollaborator;
 import com.bridgelabz.notes.exception.NoteNotFoundException;
 import com.bridgelabz.notes.exception.UnauthorizedActionException;
 import com.bridgelabz.notes.exception.UserNotFoundException;
@@ -49,23 +50,28 @@ public class CollaboratorService {
             throw new UserNotFoundException("Collaborator user not found with id: " + collaboratorId);
         }
 
-        note.addCollaboratorId(collaboratorId);
+        NoteCollaborator.Role role = request.getRole() != null ? request.getRole() : NoteCollaborator.Role.VIEWER;
+        note.addCollaborator(collaboratorId, role);
         noteRepository.save(note);
 
         rabbitProducerService.publishNoteShared(noteId, ownerId, collaboratorId);
     }
 
+    @Transactional(readOnly = true)
     public List<CollaboratorResponse> getCollaborators(int noteId, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
 
         List<CollaboratorResponse> responses = new ArrayList<>();
-        for (Integer collId : note.getCollaboratorIds()) {
-            CollaboratorResponse userDetails = userServiceClient.getUserDetails(collId);
-            if (userDetails != null) {
-                responses.add(userDetails);
-            } else {
-                responses.add(new CollaboratorResponse(collId));
+        if (note.getCollaborators() != null) {
+            for (NoteCollaborator collab : note.getCollaborators()) {
+                CollaboratorResponse userDetails = userServiceClient.getUserDetails(collab.getCollaboratorId());
+                if (userDetails != null) {
+                    userDetails.setRole(collab.getRole());
+                    responses.add(userDetails);
+                } else {
+                    responses.add(new CollaboratorResponse(collab.getCollaboratorId(), collab.getRole()));
+                }
             }
         }
         return responses;

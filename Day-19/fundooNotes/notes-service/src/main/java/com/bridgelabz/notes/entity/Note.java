@@ -57,11 +57,9 @@ public class Note {
     @JoinTable(name = "note_tags", joinColumns = @JoinColumn(name = "note_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags = new HashSet<>();
 
-    // Use Case 17: Decoupled cross-database collaborators replaced with user_id collection
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "note_collaborators", joinColumns = @JoinColumn(name = "note_id"))
-    @Column(name = "user_id")
-    private Set<Integer> collaboratorIds = new HashSet<>();
+    // Use Case 21: Upgraded from flat collection to proper join entity NoteCollaborator with VIEWER/EDITOR role
+    @OneToMany(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Set<NoteCollaborator> collaborators = new HashSet<>();
 
     @OneToMany(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<NoteCheckList> checkLists = new ArrayList<>();
@@ -265,20 +263,53 @@ public class Note {
         tag.getNotes().remove(this);
     }
 
-    public Set<Integer> getCollaboratorIds() {
-        return collaboratorIds;
+    public Set<NoteCollaborator> getCollaborators() {
+        return collaborators;
     }
 
-    public void setCollaboratorIds(Set<Integer> collaboratorIds) {
-        this.collaboratorIds = (collaboratorIds != null) ? collaboratorIds : new HashSet<>();
+    public void setCollaborators(Set<NoteCollaborator> collaborators) {
+        this.collaborators = (collaborators != null) ? collaborators : new HashSet<>();
+    }
+
+    public Set<Integer> getCollaboratorIds() {
+        Set<Integer> ids = new HashSet<>();
+        if (collaborators != null) {
+            for (NoteCollaborator c : collaborators) {
+                ids.add(c.getCollaboratorId());
+            }
+        }
+        return ids;
+    }
+
+    public void addCollaborator(int userId, NoteCollaborator.Role role) {
+        if (collaborators == null) {
+            collaborators = new HashSet<>();
+        }
+        for (NoteCollaborator c : collaborators) {
+            if (c.getCollaboratorId() == userId) {
+                c.setRole(role);
+                return;
+            }
+        }
+        NoteCollaborator collab = new NoteCollaborator(this, userId, role);
+        this.collaborators.add(collab);
     }
 
     public void addCollaboratorId(int userId) {
-        this.collaboratorIds.add(userId);
+        addCollaborator(userId, NoteCollaborator.Role.VIEWER);
     }
 
     public void removeCollaboratorId(int userId) {
-        this.collaboratorIds.remove(userId);
+        if (this.collaborators != null) {
+            this.collaborators.removeIf(c -> c.getCollaboratorId() == userId);
+        }
+    }
+
+    public java.util.Optional<NoteCollaborator> getCollaborator(int userId) {
+        if (this.collaborators == null) {
+            return java.util.Optional.empty();
+        }
+        return this.collaborators.stream().filter(c -> c.getCollaboratorId() == userId).findFirst();
     }
 
     public List<NoteCheckList> getCheckLists() {

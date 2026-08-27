@@ -20,16 +20,23 @@ public class CheckListService {
 
     private final NoteRepository noteRepository;
     private final NoteCheckListRepository checkListRepository;
+    private final NoteService noteService;
 
-    public CheckListService(NoteRepository noteRepository, NoteCheckListRepository checkListRepository) {
+    public CheckListService(
+            NoteRepository noteRepository,
+            NoteCheckListRepository checkListRepository,
+            NoteService noteService) {
         this.noteRepository = noteRepository;
         this.checkListRepository = checkListRepository;
+        this.noteService = noteService;
     }
 
     @Transactional
     public CheckListResponse addCheckListItem(int noteId, CheckListRequest request, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        noteService.requireEditorAccess(note, userId);
 
         NoteCheckList item = new NoteCheckList(note, request.getItem());
         if (request.getIsDone() != null) {
@@ -54,6 +61,8 @@ public class CheckListService {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
 
+        noteService.requireEditorAccess(note, userId);
+
         NoteCheckList item = checkListRepository.findById(itemId)
                 .orElseThrow(() -> new CheckListItemNotFoundException("Checklist item not found with id: " + itemId));
 
@@ -76,6 +85,8 @@ public class CheckListService {
     public void deleteCheckListItem(int noteId, int itemId, int userId) {
         Note note = noteRepository.findAccessibleNote(noteId, userId)
                 .orElseThrow(() -> new NoteNotFoundException("Note not found or inaccessible: " + noteId));
+
+        noteService.requireEditorAccess(note, userId);
 
         NoteCheckList item = checkListRepository.findById(itemId)
                 .orElseThrow(() -> new CheckListItemNotFoundException("Checklist item not found with id: " + itemId));
