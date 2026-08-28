@@ -1,0 +1,151 @@
+version: '3.8'
+
+services:
+  eureka-server:
+    build: ./eureka-server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - fundoo-network
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:8761 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  config-server:
+    build: ./config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    environment:
+      - EUREKA_HOST=eureka-server
+    networks:
+      - fundoo-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: fundoo-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - fundoo-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: fundoo-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - fundoo-network
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: fundoo-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - fundoo-network
+
+  user-auth-service:
+    build: ./user-auth-service
+    container_name: user-auth-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+      - config-server
+      - mysql
+      - redis
+    environment:
+      - EUREKA_HOST=eureka-server
+      - CONFIG_SERVER_HOST=config-server
+      - MYSQL_HOST=mysql
+      - REDIS_HOST=redis
+      - JWT_SECRET=${JWT_SECRET:-VGhpcy1pcy1hLWRldmVsb3BtZW50LXNlY3JldC10aGF0LWlzLWxvbmc=}
+    networks:
+      - fundoo-network
+
+  notes-service:
+    build: ./notes-service
+    container_name: notes-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+      - config-server
+      - mysql
+      - redis
+      - rabbitmq
+    environment:
+      - EUREKA_HOST=eureka-server
+      - CONFIG_SERVER_HOST=config-server
+      - MYSQL_HOST=mysql
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbitmq
+      - JWT_SECRET=${JWT_SECRET:-VGhpcy1pcy1hLWRldmVsb3BtZW50LXNlY3JldC10aGF0LWlzLWxvbmc=}
+    networks:
+      - fundoo-network
+
+  reminder-service:
+    build: ./reminder-service
+    container_name: reminder-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka-server
+      - config-server
+      - rabbitmq
+    environment:
+      - EUREKA_HOST=eureka-server
+      - CONFIG_SERVER_HOST=config-server
+      - RABBITMQ_HOST=rabbitmq
+    networks:
+      - fundoo-network
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+      - config-server
+    environment:
+      - EUREKA_HOST=eureka-server
+      - CONFIG_SERVER_HOST=config-server
+    networks:
+      - fundoo-network
+
+  sonarqube:
+    image: sonarqube:community
+    container_name: fundoo-sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+    networks:
+      - fundoo-network
+
+volumes:
+  mysql_data:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+
+networks:
+  fundoo-network:
+    driver: bridge
