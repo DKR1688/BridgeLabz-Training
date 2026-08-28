@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>eureka-server</module>
+		<module>config-server</module>
 		<module>user-auth-service</module>
 		<module>notes-service</module>
 		<module>reminder-service</module>
@@ -24,5 +25,17 @@
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
+		<sonar.projectKey>fundoonotes-microservices-root</sonar.projectKey>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.11.0.3922</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>
