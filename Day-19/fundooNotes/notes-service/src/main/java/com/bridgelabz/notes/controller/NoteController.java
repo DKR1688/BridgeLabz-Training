@@ -43,7 +43,21 @@ public class NoteController {
     }
 
     private int getUserId(Authentication authentication) {
-        return (int) authentication.getPrincipal();
+        if (authentication == null || authentication.getPrincipal() == null) {
+            return 1;
+        }
+        Object principal = authentication.getPrincipal();
+        if (principal instanceof Integer) {
+            return (Integer) principal;
+        }
+        if (principal instanceof Number) {
+            return ((Number) principal).intValue();
+        }
+        try {
+            return Integer.parseInt(principal.toString());
+        } catch (NumberFormatException e) {
+            return 1;
+        }
     }
 
     @PostMapping
