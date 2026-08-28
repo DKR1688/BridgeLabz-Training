@@ -2,12 +2,12 @@ package com.bridgelabz.notes.client;
 
 import com.bridgelabz.notes.dto.CollaboratorResponse;
 import com.bridgelabz.notes.exception.UserServiceUnavailableException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @Component
@@ -24,26 +24,32 @@ public class UserServiceClient {
         this.restTemplate = restTemplate;
     }
 
+    @CircuitBreaker(name = "userService", fallbackMethod = "userExistsFallback")
     public boolean userExists(int userId) {
         try {
             restTemplate.getForObject(userServiceBaseUrl + "/users/" + userId, Object.class);
             return true;
         } catch (HttpClientErrorException.NotFound e) {
             return false;
-        } catch (RestClientException e) {
-            logger.error("Inter-service call to user-auth-service failed: {}", e.getMessage());
-            throw new UserServiceUnavailableException("User authentication service is currently unavailable: " + e.getMessage());
         }
     }
 
+    public boolean userExistsFallback(int userId, Throwable t) {
+        logger.warn("Circuit open for user-auth-service, failing fast for userId={}, reason: {}", userId, t.getMessage());
+        throw new UserServiceUnavailableException("User service is currently unavailable. Failing fast via circuit breaker.");
+    }
+
+    @CircuitBreaker(name = "userService", fallbackMethod = "getUserDetailsFallback")
     public CollaboratorResponse getUserDetails(int userId) {
         try {
             return restTemplate.getForObject(userServiceBaseUrl + "/users/" + userId + "/details", CollaboratorResponse.class);
         } catch (HttpClientErrorException.NotFound e) {
             return null;
-        } catch (RestClientException e) {
-            logger.error("Inter-service call to user-auth-service failed: {}", e.getMessage());
-            throw new UserServiceUnavailableException("User authentication service is currently unavailable: " + e.getMessage());
         }
+    }
+
+    public CollaboratorResponse getUserDetailsFallback(int userId, Throwable t) {
+        logger.warn("Circuit open for user-auth-service getUserDetails, failing fast for userId={}, reason: {}", userId, t.getMessage());
+        return new CollaboratorResponse(userId, "unavailable@fundoonotes.app", "Unavailable User");
     }
 }
